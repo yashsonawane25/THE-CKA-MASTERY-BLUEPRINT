@@ -1,0 +1,17 @@
+# Kind 3-Node Cluster Configuration for CKA Preparation
+# Kubernetes v1.31.2 Node Image
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  image: kindest/node:v1.31.2@sha256:18fb8847a7780965fe95064879b28bba08010839c9f627c17a2918144f6c89f0
+  kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    apiServer:
+      extraArgs:
+        enable-admission-plugins: NodeRestriction,ResourceQuota
+- role: worker
+  image: kindest/node:v1.31.2@sha256:18fb8847a7780965fe95064879b28bba08010839c9f627c17a2918144f6c89f0
+- role: worker
+  image: kindest/node:v1.31.2@sha256:18fb8847a7780965fe95064879b28bba08010839c9f627c17a2918144f6c89f0

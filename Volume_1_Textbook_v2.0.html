@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Volume I: The Complete CKA Textbook</title>
+  <style>
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #1a202c;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0b192c;
+    font-weight: 700;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 24pt;
+    border-bottom: 3px solid #1e3e62;
+    padding-bottom: 6px;
+    margin-top: 24pt;
+    margin-bottom: 14pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #1e3e62;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+  }
+
+  h4 {
+    font-size: 11pt;
+    color: #334155;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+  }
+
+  p, ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 8pt;
+  }
+
+  code {
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 9pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 10pt 0;
+    border-left: 4px solid #38bdf8;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  blockquote {
+    border-left: 4px solid #2563eb;
+    background-color: #eff6ff;
+    padding: 10px 14px;
+    margin: 12pt 0;
+    border-radius: 0 6px 6px 0;
+    color: #1e3a8a;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #0b192c;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 20pt 0;
+    page-break-after: avoid;
+  }
+
+  .cover-page {
+    text-align: center;
+    padding-top: 100pt;
+    padding-bottom: 80pt;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .cover-title {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0b192c;
+    line-height: 1.15;
+    margin-bottom: 12pt;
+  }
+
+  .cover-subtitle {
+    font-size: 16pt;
+    color: #1e3e62;
+    margin-bottom: 24pt;
+    font-weight: 500;
+  }
+
+  .cover-edition {
+    display: inline-block;
+    background-color: #0b192c;
+    color: #38bdf8;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40pt;
+  }
+
+  .cover-meta {
+    font-size: 10pt;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .badge-pass { background-color: #dcfce7; color: #166534; }
+  .badge-warn { background-color: #fef9c3; color: #854d0e; }
+  .badge-crit { background-color: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+  <div class="cover-page">
+    <div class="cover-edition">2026–2027 PROFESSIONAL EDITION (VERSION 2.0)</div>
+    <div class="cover-title">Volume I: The Complete CKA Textbook</div>
+    <div class="cover-subtitle">Mastering Kubernetes Administration, Architecture, Workloads & Scheduling (80 Chapters)</div>
+    <div class="cover-meta">
+      <strong>Cloud Native Engineering Press</strong><br/>
+      Targeting Kubernetes v1.31.x / v1.32.x (Forward Compatible through v1.33+)<br/>
+      Independent Professional Certification Study System<br/>
+      Certified Kubernetes Administrator (CNCF / The Linux Foundation)
+    </div>
+  </div>
+  <div class="page-break"></div>
+  <div class="content-container">
+    <h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART I: KUBERNETES FUNDAMENTALS</h1>
+<h2>CHAPTERS 1–4: CONTAINERIZATION, OCI ARCHITECTURE &amp; CLUSTER COMPONENTS</h2>
+<hr>
+<h3>CHAPTER 1: INTRODUCTION TO CONTAINERIZATION AND KUBERNETES</h3>
+<h4>1. Learning Objectives</h4>
+<ul>
+<li>Understand the evolution from bare metal and virtual machines to containers.</li>
+<li>Identify the operational bottlenecks that Kubernetes was engineered to solve.</li>
+<li>Articulate the core responsibilities of a production container orchestrator.</li>
+</ul>
+<h4>2. Prerequisites</h4>
+<ul>
+<li>Familiarity with Linux command-line basics (<code>ls</code>, <code>ps</code>, <code>cat</code>, <code>systemctl</code>).</li>
+<li>Basic comprehension of operating system concepts: kernel, user space, and process execution.</li>
+</ul>
+<h4>3. Beginner-Friendly Introduction: Why Do Containers and Kubernetes Exist?</h4>
+<p>In the early days of computing, applications ran directly on bare-metal servers. A server running an operating system like Linux or Windows ran all binaries together. If an application leaked memory or monopolized the CPU, every other process on that host starved. Furthermore, dependency conflicts—such as Application A requiring Python 3.8 and Application B requiring Python 3.12—made server management brittle.</p>
+<p>Virtual Machines (VMs) solved isolation by placing a hypervisor (e.g., KVM, VMware) on the hardware and running entire independent guest operating systems. However, VMs carry massive overhead: every VM requires gigabytes of disk storage for its guest kernel, takes minutes to boot, and wastes gigabytes of RAM running duplicate operating system services.</p>
+<p>Containers offer an elegant, lightweight alternative: <strong>Process-level virtualization</strong>. Containers do not run a guest kernel; they run as isolated processes directly on the host Linux kernel, sharing its CPU and memory while maintaining strict namespace boundaries.</p>
+<p>However, running hundreds of standalone containers across dozens of physical servers creates new operational challenges:</p>
+<ul>
+<li>What happens when a container crashes at 3:00 AM?</li>
+<li>How do containers discover and communicate with each other across different servers?</li>
+<li>How do we roll out new application versions without dropping customer traffic?</li>
+<li>Which server has enough CPU and memory to host a new container?</li>
+</ul>
+<p><strong>Kubernetes</strong> is the open-source container orchestration system that automates deployment, scaling, healing, and management of containerized workloads.</p>
+<h4>4. Detailed Conceptual Explanation &amp; Internal Architecture</h4>
+<p>At the kernel level, a container is not an actual physical object; it is a standard Linux process isolated by two fundamental kernel subsystems:</p>
+<ol>
+<li><strong>Linux Namespaces (Isolation):</strong> Restricts <em>what a process can see</em>.<ul>
+<li><code>pid</code>: Process IDs (a containerized process believes it is PID 1).</li>
+<li><code>net</code>: Network interfaces, IP addresses, routing tables, and firewall rules.</li>
+<li><code>mnt</code>: Filesystem mount points (isolates root <code>/</code> via pivot_root).</li>
+<li><code>ipc</code>: System V IPC and POSIX message queues.</li>
+<li><code>uts</code>: Hostname and NIS domain name.</li>
+<li><code>user</code>: Maps container root (UID 0) to an unprivileged user on the host.</li>
+</ul>
+</li>
+<li><strong>Control Groups / Cgroups (Resource Metering):</strong> Restricts <em>how much a process can use</em>.<ul>
+<li>Limits maximum CPU shares, CFS bandwidth quotas, memory caps, and disk I/O throughput.</li>
+</ul>
+</li>
+</ol>
+<p>Kubernetes abstracts these low-level Linux primitives into resilient, high-level API objects.</p>
+<hr>
+<h3>CHAPTER 2: CONTAINER ARCHITECTURE AND OCI STANDARDS</h3>
+<h4>1. The Open Container Initiative (OCI)</h4>
+<p>To avoid vendor lock-in, the industry established the Open Container Initiative (OCI), which governs two core standards:</p>
+<ol>
+<li><strong>OCI Image Specification:</strong> Defines the layout and format of container images (tarballs containing root filesystems and JSON manifest descriptors).</li>
+<li><strong>OCI Runtime Specification:</strong> Defines how to unpack and execute an OCI image as a set of Linux namespaces and cgroups (implemented by low-level runtimes like <code>runc</code> and <code>crun</code>).</li>
+</ol>
+<h4>2. The Container Runtime Interface (CRI)</h4>
+<p>In early Kubernetes releases, the <code>kubelet</code> directly integrated with Docker via a hardcoded internal bridge called <code>dockershim</code>. In Kubernetes v1.24+, <code>dockershim</code> was completely removed. Modern Kubernetes communicates with container runtimes strictly through the <strong>Container Runtime Interface (CRI)</strong>, a gRPC API.</p>
+<pre><code>┌─────────┐      CRI gRPC       ┌──────────────┐     OCI Runtime      ┌──────┐
+│ kubelet │ ──────────────────&gt; │  containerd  │ ───────────────────&gt; │ runc │
+└─────────┘  /run/containerd/   └──────────────┘   forks container    └──────┘
+             containerd.sock           │
+                                       ▼
+                              ┌──────────────────┐
+                              │ containerd-shim  │ ──&gt; [Container Process]
+                              └──────────────────┘
+</code></pre>
+<h4>3. Container Runtime Troubleshooting Workflow</h4>
+<p>When a node reports container runtime issues, verify containerd with:</p>
+<pre><code class="language-bash"># Verify systemd service status
+systemctl status containerd
+
+# Query active pod sandboxes via CRI CLI
+crictl pods
+
+# Check containerd configuration socket
+ls -la /run/containerd/containerd.sock
+</code></pre>
+<hr>
+<h3>CHAPTER 3: KUBERNETES ARCHITECTURE &amp; HIGH-LEVEL DESIGN</h3>
+<h4>1. Control Plane vs. Worker Nodes</h4>
+<p>A Kubernetes cluster consists of two distinct operational tiers:</p>
+<ol>
+<li><strong>The Control Plane:</strong> The cluster&#39;s nervous system. It makes global decisions (scheduling, detecting node failures, maintaining desired replica counts) and stores the definitive state.</li>
+<li><strong>Worker Nodes:</strong> The compute workhorses. They host the application containers, provide network routing, and execute health checks.</li>
+</ol>
+<pre><code class="language-mermaid">graph TB
+    subgraph Control_Plane[&quot;Control Plane&quot;]
+        API[&quot;kube-apiserver (Port 6443)&quot;]
+        ETCD[(&quot;etcd (Port 2379)&quot;)]
+        Sched[&quot;kube-scheduler&quot;]
+        KCM[&quot;kube-controller-manager&quot;]
+        API &lt;--&gt; ETCD
+        Sched --&gt; API
+        KCM --&gt; API
+    end
+    subgraph Worker_Node[&quot;Worker Node&quot;]
+        Kubelet[&quot;kubelet&quot;]
+        KProxy[&quot;kube-proxy&quot;]
+        CRI[&quot;containerd&quot;]
+        Pods[&quot;Workload Pods&quot;]
+        Kubelet --&gt; API
+        KProxy --&gt; API
+        Kubelet --&gt; CRI
+        CRI --&gt; Pods
+    end
+</code></pre>
+<hr>
+<h3>CHAPTER 4: CONTROL PLANE AND WORKER NODE COMPONENTS DEEP DIVE</h3>
+<h4>1. kube-apiserver</h4>
+<p>The central REST API gateway. Every administrative command from <code>kubectl</code>, every scheduling binding from <code>kube-scheduler</code>, and every heartbeat from <code>kubelet</code> connects to <code>kube-apiserver</code>.</p>
+<ul>
+<li><strong>State Statelessness:</strong> The API server stores no state locally; all data is persisted in <code>etcd</code>.</li>
+<li><strong>Security Gate:</strong> Enforces Authentication, Authorization (RBAC), and Admission Control.</li>
+</ul>
+<h4>2. etcd</h4>
+<p>A distributed, consistent key-value store implementing the Raft consensus algorithm. It is the single source of truth for the entire cluster.</p>
+<ul>
+<li><strong>Ports:</strong> Port 2379 (Client requests from apiserver); Port 2380 (Peer communication among etcd members).</li>
+<li><strong>Quorum Rule:</strong> Requires $\lfloor N/2 \rfloor + 1$ members to commit writes.</li>
+</ul>
+<h4>3. kube-scheduler</h4>
+<p>Watches for newly created Pods that have no <code>nodeName</code> assigned. It evaluates filtering predicates (hard constraints) and scoring priorities (soft preferences) to select the optimal worker node.</p>
+<h4>4. kube-controller-manager (KCM)</h4>
+<p>A single binary compiling multiple control loops (Replication Controller, Node Controller, Endpoints Controller, ServiceAccount Controller). Each loop continuously drives actual cluster state toward the desired state.</p>
+<h4>5. kubelet (Worker Node Agent)</h4>
+<p>Runs as a native <code>systemd</code> daemon on every node (not inside a container).</p>
+<ul>
+<li>Interprets <code>PodSpec</code> objects and calls CRI to create/destroy containers.</li>
+<li>Mounts storage volumes and configures network namespaces.</li>
+<li>Continuously executes liveness, readiness, and startup probes.</li>
+<li>Posts node health heartbeats (Leases) back to the API server.</li>
+</ul>
+<h4>6. kube-proxy (Network Director)</h4>
+<p>Runs on every node (typically as a DaemonSet). Watches Services and EndpointSlices, configuring host <code>iptables</code> or <code>IPVS</code> rules to load-balance traffic directed at Service virtual IPs across healthy backend Pods.</p>
+<hr>
+<h3>PRACTICE EXERCISES &amp; KNOWLEDGE CHECK (CHAPTERS 1–4)</h3>
+<h4>Part A: Knowledge Check Questions</h4>
+<ol>
+<li>Why was <code>dockershim</code> removed from Kubernetes, and what interface replaced it?</li>
+<li>Which control plane component communicates directly with <code>etcd</code>?</li>
+<li>What is the minimum number of nodes required to survive 2 simultaneous node failures in an etcd cluster?</li>
+<li>Explain the difference between Linux namespaces and cgroups.</li>
+</ol>
+<h4>Part B: Solutions</h4>
+<ol>
+<li><code>dockershim</code> was removed to decouple Kubernetes from proprietary Docker code; it was replaced by the standardized Container Runtime Interface (CRI).</li>
+<li>Only <code>kube-apiserver</code> communicates with <code>etcd</code>.</li>
+<li>An etcd cluster requires 5 nodes to tolerate 2 node failures ($5/2 + 1 = 3$ quorum required).</li>
+<li>Namespaces isolate visibility (what a process sees); cgroups meter and throttle resource consumption (how much CPU/RAM it can use).</li>
+</ol>
+<h4>Part C: Revision Checklist</h4>
+<ul>
+<li><input disabled="" type="checkbox"> Memorized the 6 primary cluster components.</li>
+<li><input disabled="" type="checkbox"> Understand why kubelet runs as a systemd service while other components run as static pods.</li>
+<li><input disabled="" type="checkbox"> Able to run <code>crictl pods</code> and <code>systemctl status containerd</code> on a broken node.</li>
+</ul>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART I: KUBERNETES FUNDAMENTALS</h1>
+<h2>CHAPTERS 5–8: API PRIMITIVES, DECLARATIVE YAML, KUBECTL &amp; LINUX NETWORKING</h2>
+<hr>
+<h3>CHAPTER 5: KUBERNETES API SERVER AND API OBJECTS</h3>
+<h4>1. Learning Objectives</h4>
+<ul>
+<li>Understand how API resources are grouped, versioned, and addressed.</li>
+<li>Trace the HTTP REST request pipeline from client to etcd.</li>
+<li>Differentiate between core API groups (<code>/api/v1</code>) and named groups (<code>/apis/&lt;group&gt;/&lt;version&gt;</code>).</li>
+</ul>
+<h4>2. API Groups and Versioning Architecture</h4>
+<p>The Kubernetes API is organized hierarchically into:</p>
+<ol>
+<li><strong>Core Group (Legacy):</strong> Located at <code>/api/v1</code>. Houses original primitives: <code>Pod</code>, <code>Service</code>, <code>Namespace</code>, <code>ConfigMap</code>, <code>Secret</code>, <code>Node</code>, <code>PersistentVolume</code>.</li>
+<li><strong>Named Groups:</strong> Located at <code>/apis/&lt;group&gt;/&lt;version&gt;</code>. Examples:<ul>
+<li><code>apps/v1</code>: Deployments, ReplicaSets, StatefulSets, DaemonSets.</li>
+<li><code>batch/v1</code>: Jobs, CronJobs.</li>
+<li><code>networking.k8s.io/v1</code>: Ingress, NetworkPolicy.</li>
+<li><code>storage.k8s.io/v1</code>: StorageClass, VolumeAttachment.</li>
+<li><code>rbac.authorization.k8s.io/v1</code>: Role, ClusterRole, RoleBinding.</li>
+<li><code>gateway.networking.k8s.io/v1</code>: Gateway, HTTPRoute.</li>
+</ul>
+</li>
+</ol>
+<h4>3. API Version Lifecycles</h4>
+<ul>
+<li><code>v1alpha1</code>: Experimental; subject to breaking changes or removal without notice.</li>
+<li><code>v1beta1</code>: Well-tested; enabled by default; deprecated prior to GA.</li>
+<li><code>v1</code> (GA / Stable): Fully supported across minor versions with strict backward compatibility.</li>
+</ul>
+<hr>
+<h3>CHAPTER 6: DECLARATIVE CONFIGURATION AND YAML</h3>
+<h4>1. The Anatomy of a Kubernetes Manifest</h4>
+<p>Every Kubernetes resource requires four top-level fields:</p>
+<pre><code class="language-yaml">apiVersion: apps/v1        # 1. API Group and Version
+kind: Deployment           # 2. Resource Kind
+metadata:                  # 3. Object Identification
+  name: payment-processor
+  namespace: finance
+  labels:
+    app: payment
+spec:                      # 4. Desired State Specification
+  replicas: 3
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      containers:
+      - name: processor
+        image: payment-app:v2.1
+        ports:
+        - containerPort: 8080
+</code></pre>
+<h4>2. Imperative vs. Declarative Management</h4>
+<ul>
+<li><strong>Imperative Commands:</strong> <code>kubectl create deployment ...</code>, <code>kubectl scale ...</code>. Excellent for speed during the exam to generate initial manifests.</li>
+<li><strong>Declarative Management:</strong> <code>kubectl apply -f manifest.yaml</code>. Computes a 3-way diff between the local file, the live etcd record, and the <code>kubectl.kubernetes.io/last-applied-configuration</code> annotation.</li>
+</ul>
+<hr>
+<h3>CHAPTER 7: KUBECTL ADMINISTRATION AND EXAM PRODUCTIVITY</h3>
+<h4>1. Essential Imperative Generators</h4>
+<p>Never write YAML from scratch in the CKA exam. Use these standard generators:</p>
+<pre><code class="language-bash"># Generate Pod YAML
+kubectl run nginx-pod --image=nginx:alpine --port=80 --dry-run=client -o yaml &gt; pod.yaml
+
+# Generate Deployment YAML
+kubectl create deployment web-app --image=nginx:alpine --replicas=3 --dry-run=client -o yaml &gt; deploy.yaml
+
+# Generate Service YAML (ClusterIP)
+kubectl expose deployment web-app --port=80 --target-port=80 --dry-run=client -o yaml &gt; svc.yaml
+
+# Generate Job YAML
+kubectl create job batch-calc --image=busybox --dry-run=client -o yaml -- sh -c &quot;expr 5 + 5&quot; &gt; job.yaml
+
+# Generate Namespace
+kubectl create namespace staging --dry-run=client -o yaml &gt; ns.yaml
+</code></pre>
+<h4>2. Advanced JSONPath Extraction</h4>
+<p>Extract nested values directly from API server outputs:</p>
+<pre><code class="language-bash"># Get all Pod IPs in default namespace
+kubectl get pods -o jsonpath=&#39;{.items[*].status.podIP}&#39;
+
+# Get all Node names and their Internal IPs
+kubectl get nodes -o jsonpath=&#39;{range .items[*]}{.metadata.name}{&quot;\t&quot;}{.status.addresses[?(@.type==&quot;InternalIP&quot;)].address}{&quot;\n&quot;}{end}&#39;
+
+# Find container images used in all deployments
+kubectl get deployments -A -o jsonpath=&#39;{range .items[*]}{.metadata.name}{&quot;\t&quot;}{.spec.template.spec.containers[*].image}{&quot;\n&quot;}{end}&#39;
+</code></pre>
+<hr>
+<h3>CHAPTER 8: LINUX AND NETWORKING FOUNDATIONS FOR KUBERNETES</h3>
+<h4>1. The Fundamental Kubernetes Network Model</h4>
+<p>Kubernetes imposes four non-negotiable networking requirements:</p>
+<ol>
+<li>Every Pod gets its own unique IP address.</li>
+<li>Pods on any node can communicate with all pods on any other node without NAT.</li>
+<li>Agents on a node (kubelet) can communicate with all pods on that same node.</li>
+<li>Pods in the host network of a node can communicate with all pods on all nodes without NAT.</li>
+</ol>
+<h4>2. Virtual Ethernet Pairs (veth) and Network Namespaces</h4>
+<p>When a Pod is scheduled:</p>
+<ol>
+<li>The container runtime creates an isolated Linux network namespace (<code>netns</code>).</li>
+<li>A virtual ethernet pair (<code>veth</code> pair) is created in the kernel. One end (<code>eth0</code>) is moved into the Pod&#39;s network namespace, and the peer end (<code>vethXXXX</code>) is plugged into the node&#39;s local bridge (e.g., <code>cbr0</code>).</li>
+<li>An IP address is allocated from the node&#39;s <code>podCIDR</code> allocation by the CNI IPAM plugin.</li>
+</ol>
+<pre><code>┌─────────────────────────────────┐
+│     POD NETWORK NAMESPACE       │
+│  eth0 (10.244.1.5/24)           │
+└───────────────▲─────────────────┘
+                │
+         veth pair tunnel
+                │
+┌───────────────▼─────────────────┐
+│      NODE ROOT NAMESPACE        │
+│  veth1234 ───&gt; [ CNI Bridge ]   │
+│                 cbr0 / flannel  │
+│                      │          │
+│  eth0 (192.168.1.10) ┴──────────│
+└─────────────────────────────────┘
+</code></pre>
+<h4>3. Linux Kernel Diagnostics Runbook</h4>
+<pre><code class="language-bash"># Check network namespace links
+ip netns list
+
+# Inspect Linux bridges and interfaces
+ip link show
+ip addr show
+
+# Check host routing table
+ip route show
+
+# Verify socket listening ports
+ss -tulpen
+</code></pre>
+<hr>
+<h3>PRACTICE EXERCISES &amp; CKA CHALLENGE (CHAPTERS 5–8)</h3>
+<h4>Challenge: Multi-Container Pod with Declarative YAML</h4>
+<p><strong>Task:</strong>
+Create a Pod named <code>log-processor</code> in namespace <code>observability</code>:</p>
+<ol>
+<li>Main container <code>app</code> running <code>busybox:1.36</code> writing timestamped logs every 5 seconds to <code>/var/log/app.log</code>.</li>
+<li>Sidecar container <code>logger</code> running <code>busybox:1.36</code> reading and streaming <code>/var/log/app.log</code> to standard output.</li>
+<li>Both containers share a volume named <code>shared-logs</code> of type <code>emptyDir</code>.</li>
+</ol>
+<h4>Solution Manifest:</h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Namespace
+metadata:
+  name: observability
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: log-processor
+  namespace: observability
+spec:
+  volumes:
+  - name: shared-logs
+    emptyDir: {}
+  containers:
+  - name: app
+    image: busybox:1.36
+    command: [&quot;/bin/sh&quot;, &quot;-c&quot;]
+    args:
+    - &gt;
+      while true; do
+        echo &quot;$(date) - Application event processing&quot; &gt;&gt; /var/log/app.log;
+        sleep 5;
+      done
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+  - name: logger
+    image: busybox:1.36
+    command: [&quot;/bin/sh&quot;, &quot;-c&quot;]
+    args: [&quot;tail -n+1 -f /var/log/app.log&quot;]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+</code></pre>
+<h4>Verification:</h4>
+<pre><code class="language-bash">kubectl apply -f solution.yaml
+kubectl logs -n observability log-processor -c logger
+</code></pre>
+<p>Expected output: Continuous stream of timestamped log entries originating from the <code>app</code> container.</p>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART II: CLUSTER ARCHITECTURE, INSTALLATION &amp; LIFECYCLE</h1>
+<h2>CHAPTERS 9–14, 17–19: KUBEADM, CONTAINER RUNTIME, UPGRADES &amp; NODE MAINTENANCE</h2>
+<hr>
+<h3>CHAPTER 9: KUBERNETES CLUSTER DESIGN &amp; HARDWARE SIZING</h3>
+<h4>1. Learning Objectives</h4>
+<ul>
+<li>Calculate control plane sizing based on nodes, pods, and API churn.</li>
+<li>Evaluate stacked etcd vs. external etcd architectures.</li>
+<li>Prepare Linux operating system prerequisites for Kubernetes clusters.</li>
+</ul>
+<h4>2. Linux Operating System Prerequisites</h4>
+<p>Every Kubernetes node (control plane or worker) requires kernel module configuration and sysctl networking parameters:</p>
+<pre><code class="language-bash"># 1. Disable Linux Swap (Mandatory for Kubelet memory management)
+sudo swapoff -a
+sudo sed -i &#39;/swap/d&#39; /etc/fstab
+
+# 2. Forwarding IPv4 and letting iptables see bridged traffic
+cat &lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf
+overlay
+br_netfilter
+EOF
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+# 3. Sysctl parameters required by CNI
+cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+EOF
+
+sudo sysctl --system
+</code></pre>
+<hr>
+<h3>CHAPTER 10 &amp; 11: CONTAINER RUNTIME &amp; KUBEADM INSTALLATION</h3>
+<h4>1. Configuring containerd with SystemdCgroup</h4>
+<p>Kubernetes v1.31/v1.32 strictly requires that <code>containerd</code> and <code>kubelet</code> use the <code>systemd</code> cgroup driver to prevent resource starvation under memory pressure:</p>
+<pre><code class="language-bash"># Generate default containerd config
+sudo mkdir -p /etc/containerd
+containerd config default | sudo tee /etc/containerd/config.toml
+
+# Set SystemdCgroup = true
+sudo sed -i &#39;s/SystemdCgroup \= false/SystemdCgroup \= true/g&#39; /etc/containerd/config.toml
+
+# Restart containerd service
+sudo systemctl restart containerd
+sudo systemctl enable containerd
+</code></pre>
+<h4>2. Installing Kubernetes Binaries via Official Community Repository</h4>
+<pre><code class="language-bash"># 1. Add Kubernetes package repository key
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+# 2. Add repository source
+echo &#39;deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /&#39; | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+# 3. Install packages and hold version
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+</code></pre>
+<hr>
+<h3>CHAPTER 12–14: CONTROL PLANE INITIALIZATION &amp; WORKER JOINS</h3>
+<h4>1. Initializing the First Control Plane Node</h4>
+<pre><code class="language-bash">sudo kubeadm init \
+  --apiserver-advertise-address=192.168.1.10 \
+  --pod-network-cidr=10.244.0.0/16 \
+  --cri-socket=unix:///run/containerd/containerd.sock \
+  --upload-certs
+</code></pre>
+<h4>2. Post-Initialization Configuration</h4>
+<pre><code class="language-bash">mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</code></pre>
+<h4>3. Installing CNI Network Plugin (Calico)</h4>
+<p>The cluster remains in <code>NotReady</code> status until a CNI network plugin is deployed:</p>
+<pre><code class="language-bash">kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0/manifests/calico.yaml
+</code></pre>
+<h4>4. Joining Worker Nodes</h4>
+<p>On each worker node, run the command generated by <code>kubeadm init</code>:</p>
+<pre><code class="language-bash">sudo kubeadm join 192.168.1.10:6443 --token abcdef.0123456789abcdef \
+  --discovery-token-ca-cert-hash sha256:7c8b4e2f9d1a3b5c7e9f8a...
+</code></pre>
+<hr>
+<h3>CHAPTER 17 &amp; 18: CLUSTER UPGRADES &amp; SAFE NODE MAINTENANCE</h3>
+<h4>1. Zero-Downtime Node Maintenance Algorithm</h4>
+<p>When patching an OS kernel or upgrading node components, follow the three-step lifecycle:</p>
+<ol>
+<li><strong>Cordon:</strong> Prevents new workloads from being scheduled on the node.<pre><code class="language-bash">kubectl cordon worker-01
+</code></pre>
+</li>
+<li><strong>Drain:</strong> Safely evicts existing Pods using the Eviction API, respecting <code>PodDisruptionBudgets</code>.<pre><code class="language-bash">kubectl drain worker-01 --ignore-daemonsets --delete-emptydir-data --force
+</code></pre>
+</li>
+<li><strong>Perform Maintenance &amp; Uncordon:</strong><pre><code class="language-bash"># Upgrade node packages, reboot if necessary, then restore scheduling
+kubectl uncordon worker-01
+</code></pre>
+</li>
+</ol>
+<h4>2. Kubeadm Minor Version Upgrade Sequence</h4>
+<p>Always upgrade the Control Plane before Worker Nodes. Never skip minor versions (e.g., upgrade v1.30 -&gt; v1.31 -&gt; v1.32 sequentially):</p>
+<pre><code class="language-bash"># --- ON CONTROL PLANE NODE ---
+# 1. Upgrade kubeadm
+sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+
+# 2. Check upgrade plan
+sudo kubeadm upgrade plan
+
+# 3. Apply cluster upgrade
+sudo kubeadm upgrade apply v1.31.2 -y
+
+# 4. Drain node &amp; upgrade kubelet/kubectl
+kubectl drain controlplane --ignore-daemonsets
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+kubectl uncordon controlplane
+
+# --- ON WORKER NODES ---
+kubectl drain worker-01 --ignore-daemonsets --delete-emptydir-data
+ssh worker-01
+sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+sudo kubeadm upgrade node
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+exit
+kubectl uncordon worker-01
+</code></pre>
+<hr>
+<h3>CHAPTER 19: CERTIFICATE MANAGEMENT &amp; ROTATION</h3>
+<p>Control plane certificates issued by <code>kubeadm</code> expire after 365 days.</p>
+<pre><code class="language-bash"># 1. Check certificate validity
+sudo kubeadm certs check-expiration
+
+# 2. Renew all certificates
+sudo kubeadm certs renew all
+
+# 3. Reload static pods
+sudo mv /etc/kubernetes/manifests/*.yaml /tmp/
+sleep 5
+sudo mv /tmp/*.yaml /etc/kubernetes/manifests/
+
+# 4. Update admin kubeconfig
+sudo cp /etc/kubernetes/admin.conf ~/.kube/config
+sudo chown $(id -u):$(id -g) ~/.kube/config
+</code></pre>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART II: CLUSTER ARCHITECTURE, INSTALLATION &amp; LIFECYCLE</h1>
+<h2>CHAPTERS 15, 16, 20–23: RBAC, SERVICEACCOUNTS, ETCD DISASTER RECOVERY, HELM &amp; KUSTOMIZE</h2>
+<hr>
+<h3>CHAPTER 15: ROLE-BASED ACCESS CONTROL (RBAC)</h3>
+<h4>1. Learning Objectives</h4>
+<ul>
+<li>Understand the RBAC evaluation model: Subjects, API Groups, Resources, and Verbs.</li>
+<li>Contrast namespace-scoped <code>Roles</code> with cluster-wide <code>ClusterRoles</code>.</li>
+<li>Bind permissions using <code>RoleBindings</code> and <code>ClusterRoleBindings</code>.</li>
+</ul>
+<h4>2. The RBAC Data Model</h4>
+<pre><code>┌───────────────────────────┐         Bound By          ┌───────────────────────────┐
+│          SUBJECT          │ ◄───────────────────────► │           ROLE            │
+│  User: alice              │      RoleBinding /        │  apiGroups: [&quot;apps&quot;]      │
+│  Group: developers        │   ClusterRoleBinding      │  resources: [&quot;deployments&quot;]│
+│  ServiceAccount: runner   │                           │  verbs: [&quot;get&quot;, &quot;list&quot;]   │
+└───────────────────────────┘                           └───────────────────────────┘
+</code></pre>
+<h4>3. Production RBAC Manifest Example</h4>
+<pre><code class="language-yaml">apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: engineering
+  name: deployment-operator
+rules:
+- apiGroups: [&quot;apps&quot;]
+  resources: [&quot;deployments&quot;, &quot;replicasets&quot;]
+  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;, &quot;create&quot;, &quot;update&quot;, &quot;patch&quot;]
+- apiGroups: [&quot;&quot;]
+  resources: [&quot;pods&quot;, &quot;pods/log&quot;]
+  verbs: [&quot;get&quot;, &quot;list&quot;]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: engineering
+  name: bind-deployment-operator
+subjects:
+- kind: User
+  name: bob
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: ci-bot
+  namespace: engineering
+roleRef:
+  kind: Role
+  name: deployment-operator
+  apiGroup: rbac.authorization.k8s.io
+</code></pre>
+<hr>
+<h3>CHAPTER 16: SERVICEACCOUNTS AND POD AUTHENTICATION</h3>
+<h4>1. ServiceAccount Token Projection</h4>
+<p>Modern Kubernetes (v1.24+) does not automatically create static bearer token secrets for ServiceAccounts. Instead, tokens are projected dynamically into pods as projected volumes using the TokenRequest API:</p>
+<ul>
+<li>Tokens have an expiration time (default 1 hour).</li>
+<li>Tokens are automatically rotated by kubelet without restarting the container.</li>
+<li>Bound directly to the Pod&#39;s lifecycle.</li>
+</ul>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: app-reader-sa
+  namespace: default
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-reader-pod
+spec:
+  serviceAccountName: app-reader-sa
+  containers:
+  - name: runner
+    image: curlimages/curl:8.10.1
+    command: [&quot;sleep&quot;, &quot;3600&quot;]
+</code></pre>
+<hr>
+<h3>CHAPTER 20: HIGHLY AVAILABLE KUBERNETES CLUSTERS</h3>
+<h4>1. Stacked vs. External etcd Topologies</h4>
+<ol>
+<li><strong>Stacked etcd Topology:</strong> etcd runs as static pods on the same nodes as the control plane components. Simpler to manage via <code>kubeadm init --upload-certs</code>. Requires at least 3 control plane nodes.</li>
+<li><strong>External etcd Topology:</strong> etcd runs on dedicated external servers. Decouples control plane compute from etcd storage I/O.</li>
+</ol>
+<h4>2. Control Plane Load Balancer</h4>
+<p>A high-availability control plane requires a TCP load balancer (e.g., HAProxy + Keepalived) in front of the API servers:</p>
+<ul>
+<li>Virtual IP: <code>192.168.1.100:6443</code></li>
+<li>Backends: <code>cp-node-1:6443</code>, <code>cp-node-2:6443</code>, <code>cp-node-3:6443</code></li>
+<li>Pass <code>--control-plane-endpoint=&quot;192.168.1.100:6443&quot;</code> to <code>kubeadm init</code>.</li>
+</ul>
+<hr>
+<h3>CHAPTER 21: ETCD ARCHITECTURE, BACKUP AND DISASTER RECOVERY</h3>
+<h4>1. The Definitive 7-Step etcd Disaster Recovery Runbook</h4>
+<p>This is the single most heavily tested administrative procedure on the CKA examination.</p>
+<pre><code class="language-bash"># STEP 1: Identify etcd Static Pod Configuration &amp; PKI Paths
+sudo grep -E &quot;cert-file|key-file|trusted-ca-file|data-dir&quot; /etc/kubernetes/manifests/etcd.yaml
+
+# STEP 2: Save Snapshot using etcdctl v3
+ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+  --cert=/etc/kubernetes/pki/etcd/server.crt \
+  --key=/etc/kubernetes/pki/etcd/server.key \
+  snapshot save /opt/snapshot-pre-disaster.db
+
+# STEP 3: Verify Snapshot Integrity
+ETCDCTL_API=3 etcdctl --write-out=table snapshot status /opt/snapshot-pre-disaster.db
+
+# STEP 4: Stop kube-apiserver by moving manifest temporarily
+sudo mv /etc/kubernetes/manifests/kube-apiserver.yaml /tmp/
+
+# STEP 5: Restore Snapshot to a BRAND NEW Target Data Directory
+ETCDCTL_API=3 etcdctl snapshot restore /opt/snapshot-pre-disaster.db \
+  --data-dir=/var/lib/etcd-from-backup \
+  --initial-cluster=&quot;master=https://127.0.0.1:2380&quot; \
+  --initial-cluster-token=&quot;etcd-cluster-token&quot; \
+  --initial-advertise-peer-urls=&quot;https://127.0.0.1:2380&quot; \
+  --name=&quot;master&quot;
+
+# STEP 6: Update etcd Static Pod Manifest hostPath Volume
+sudo sed -i &#39;s|path: /var/lib/etcd|path: /var/lib/etcd-from-backup|g&#39; /etc/kubernetes/manifests/etcd.yaml
+
+# STEP 7: Restore kube-apiserver &amp; Verify Cluster Health
+sudo mv /tmp/kube-apiserver.yaml /etc/kubernetes/manifests/
+sleep 20
+kubectl get nodes
+</code></pre>
+<hr>
+<h3>CHAPTER 22: HELM AND KUSTOMIZE PACKAGE MANAGEMENT</h3>
+<h4>1. Helm Package Manager Fundamentals</h4>
+<p>Helm is the official package manager for Kubernetes.</p>
+<pre><code class="language-bash"># Add and update repositories
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+# Install chart with custom values
+helm install my-ingress ingress-nginx/ingress-nginx \
+  --namespace ingress-system --create-namespace \
+  --set controller.replicaCount=2 \
+  -f custom-values.yaml
+
+# Upgrade release
+helm upgrade my-ingress ingress-nginx/ingress-nginx --set controller.replicaCount=3
+
+# Inspect release history and rollback
+helm history my-ingress -n ingress-system
+helm rollback my-ingress 1 -n ingress-system
+</code></pre>
+<h4>2. Kustomize Overlay Architecture</h4>
+<p>Kustomize enables template-free customization of Kubernetes manifests via <code>kustomization.yaml</code> files.</p>
+<pre><code>app/
+├── base/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── kustomization.yaml
+└── overlays/
+    ├── dev/
+    │   └── kustomization.yaml
+    └── prod/
+        ├── kustomization.yaml
+        └── replica_patch.yaml
+</code></pre>
+<p><strong><code>base/kustomization.yaml</code>:</strong></p>
+<pre><code class="language-yaml">apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+</code></pre>
+<p><strong><code>overlays/prod/kustomization.yaml</code>:</strong></p>
+<pre><code class="language-yaml">apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+namePrefix: prod-
+patchesStrategicMerge:
+- replica_patch.yaml
+</code></pre>
+<p><strong>Applying Kustomize:</strong></p>
+<pre><code class="language-bash">kubectl apply -k overlays/prod/
+</code></pre>
+<hr>
+<h3>CHAPTER 23: CRDS, OPERATORS AND EXTENSION INTERFACES</h3>
+<h4>1. Custom Resource Definitions (CRDs)</h4>
+<p>CRDs extend the Kubernetes API with user-defined schemas using OpenAPI v3 validation:</p>
+<pre><code class="language-yaml">apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: backups.storage.acme.io
+spec:
+  group: storage.acme.io
+  versions:
+  - name: v1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              schedule:
+                type: string
+  scope: Namespaced
+  names:
+    plural: backups
+    singular: backup
+    kind: Backup
+</code></pre>
+<h4>2. The Operator Pattern</h4>
+<p>An Operator pairs a Custom Resource with a custom Controller. The controller watches events on the CRD and automates state management (e.g., PostgreSQL backup, automated failover, schema migrations).</p>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART III: WORKLOADS AND SCHEDULING</h1>
+<h2>CHAPTERS 24–29, 31: PODS, DEPLOYMENTS, CONTROLLERS, CONFIG &amp; HEALTH PROBES</h2>
+<hr>
+<h3>CHAPTER 24 &amp; 25: PODS, POD LIFECYCLE &amp; MULTI-CONTAINER PATTERNS</h3>
+<h4>1. Pod Phase Transitions</h4>
+<p>A Pod&#39;s lifecycle is tracked via <code>status.phase</code>:</p>
+<ul>
+<li><code>Pending</code>: Pod accepted by the API server, but one or more containers are not yet created (often awaiting scheduling or image download).</li>
+<li><code>Running</code>: Pod bound to a node, all containers created, and at least one container is running or starting.</li>
+<li><code>Succeeded</code>: All containers terminated successfully (exit code 0); cannot restart.</li>
+<li><code>Failed</code>: All containers terminated, with at least one container terminating in failure (non-zero exit code).</li>
+<li><code>Unknown</code>: State cannot be obtained (typically due to network loss between kubelet and API server).</li>
+</ul>
+<h4>2. Multi-Container Pod Design Patterns</h4>
+<ol>
+<li><strong>Sidecar Pattern:</strong> Enhances or extends the main container (e.g., streaming logs from an <code>emptyDir</code> volume to centralized Elasticsearch or Prometheus metrics exporter).</li>
+<li><strong>Ambassador Pattern:</strong> Proxies network traffic from the local pod to the outside world (e.g., connecting to <code>localhost:6379</code> while the ambassador routes to a sharded Redis cluster).</li>
+<li><strong>Adapter Pattern:</strong> Standardizes output across disparate application formats (e.g., transforming legacy application metric formats into Prometheus exposition format).</li>
+<li><strong>Init Containers:</strong> Sequential initialization containers that run to complete exit 0 before application containers start.</li>
+</ol>
+<hr>
+<h3>CHAPTER 26: DEPLOYMENTS AND REPLICASETS</h3>
+<h4>1. Deployment Strategies: Recreate vs. RollingUpdate</h4>
+<ul>
+<li><strong>Recreate Strategy:</strong> Terminates all existing pods before creating new pods (<code>spec.strategy.type: Recreate</code>). Results in downtime but prevents two application versions from executing concurrently.</li>
+<li><strong>RollingUpdate Strategy:</strong> Gradually replaces old pods with new pods. Governed by:<ul>
+<li><code>maxSurge</code>: Max pods created above desired count (default 25%).</li>
+<li><code>maxUnavailable</code>: Max pods unavailable during update (default 25%).</li>
+</ul>
+</li>
+</ul>
+<h4>2. Declarative Deployment Manifest</h4>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  labels:
+    app: orders
+spec:
+  replicas: 4
+  revisionHistoryLimit: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: orders
+  template:
+    metadata:
+      labels:
+        app: orders
+    spec:
+      containers:
+      - name: orders
+        image: orders-api:v1.2.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 250m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+</code></pre>
+<hr>
+<h3>CHAPTER 27 &amp; 28: DAEMONSETS, STATEFULSETS, JOBS &amp; CRONJOBS</h3>
+<h4>1. StatefulSet Production Considerations</h4>
+<ul>
+<li>Headless Service (<code>clusterIP: None</code>) provides stable DNS records: <code>$(pod-name).$(service-name).$(namespace).svc.cluster.local</code>.</li>
+<li><code>volumeClaimTemplates</code> dynamically provisions a unique, dedicated PersistentVolumeClaim for each ordinal replica.</li>
+<li>Deleting a StatefulSet <em>never</em> deletes its associated PersistentVolumeClaims to protect stateful data from accidental loss.</li>
+</ul>
+<h4>2. CronJob Concurrency Policies</h4>
+<p>Governs how new executions behave if the previous scheduled Job has not completed:</p>
+<ul>
+<li><code>Allow</code> (Default): Concurrent jobs run simultaneously.</li>
+<li><code>Forbid</code>: Skips the new execution if the previous run is still active.</li>
+<li><code>Replace</code>: Cancels the currently running job and starts a new one.</li>
+</ul>
+<pre><code class="language-yaml">apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hourly-aggregation
+spec:
+  schedule: &quot;0 * * * *&quot;
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 120
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: aggregator
+            image: analytics:1.0
+</code></pre>
+<hr>
+<h3>CHAPTER 29: CONFIGMAPS AND SECRETS</h3>
+<h4>1. Base64 Secret Management</h4>
+<p>Kubernetes Secrets store sensitive configuration encoded in Base64:</p>
+<pre><code class="language-bash"># Encode secret value
+echo -n &quot;P@ssw0rd123&quot; | base64
+
+# Decode secret value
+echo -n &quot;UEBzc3cwcmQxMjM=&quot; | base64 --decode
+</code></pre>
+<h4>2. Projecting ConfigMaps and Secrets as Volume Mounts</h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-app
+spec:
+  volumes:
+  - name: config-vol
+    configMap:
+      name: app-config
+  - name: secret-vol
+    secret:
+      secretName: db-secret
+  containers:
+  - name: app
+    image: nginx:alpine
+    volumeMounts:
+    - name: config-vol
+      mountPath: /etc/config
+      readOnly: true
+    - name: secret-vol
+      mountPath: /etc/secrets
+      readOnly: true
+</code></pre>
+<hr>
+<h3>CHAPTER 31: LIVENESS, READINESS AND STARTUP PROBES</h3>
+<pre><code class="language-yaml">spec:
+  containers:
+  - name: web
+    image: web-service:2.0
+    # 1. Startup Probe: Allows slow apps up to 300s to boot without premature kills
+    startupProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+      failureThreshold: 30
+      periodSeconds: 10
+    # 2. Liveness Probe: Detects runtime deadlocks; restarts container on failure
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      failureThreshold: 3
+    # 3. Readiness Probe: Controls traffic routing; isolates pod from endpoints on failure
+    readinessProbe:
+      httpGet:
+        path: /ready
+        port: 8080
+      periodSeconds: 5
+      failureThreshold: 2
+</code></pre>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART III: WORKLOADS AND SCHEDULING</h1>
+<h2>CHAPTERS 30, 32–38: SCHEDULING, AFFINITY, TAINTS, AUTOSCALING &amp; QUOTAS</h2>
+<hr>
+<h3>CHAPTER 30: RESOURCE REQUESTS, LIMITS &amp; KERNEL CFS QUOTAS</h3>
+<h4>1. Compute Units in Kubernetes</h4>
+<ul>
+<li><strong>CPU:</strong> Specified in millicores ($1000\text{m} = 1\text{ vCPU / core}$). It is a compressible resource: exceeding limits results in CPU cycle throttling via Linux CFS, not termination.</li>
+<li><strong>Memory:</strong> Specified in bytes with binary SI suffixes (<code>128Mi</code>, <code>1Gi</code>). It is an incompressible resource: exceeding limits results in an instant kernel <code>OOMKilled</code> (Exit Code 137).</li>
+</ul>
+<h4>2. Quality of Service (QoS) Classes</h4>
+<p>Kubernetes assigns each Pod a QoS class based on its request/limit declarations:</p>
+<ol>
+<li><strong>Guaranteed (Highest Priority):</strong> Every container specifies CPU and Memory requests and limits, and requests strictly equal limits. Safest against eviction.</li>
+<li><strong>Burstable (Medium Priority):</strong> At least one container specifies requests or limits, and requests are less than limits.</li>
+<li><strong>BestEffort (Lowest Priority):</strong> No container specifies any requests or limits. These pods are killed first when node memory pressure occurs.</li>
+</ol>
+<hr>
+<h3>CHAPTER 32–35: ADVANCED SCHEDULING MECHANISMS</h3>
+<h4>1. NodeSelector vs. NodeAffinity</h4>
+<ul>
+<li><code>nodeSelector</code>: Simple key-value label equality (<code>disk: ssd</code>).</li>
+<li><code>nodeAffinity</code>: Expressive rule syntax using operators (<code>In</code>, <code>NotIn</code>, <code>Exists</code>, <code>DoesNotExist</code>, <code>Gt</code>, <code>Lt</code>):<ul>
+<li><code>requiredDuringSchedulingIgnoredDuringExecution</code>: Hard filtering predicate.</li>
+<li><code>preferredDuringSchedulingIgnoredDuringExecution</code>: Soft scoring priority.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-yaml">spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values: [&quot;us-east-1a&quot;, &quot;us-east-1b&quot;]
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 80
+        preference:
+          matchExpressions:
+          - key: instance-type
+            operator: In
+            values: [&quot;compute-optimized&quot;]
+</code></pre>
+<h4>2. Taints and Tolerations</h4>
+<ul>
+<li><strong>Taints</strong> repel pods from nodes:<pre><code class="language-bash">kubectl taint nodes worker-01 dedicated=special:NoSchedule
+</code></pre>
+Taint Effects:<ul>
+<li><code>NoSchedule</code>: New pods without matching toleration are not placed on the node. Existing pods remain.</li>
+<li><code>PreferNoSchedule</code>: Soft preference; scheduler tries to avoid placing pods without toleration.</li>
+<li><code>NoExecute</code>: Pods without matching toleration are immediately evicted from the node.</li>
+</ul>
+</li>
+<li><strong>Tolerations</strong> allow pods to be scheduled on tainted nodes:<pre><code class="language-yaml">spec:
+  tolerations:
+  - key: &quot;dedicated&quot;
+    operator: &quot;Equal&quot;
+    value: &quot;special&quot;
+    effect: &quot;NoSchedule&quot;
+</code></pre>
+</li>
+</ul>
+<h4>3. Pod Affinity and Anti-Affinity</h4>
+<p>Co-locates or isolates pods relative to other pods within a topological domain:</p>
+<pre><code class="language-yaml">spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values: [&quot;web-frontend&quot;]
+        topologyKey: &quot;kubernetes.io/hostname&quot;
+</code></pre>
+<p><em>Effect:</em> Guarantees that two <code>web-frontend</code> replicas will never be scheduled on the same physical host.</p>
+<hr>
+<h3>CHAPTER 36: PRIORITYCLASSES AND PREEMPTION</h3>
+<pre><code class="language-yaml">apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: high-priority-apps
+value: 1000000
+globalDefault: false
+description: &quot;Mission-critical applications that pre-empt batch workloads.&quot;
+</code></pre>
+<p>When node capacity is exhausted, the scheduler identifies lower-priority pods, issues eviction requests, and schedules the <code>high-priority-apps</code> pod onto the reclaimed capacity.</p>
+<hr>
+<h3>CHAPTER 37: HORIZONTAL POD AUTOSCALER (HPA)</h3>
+<p>Autoscales workload replicas based on observed CPU/Memory utilization reported by <code>metrics-server</code>:</p>
+<pre><code class="language-bash"># Imperative HPA creation
+kubectl autoscale deployment order-service --cpu-percent=75 --min=2 --max=10
+</code></pre>
+<p><strong>Declarative HPA Manifest (autoscaling/v2):</strong></p>
+<pre><code class="language-yaml">apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: order-service-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: order-service
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 75
+</code></pre>
+<hr>
+<h3>CHAPTER 38: RESOURCEQUOTAS AND LIMITRANGES</h3>
+<h4>1. LimitRange (Container-Level Bounds)</h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: LimitRange
+metadata:
+  name: mem-limit-range
+  namespace: development
+spec:
+  limits:
+  - default:
+      memory: 512Mi
+      cpu: 500m
+    defaultRequest:
+      memory: 256Mi
+      cpu: 250m
+    max:
+      memory: 1Gi
+      cpu: 1000m
+    min:
+      memory: 128Mi
+      cpu: 100m
+    type: Container
+</code></pre>
+<h4>2. ResourceQuota (Namespace Aggregate Limit)</h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: development
+spec:
+  hard:
+    requests.cpu: &quot;4&quot;
+    requests.memory: 8Gi
+    limits.cpu: &quot;8&quot;
+    limits.memory: 16Gi
+    pods: &quot;10&quot;
+</code></pre>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART IV: SERVICES AND NETWORKING</h1>
+<h2>CHAPTERS 39–45: NETWORKING FUNDAMENTALS, CNI, SERVICES, COREDNS &amp; ENDPOINTSLICES</h2>
+<hr>
+<h3>CHAPTER 39–41: KUBERNETES NETWORKING &amp; CNI ARCHITECTURE</h3>
+<h4>1. Container Network Interface (CNI)</h4>
+<p>CNI is a standard specification defining plugins to configure network interfaces when containers are started and destroyed.</p>
+<ul>
+<li>Located at: <code>/opt/cni/bin/</code> (Executables: <code>bridge</code>, <code>loopback</code>, <code>host-local</code>, <code>calico</code>, <code>flannel</code>).</li>
+<li>Network configurations located at: <code>/etc/cni/net.d/</code> (Evaluated alphabetically in lexicographical order).</li>
+</ul>
+<h4>2. Pod-to-Pod Communication Across Nodes</h4>
+<ol>
+<li>Pod A (<code>10.244.1.5</code>) sends a packet to Pod B (<code>10.244.2.10</code>).</li>
+<li>The packet traverses <code>veth0</code> into the host Linux bridge (<code>cbr0</code>).</li>
+<li>The host routing table directs packets destined for <code>10.244.2.0/24</code> to the CNI overlay device (e.g., <code>flannel.1</code> or <code>calico-tun</code>).</li>
+<li>The overlay interface encapsulates the inner IP packet inside an outer UDP packet (Port 4789/8472 VXLAN) addressed to Worker Node 2 (<code>192.168.1.20</code>).</li>
+<li>Worker Node 2 decapsulates the UDP packet and delivers the original IP packet to Pod B via its local bridge.</li>
+</ol>
+<hr>
+<h3>CHAPTER 42 &amp; 43: KUBERNETES SERVICE TYPES &amp; PACKET NAT</h3>
+<h4>1. Service Types Compared</h4>
+<ul>
+<li><strong>ClusterIP (Default):</strong> Allocates a virtual cluster-internal IP reachable only from within the cluster.</li>
+<li><strong>NodePort:</strong> Allocates a high-range static port (30000–32767) on every node in the cluster. Traffic sent to <code>&lt;NodeIP&gt;:&lt;NodePort&gt;</code> is forwarded to the Service.</li>
+<li><strong>LoadBalancer:</strong> Automatically provisions a cloud load balancer (e.g., AWS NLB, GCP Network Load Balancer) that routes to the NodePort.</li>
+<li><strong>ExternalName:</strong> Maps the Service to a DNS CNAME record (e.g., <code>my-db.external-service.com</code>) without proxying.</li>
+</ul>
+<h4>2. Service YAML Definition</h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: production
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+  - name: http
+    port: 80         # Port exposed on the ClusterIP
+    targetPort: 8080 # Port listening on the container
+</code></pre>
+<hr>
+<h3>CHAPTER 44 &amp; 45: COREDNS DISCOVERY &amp; ENDPOINTSLICES</h3>
+<h4>1. DNS Resolution Architecture</h4>
+<p>CoreDNS operates as a redundant, scalable deployment in <code>kube-system</code>. Its service IP is typically <code>10.96.0.10</code>.</p>
+<ul>
+<li>Standard FQDN Structure: <code>&lt;service-name&gt;.&lt;namespace&gt;.svc.&lt;cluster-domain&gt;</code></li>
+<li>Example: <code>backend-service.production.svc.cluster.local</code></li>
+<li>Headless Service Pod FQDN: <code>&lt;pod-name&gt;.&lt;headless-svc&gt;.&lt;namespace&gt;.svc.&lt;cluster-domain&gt;</code></li>
+</ul>
+<h4>2. Customizing CoreDNS via ConfigMap</h4>
+<p>To add custom DNS upstreams or stub zones, edit <code>ConfigMap/coredns</code>:</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns
+  namespace: kube-system
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health {
+           lameduck 5s
+        }
+        ready
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+           pods insecure
+           fallthrough in-addr.arpa ip6.arpa
+           ttl 30
+        }
+        forward . 8.8.8.8 1.1.1.1
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+</code></pre>
+<h4>3. EndpointSlices vs. Endpoints</h4>
+<p>Legacy <code>Endpoints</code> stored all IP addresses in a single object. Modern Kubernetes utilizes <code>EndpointSlices</code> (<code>discovery.k8s.io/v1</code>), partitioning endpoint lists into scalable subsets of up to 100 endpoints per slice.</p>
+<pre><code class="language-bash"># Query EndpointSlices for a specific service
+kubectl get endpointslices -l kubernetes.io/service-name=backend-service
+</code></pre>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART IV: SERVICES AND NETWORKING</h1>
+<h2>CHAPTERS 46–49: INGRESS, GATEWAY API, NETWORKPOLICIES &amp; NETWORK TROUBLESHOOTING</h2>
+<hr>
+<h3>CHAPTER 46: INGRESS AND INGRESS CONTROLLERS</h3>
+<h4>1. Ingress Resource Architecture</h4>
+<p>An Ingress resource (<code>networking.k8s.io/v1</code>) defines routing rules from outside the cluster to internal Services. An <strong>Ingress Controller</strong> (e.g., ingress-nginx) must be installed to evaluate and enforce these rules.</p>
+<pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: corporate-ingress
+  namespace: web
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: store.example.com
+    http:
+      paths:
+      - path: /products
+        pathType: Prefix
+        backend:
+          service:
+            name: product-service
+            port:
+              number: 80
+      - path: /cart
+        pathType: Prefix
+        backend:
+          service:
+            name: cart-service
+            port:
+              number: 80
+</code></pre>
+<hr>
+<h3>CHAPTER 47: GATEWAY API DEEP DIVE</h3>
+<h4>1. Why Gateway API Replaces Ingress</h4>
+<p>Ingress suffered from monolithic configuration where cluster administrators and application teams collided in a single resource. Gateway API decouples routing into distinct roles:</p>
+<ol>
+<li><strong>Infrastructure Provider:</strong> Defines <code>GatewayClass</code>.</li>
+<li><strong>Cluster Operator:</strong> Deploys <code>Gateway</code> (declares IP addresses, ports, and TLS certs).</li>
+<li><strong>Application Developer:</strong> Attaches <code>HTTPRoute</code> or <code>GRPCRoute</code> (defines paths, weights, and header rewrites).</li>
+</ol>
+<h4>2. Complete Gateway API Architecture &amp; Manifests</h4>
+<p><strong>Step 1: Gateway Resource (Cluster Operator)</strong></p>
+<pre><code class="language-yaml">apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: prod-gateway
+  namespace: gateway-infra
+spec:
+  gatewayClassName: standard-gateway
+  listeners:
+  - name: http-listener
+    protocol: HTTP
+    port: 80
+    allowedRoutes:
+      namespaces:
+        from: All
+</code></pre>
+<p><strong>Step 2: Advanced HTTPRoute with Canary Traffic Splitting (Developer)</strong></p>
+<pre><code class="language-yaml">apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: checkout-route
+  namespace: store
+spec:
+  parentRefs:
+  - name: prod-gateway
+    namespace: gateway-infra
+  hostnames:
+  - &quot;checkout.example.com&quot;
+  rules:
+  # Rule 1: Header-based routing for beta testers
+  - matches:
+    - headers:
+      - name: X-Beta-Tester
+        value: &quot;true&quot;
+    backendRefs:
+    - name: checkout-v2-canary
+      port: 8080
+  # Rule 2: 90/10 Canary traffic split for regular users
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /checkout
+    backendRefs:
+    - name: checkout-v1-stable
+      port: 8080
+      weight: 90
+    - name: checkout-v2-canary
+      port: 8080
+      weight: 10
+</code></pre>
+<h4>3. Cross-Namespace Authorization via ReferenceGrant</h4>
+<p>When an <code>HTTPRoute</code> references a <code>Gateway</code> or <code>Service</code> in a different namespace, a <code>ReferenceGrant</code> must explicitly allow the reference:</p>
+<pre><code class="language-yaml">apiVersion: gateway.networking.k8s.io/v1beta1
+kind: ReferenceGrant
+metadata:
+  name: allow-store-to-gateway
+  namespace: gateway-infra
+spec:
+  from:
+  - group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    namespace: store
+  to:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+</code></pre>
+<hr>
+<h3>CHAPTER 48: NETWORKPOLICIES</h3>
+<h4>1. The Default-Deny Security Model</h4>
+<p>By default, all pods in Kubernetes can receive and send traffic without restriction. Applying a <code>NetworkPolicy</code> isolates matching pods, switching them to default-deny.</p>
+<p><strong>Default-Deny All Ingress Traffic:</strong></p>
+<pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+  namespace: secure-zone
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+</code></pre>
+<p><strong>Fine-Grained 3-Tier NetworkPolicy:</strong>
+Allow ingress to <code>db</code> pods on port 5432 <em>only</em> from <code>backend</code> pods in namespace <code>api</code>:</p>
+<pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-backend-to-db
+  namespace: data
+spec:
+  podSelector:
+    matchLabels:
+      role: database
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          environment: production
+      podSelector:
+        matchLabels:
+          app: backend
+    ports:
+    - protocol: TCP
+      port: 5432
+</code></pre>
+<p><em>CRITICAL SYNTAX NOTE:</em> In the <code>from</code> list, separating <code>namespaceSelector</code> and <code>podSelector</code> with a hyphen (<code>-</code>) creates an <strong>OR</strong> relationship. Omitting the hyphen between them creates an <strong>AND</strong> relationship!</p>
+<hr>
+<h3>CHAPTER 49: NETWORK TROUBLESHOOTING RUNBOOK</h3>
+<pre><code class="language-bash"># 1. Test intra-pod TCP connectivity
+kubectl run net-probe --rm -it --image=nicolaka/netshoot -- nc -zvw3 10.244.1.20 80
+
+# 2. Inspect host iptables forwarding rules for drops
+sudo iptables -L FORWARD -n -v | grep DROP
+
+# 3. Check CNI IP allocation leaks
+cat /var/lib/cni/networks/k8s-pod-network/*
+
+# 4. Verify Gateway API route status
+kubectl describe httproute checkout-route -n store
+</code></pre>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART V: STORAGE ARCHITECTURE</h1>
+<h2>CHAPTERS 50–59: VOLUMES, PV, PVC, STORAGECLASSES, CSI &amp; READWRITEONCEPOD</h2>
+<hr>
+<h3>CHAPTER 50–54: STORAGE ARCHITECTURE, PV, PVC &amp; STORAGECLASSES</h3>
+<h4>1. Learning Objectives</h4>
+<ul>
+<li>Understand how storage is decoupled from Pods via PersistentVolumes and PersistentVolumeClaims.</li>
+<li>Contrast static volume provisioning with automated dynamic provisioning.</li>
+<li>Master StorageClass volume binding modes and reclaim policies.</li>
+</ul>
+<h4>2. The PersistentVolume Lifecycle</h4>
+<pre><code>┌───────────────────────────┐      Dynamic Provision      ┌───────────────────────────┐
+│       StorageClass        │ ──────────────────────────&gt; │      PersistentVolume     │
+└─────────────┬─────────────┘                             └─────────────┬─────────────┘
+              │                                                         │
+              ▼                                                         ▼
+┌───────────────────────────┐         Binds To            ┌───────────────────────────┐
+│   PersistentVolumeClaim   │ ◄─────────────────────────► │      PersistentVolume     │
+└─────────────┬─────────────┘                             └───────────────────────────┘
+              │
+              ▼ Mounted Into
+┌───────────────────────────┐
+│            Pod            │
+└───────────────────────────┘
+</code></pre>
+<h4>3. Storage Access Modes</h4>
+<ul>
+<li><code>ReadWriteOnce</code> (RWO): Volume can be mounted as read-write by a single node. Multiple pods on that same node can read and write concurrently.</li>
+<li><code>ReadOnlyMany</code> (ROX): Volume can be mounted read-only by many nodes simultaneously.</li>
+<li><code>ReadWriteMany</code> (RWX): Volume can be mounted read-write by many nodes simultaneously (requires distributed filesystems like NFS, CephFS, or GlusterFS).</li>
+<li><code>ReadWriteOncePod</code> (RWOP): <strong>GA in modern Kubernetes</strong>. Restricts volume access to a <em>single pod in the entire cluster</em>. Essential for databases preventing multi-pod write corruption.</li>
+</ul>
+<h4>4. Reclaim Policies</h4>
+<ul>
+<li><code>Retain</code>: When the PVC is deleted, the PV remains intact in <code>Released</code> status. Data is preserved for manual recovery.</li>
+<li><code>Delete</code>: When the PVC is deleted, the underlying cloud storage asset is automatically destroyed.</li>
+</ul>
+<hr>
+<h3>CHAPTER 55: DYNAMIC PROVISIONING &amp; STORAGECLASSES</h3>
+<pre><code class="language-yaml">apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast-nvme
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+parameters:
+  type: gp3
+  iops: &quot;3000&quot;
+  throughput: &quot;125&quot;
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database-pvc
+  namespace: database
+spec:
+  storageClassName: fast-nvme
+  accessModes:
+  - ReadWriteOncePod
+  resources:
+    requests:
+      storage: 50Gi
+</code></pre>
+<p><em>CRITICAL CKA CONCEPT:</em> <code>volumeBindingMode: WaitForFirstConsumer</code> prevents topology mismatches. The PV is not provisioned until a Pod referencing the PVC is scheduled onto a node, ensuring the disk is allocated in the node&#39;s exact availability zone.</p>
+<hr>
+<h3>CHAPTER 58: CONTAINER STORAGE INTERFACE (CSI)</h3>
+<p>CSI is an open standard allowing storage vendors to develop plugins out-of-tree:</p>
+<ol>
+<li><strong>CSI Controller (Control Plane):</strong> Calls storage provider APIs to create and attach disks (<code>CreateVolume</code>, <code>ControllerPublishVolume</code>).</li>
+<li><strong>CSI Node Daemon (Worker Node):</strong> Formats filesystem and bind-mounts device into the container (<code>NodeStageVolume</code>, <code>NodePublishVolume</code>).</li>
+</ol>
+<hr>
+<h3>CHAPTER 59: STORAGE TROUBLESHOOTING RUNBOOK</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Symptom</th>
+<th align="left">Probable Root Cause</th>
+<th align="left">Verification &amp; Fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PVC stuck in <code>Pending</code></td>
+<td align="left">StorageClass missing or <code>WaitForFirstConsumer</code> active</td>
+<td align="left">Check events: <code>kubectl describe pvc &lt;name&gt;</code>. If waiting for consumer, schedule a pod using the PVC.</td>
+</tr>
+<tr>
+<td align="left">Pod stuck in <code>ContainerCreating</code> with <code>Multi-Attach error</code></td>
+<td align="left">Previous node crashed without releasing volume lock</td>
+<td align="left">Inspect volume attachments: <code>kubectl get volumeattachments</code>. Force delete old dead pod.</td>
+</tr>
+<tr>
+<td align="left"><code>VolumeExpansionFailed</code></td>
+<td align="left">StorageClass has <code>allowVolumeExpansion: false</code> or filesystem does not support online resize</td>
+<td align="left">Edit StorageClass to enable expansion; restart pod so kubelet expands filesystem.</td>
+</tr>
+</tbody></table>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART VI: COMPREHENSIVE TROUBLESHOOTING</h1>
+<h2>CHAPTERS 60–66: METHODOLOGY, WORKLOADS, NODES, KUBELET &amp; RUNTIME</h2>
+<hr>
+<h3>CHAPTER 60: SYSTEMATIC KUBERNETES TROUBLESHOOTING METHODOLOGY</h3>
+<p>Troubleshooting accounts for <strong>30% of the CKA exam</strong>. Never guess or execute random commands. Always execute the <strong>Hierarchical Diagnostic Pyramid</strong>:</p>
+<pre><code>                  ┌──────────────────────┐
+                  │ 1. Cluster &amp; Node    │  kubectl get nodes -o wide
+                  │    Infrastructure    │  systemctl status kubelet
+                  └──────────┬───────────┘
+                             │
+                  ┌──────────▼───────────┐
+                  │ 2. Control Plane     │  crictl ps -a (apiserver, etcd)
+                  │    Core Services     │  journalctl -u kubelet
+                  └──────────┬───────────┘
+                             │
+                  ┌──────────▼───────────┐
+                  │ 3. Workloads &amp; Pods  │  kubectl get pods -A -o wide
+                  │    Health &amp; Phases   │  kubectl describe pod &lt;name&gt;
+                  └──────────┬───────────┘
+                             │
+                  ┌──────────▼───────────┐
+                  │ 4. Logs &amp; Telemetry  │  kubectl logs &lt;pod&gt; --previous
+                  │    Internal Errors   │  crictl logs &lt;container-id&gt;
+                  └──────────────────────┘
+</code></pre>
+<hr>
+<h3>CHAPTER 61 &amp; 62: POD AND DEPLOYMENT TROUBLESHOOTING</h3>
+<h4>Diagnostic Decision Matrix:</h4>
+<ol>
+<li><strong><code>CrashLoopBackOff</code>:</strong><ul>
+<li>Step 1: <code>kubectl logs &lt;pod-name&gt; --previous</code></li>
+<li>Step 2: <code>kubectl describe pod &lt;pod-name&gt;</code> (Check Exit Code: 137 = OOMKilled; 0 = Batch process exited; 1 = App error).</li>
+</ul>
+</li>
+<li><strong><code>ImagePullBackOff</code>:</strong><ul>
+<li>Check image spelling, tag existence, and <code>imagePullSecrets</code>.</li>
+</ul>
+</li>
+<li><strong><code>CreateContainerConfigError</code>:</strong><ul>
+<li>Referenced <code>ConfigMap</code> or <code>Secret</code> does not exist in the pod&#39;s namespace.</li>
+</ul>
+</li>
+<li><strong>Deployment Replicas Not Updating:</strong><ul>
+<li>Run <code>kubectl rollout status deployment/&lt;name&gt;</code>.</li>
+<li>Check for resource quota violations or failing readiness probes holding back rolling updates.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3>CHAPTER 63–66: NODE, KUBELET &amp; CONTAINER RUNTIME TROUBLESHOOTING</h3>
+<h4>1. Diagnosing Node <code>NotReady</code></h4>
+<pre><code class="language-bash"># 1. Inspect conditions
+kubectl describe node &lt;node-name&gt; | grep -A 6 Conditions
+
+# 2. SSH into node
+ssh &lt;node-name&gt;
+
+# 3. Check kubelet service
+sudo systemctl status kubelet
+sudo journalctl -u kubelet -n 50 --no-pager
+
+# 4. Check containerd runtime
+sudo systemctl status containerd
+sudo crictl pods
+</code></pre>
+<h4>2. Kubelet Cgroup Driver Mismatch</h4>
+<p>If <code>journalctl -u kubelet</code> reports <code>failed to run Kubelet: misconfiguration: kubelet cgroup driver: &quot;cgroupfs&quot; is different from docker/containerd cgroup driver: &quot;systemd&quot;</code>:</p>
+<pre><code class="language-bash"># Fix /var/lib/kubelet/config.yaml
+sudo sed -i &#39;s/cgroupDriver: cgroupfs/cgroupDriver: systemd/g&#39; /var/lib/kubelet/config.yaml
+sudo systemctl restart kubelet
+</code></pre>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART VI: COMPREHENSIVE TROUBLESHOOTING</h1>
+<h2>CHAPTERS 67–72: API SERVER, ETCD, NETWORKING &amp; INTEGRATED FAILURE DRILLS</h2>
+<hr>
+<h3>CHAPTER 67 &amp; 68: API SERVER &amp; ETCD OUTAGE RECOVERY</h3>
+<h4>1. Recovering a Crashed kube-apiserver</h4>
+<p>When <code>kubectl</code> commands return <code>The connection to the server 192.168.1.10:6443 was refused</code>:</p>
+<ol>
+<li>SSH into the control plane host.</li>
+<li>The API server runs as a static pod. Inspect <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>.</li>
+<li>Check runtime container status:<pre><code class="language-bash">sudo crictl ps -a --name kube-apiserver
+sudo crictl logs $(sudo crictl ps -a --name kube-apiserver -q | head -n 1)
+</code></pre>
+</li>
+<li>Common failure causes:<ul>
+<li>Typo in flag arguments inside <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>.</li>
+<li>Expired certificates in <code>/etc/kubernetes/pki/</code>.</li>
+<li><code>etcd</code> static container is down or unresponsive on port 2379.</li>
+</ul>
+</li>
+</ol>
+<h4>2. Restoring etcd from Corrupted State</h4>
+<p>Execute the proven disaster recovery workflow:</p>
+<pre><code class="language-bash">ETCDCTL_API=3 etcdctl snapshot restore /opt/backup.db \
+  --data-dir=/var/lib/etcd-recovered \
+  --initial-cluster=&quot;controlplane=https://127.0.0.1:2380&quot; \
+  --initial-cluster-token=&quot;k8s-cluster&quot; \
+  --initial-advertise-peer-urls=&quot;https://127.0.0.1:2380&quot; \
+  --name=&quot;controlplane&quot;
+
+sudo sed -i &#39;s|path: /var/lib/etcd|path: /var/lib/etcd-recovered|g&#39; /etc/kubernetes/manifests/etcd.yaml
+</code></pre>
+<hr>
+<h3>CHAPTER 69 &amp; 70: NETWORKING, DNS &amp; STORAGE TROUBLESHOOTING</h3>
+<h4>1. CoreDNS Failure Drill</h4>
+<ul>
+<li><strong>Symptom:</strong> Application pods throw <code>Name or service not known</code>.</li>
+<li><strong>Root Cause 1:</strong> CoreDNS pods stuck in <code>CrashLoopBackOff</code> with <code>Loop ... detected</code>. Occurs when host <code>/etc/resolv.conf</code> loops back to <code>127.0.0.53</code>. Update host DNS to external IP (e.g. <code>8.8.8.8</code>) and restart CoreDNS.</li>
+<li><strong>Root Cause 2:</strong> NetworkPolicy in application namespace lacks egress rule on UDP port 53.</li>
+</ul>
+<h4>2. Service Endpoints Missing</h4>
+<ul>
+<li><strong>Symptom:</strong> <code>curl http://&lt;service-ip&gt;</code> hangs or drops connection.</li>
+<li><strong>Diagnostic:</strong> <code>kubectl get endpoints &lt;service-name&gt;</code>. If <code>&lt;none&gt;</code>, the service label selector does not match the pod labels or the pods are failing readiness probes.</li>
+</ul>
+<hr>
+<h3>CHAPTER 71 &amp; 72: INTEGRATED MULTI-COMPONENT FAILURE DRILLS</h3>
+<h4>Master Integrated Drill: The &quot;Blackout&quot; Control Plane</h4>
+<p><strong>Scenario:</strong>
+A cluster operator accidentally ran a cleanup script on the control plane node. The cluster is completely down:</p>
+<ul>
+<li><code>kubectl</code> returns connection refused.</li>
+<li><code>kubelet</code> is inactive.</li>
+<li><code>etcd</code> data directory was wiped.</li>
+</ul>
+<p><strong>Step-by-Step Resolution Runbook:</strong></p>
+<ol>
+<li><strong>Restart Kubelet Daemon:</strong><pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+sudo systemctl status kubelet
+</code></pre>
+</li>
+<li><strong>Verify Static Pod Manifest Directory:</strong>
+Inspect <code>/var/lib/kubelet/config.yaml</code> and confirm:<pre><code class="language-yaml">staticPodPath: /etc/kubernetes/manifests
+</code></pre>
+</li>
+<li><strong>Restore etcd Database from Latest Snapshot:</strong><pre><code class="language-bash">ETCDCTL_API=3 etcdctl snapshot restore /backup/etcd-snapshot.db \
+  --data-dir=/var/lib/etcd-restored \
+  --initial-cluster=&quot;master=https://127.0.0.1:2380&quot; \
+  --name=&quot;master&quot;
+</code></pre>
+</li>
+<li><strong>Point etcd Manifest to Restored Data:</strong>
+Update hostPath in <code>/etc/kubernetes/manifests/etcd.yaml</code> to <code>/var/lib/etcd-restored</code>.</li>
+<li><strong>Verify kube-apiserver Comes Online:</strong>
+Wait 30 seconds for kubelet to launch static containers. Verify with:<pre><code class="language-bash">sudo crictl ps | grep kube-apiserver
+kubectl get nodes
+</code></pre>
+</li>
+<li><strong>Uncordon Nodes &amp; Verify Workload Healing:</strong><pre><code class="language-bash">kubectl get pods -A
+</code></pre>
+</li>
+</ol>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART VII: EXAM PREPARATION &amp; PSI ENVIRONMENT MASTERY</h1>
+<h2>CHAPTERS 73–77: EXAM STRATEGY, TIME MANAGEMENT &amp; PSI REMOTE DESKTOP</h2>
+<hr>
+<h3>CHAPTER 73: UNDERSTANDING THE CKA CERTIFICATION ENVIRONMENT</h3>
+<h4>1. The Official Remote Workstation</h4>
+<p>The CKA examination is delivered via the PSI Secure Browser, connecting candidates to a remote Linux desktop (Ubuntu 22.04 LTS running XFCE):</p>
+<ul>
+<li><strong>Terminal:</strong> Standard XFCE Terminal with <code>bash</code>.</li>
+<li><strong>Editor:</strong> <code>vim</code> or <code>nano</code> (VS Code is present but extensions are disabled; <code>vim</code> is recommended for maximum speed).</li>
+<li><strong>Browser:</strong> Single-tab Chromium browser restricted to official documentation domains:<ul>
+<li><code>https://kubernetes.io/docs/</code></li>
+<li><code>https://kubernetes.io/blog/</code></li>
+<li><code>https://helm.sh/docs/</code></li>
+</ul>
+</li>
+<li><strong>Clipboard:</strong> Cut and paste operates within the remote desktop using standard Linux shortcuts (<code>Ctrl+Shift+C</code> and <code>Ctrl+Shift+V</code>).</li>
+</ul>
+<hr>
+<h3>CHAPTER 74: TIME MANAGEMENT &amp; COMMAND-LINE SPEED</h3>
+<h4>1. The 120-Minute Time Budget</h4>
+<p>The examination contains 15 to 20 performance tasks:</p>
+<ul>
+<li>Average time per task: <strong>6 to 8 minutes</strong>.</li>
+<li>The <strong>3-Minute Rule</strong>: If you cannot formulate a clear solution path within 3 minutes of reading a task, <strong>FLAG IT AND MOVE ON</strong>.</li>
+<li>High-weight troubleshooting tasks (e.g., control plane outage, cluster upgrade, etcd restore) carry up to 8% to 10% each. Low-weight pod configuration tasks carry 3% to 4%.</li>
+</ul>
+<h4>2. Essential Time-Saving Aliases</h4>
+<p>At the start of the exam, run:</p>
+<pre><code class="language-bash">alias k=kubectl
+export do=&quot;--dry-run=client -o yaml&quot;
+export now=&quot;--force --grace-period=0&quot;
+</code></pre>
+<hr>
+<h3>CHAPTER 75: OFFICIAL DOCUMENTATION NAVIGATION STRATEGY</h3>
+<p>Do not browse the documentation hierarchy during the exam. Use direct keyword search inside the documentation browser tab:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Objective</th>
+<th align="left">Documentation Search Keyword</th>
+<th align="left">Target Page</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">NetworkPolicy</td>
+<td align="left">&quot;Network Policies&quot;</td>
+<td align="left">Concepts -&gt; Services, Networking -&gt; Network Policies</td>
+</tr>
+<tr>
+<td align="left">Ingress</td>
+<td align="left">&quot;Ingress&quot;</td>
+<td align="left">Concepts -&gt; Services, Networking -&gt; Ingress</td>
+</tr>
+<tr>
+<td align="left">Gateway API</td>
+<td align="left">&quot;Gateway API&quot;</td>
+<td align="left">Concepts -&gt; Services, Networking -&gt; Gateway API</td>
+</tr>
+<tr>
+<td align="left">PersistentVolume</td>
+<td align="left">&quot;Persistent Volumes&quot;</td>
+<td align="left">Concepts -&gt; Storage -&gt; Persistent Volumes</td>
+</tr>
+<tr>
+<td align="left">Kubeadm Upgrade</td>
+<td align="left">&quot;Upgrading kubeadm clusters&quot;</td>
+<td align="left">Tasks -&gt; Administer a Cluster -&gt; Upgrading kubeadm clusters</td>
+</tr>
+<tr>
+<td align="left">etcd Backup / Restore</td>
+<td align="left">&quot;Operating etcd clusters for Kubernetes&quot;</td>
+<td align="left">Tasks -&gt; Administer a Cluster -&gt; Operating etcd clusters</td>
+</tr>
+</tbody></table>
+<p>Copy YAML code snippets directly from the documentation using the top-right copy icon on code blocks.</p>
+<hr>
+<h3>CHAPTER 76: EXAM TASK PRIORITIZATION MATRIX</h3>
+<p>Execute exam questions in three distinct waves:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│ WAVE 1: Low-Hanging Fruit (First 40 Minutes)                                │
+│ Tasks: Pod generation, Deployments, Services, ConfigMaps, Secrets, RBAC.    │
+│ Target: Secure 35% - 40% of the total score quickly with zero mistakes.     │
+└─────────────────────────────────────┬───────────────────────────────────────┘
+                                      │
+┌─────────────────────────────────────▼───────────────────────────────────────┐
+│ WAVE 2: Standard Administration &amp; Storage (Next 45 Minutes)                 │
+│ Tasks: PV/PVC creation, NetworkPolicies, Ingress, Node Draining, Upgrades.  │
+│ Target: Push cumulative score past the 66% passing threshold.               │
+└─────────────────────────────────────┬───────────────────────────────────────┘
+                                      │
+┌─────────────────────────────────────▼───────────────────────────────────────┐
+│ WAVE 3: Complex Troubleshooting &amp; Flagged Tasks (Remaining 35 Minutes)      │
+│ Tasks: etcd snapshot restore, broken control plane, failing kubelet.        │
+│ Target: Maximize final score toward 85%+.                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>CHAPTER 77: THE TOP 10 DEADLIEST CANDIDATE MISTAKES</h3>
+<ol>
+<li><strong>Forgetting to Switch Context:</strong> Every task begins with a context switch command:<pre><code class="language-bash">kubectl config use-context &lt;context-name&gt;
+</code></pre>
+Failing to run this executes the solution on the wrong cluster, awarding <strong>zero points</strong>.</li>
+<li><strong>Working in the Wrong Namespace:</strong> Always append <code>-n &lt;target-namespace&gt;</code> or verify current namespace.</li>
+<li><strong>Using Deprecated Flags:</strong> Running <code>kubectl ... --record</code> or using obsolete <code>batch/v1beta1</code> APIs.</li>
+<li><strong>Writing YAML from Scratch:</strong> Always use <code>kubectl run ... $do</code> or copy from official docs.</li>
+<li><strong>Overwriting the etcd Data Directory:</strong> Restoring etcd directly into <code>/var/lib/etcd</code> without specifying a new target directory.</li>
+<li><strong>Forgetting to Uncordon Nodes:</strong> Leaving upgraded nodes cordoned.</li>
+<li><strong>Indentation Errors in YAML:</strong> Mixing tabs and spaces in <code>vim</code>. Configure <code>~/.vimrc</code> first!</li>
+<li><strong>Ignoring Pod Readiness:</strong> Assuming a pod is working because phase is <code>Running</code>, without verifying readiness probes.</li>
+<li><strong>Failing to Verify Cluster Status:</strong> Not testing <code>kubectl get nodes</code> or <code>curl</code> endpoints before moving to the next task.</li>
+<li><strong>Panic and Time Freezing:</strong> Spending 25 minutes stuck on a 4% task instead of flagging it.</li>
+</ol>
+<div class='page-break'></div><h1>VOLUME I: THE COMPLETE CKA TEXTBOOK</h1>
+<h1>PART VII: EXAM PREPARATION &amp; PSI ENVIRONMENT MASTERY</h1>
+<h2>CHAPTERS 78–80: READINESS ASSESSMENT, COMPETENCY DRILLS &amp; FINAL CHECKLIST</h2>
+<hr>
+<h3>CHAPTER 78: FINAL READINESS SELF-ASSESSMENT</h3>
+<p>Before booking your official CKA examination date, evaluate your speed and confidence against this readiness rubric:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Objective Area</th>
+<th align="left">Target Completion Time</th>
+<th align="left">Required Accuracy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Generate Pod &amp; Expose as ClusterIP</td>
+<td align="left">&lt; 60 seconds</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">Author 3-Tier Ingress / Gateway API HTTPRoute</td>
+<td align="left">&lt; 4 minutes</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">Configure Role &amp; RoleBinding for ServiceAccount</td>
+<td align="left">&lt; 2 minutes</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">Execute Complete etcd Backup &amp; Snapshot Restore</td>
+<td align="left">&lt; 7 minutes</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">Upgrade Control Plane Node via kubeadm</td>
+<td align="left">&lt; 8 minutes</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">Diagnose and Fix <code>NotReady</code> Worker Node</td>
+<td align="left">&lt; 5 minutes</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">Build Fine-Grained Default-Deny NetworkPolicy</td>
+<td align="left">&lt; 3 minutes</td>
+<td align="left">100%</td>
+</tr>
+</tbody></table>
+<p>If any task takes longer than the target time, re-execute the corresponding lab in Volume II.</p>
+<hr>
+<h3>CHAPTER 79: SPEED DRILLS &amp; IMPERATIVE MUSCLE MEMORY</h3>
+<h4>Speed Drill 1: Rapid Workload Exposure</h4>
+<p>Generate a Deployment named <code>api-server</code> with 3 replicas of <code>nginx:alpine</code>, exposed internally on port 80 routing to container port 8080:</p>
+<pre><code class="language-bash">kubectl create deployment api-server --image=nginx:alpine --replicas=3
+kubectl expose deployment api-server --name=api-svc --port=80 --target-port=8080
+</code></pre>
+<p><em>Time to execute:</em> Under 20 seconds.</p>
+<h4>Speed Drill 2: Diagnostic JSONPath Extraction</h4>
+<p>Extract all pod names and their IP addresses sorted by IP across all namespaces:</p>
+<pre><code class="language-bash">kubectl get pods -A -o custom-columns=NAME:.metadata.name,IP:.status.podIP --sort-by=.status.podIP
+</code></pre>
+<p><em>Time to execute:</em> Under 30 seconds.</p>
+<h4>Speed Drill 3: Instant Node Inspection</h4>
+<p>Identify which node in the cluster is consuming the highest CPU millicores:</p>
+<pre><code class="language-bash">kubectl top nodes --sort-by=cpu
+</code></pre>
+<hr>
+<h3>CHAPTER 80: MASTER 24-HOUR PRE-EXAM CHECKLIST</h3>
+<h4>24 Hours Before the Exam:</h4>
+<ul>
+<li><input disabled="" type="checkbox"> Verify government photo ID name matches your Linux Foundation profile exactly.</li>
+<li><input disabled="" type="checkbox"> Ensure desk is completely clear of paper, secondary monitors, pens, and electronic devices.</li>
+<li><input disabled="" type="checkbox"> Test webcam, microphone, and internet bandwidth on PSI Secure Browser compatibility check.</li>
+<li><input disabled="" type="checkbox"> Review Volume IV Command Field Guide for quick JSONPath and etcdctl syntax recall.</li>
+</ul>
+<h4>15 Minutes Before the Exam:</h4>
+<ul>
+<li><input disabled="" type="checkbox"> Log in to Linux Foundation portal and launch PSI Secure Browser.</li>
+<li><input disabled="" type="checkbox"> Complete identity verification and 360-degree room scan with remote proctor.</li>
+<li><input disabled="" type="checkbox"> Once terminal access is granted, set up bash aliases immediately:<pre><code class="language-bash">alias k=kubectl
+export do=&quot;--dry-run=client -o yaml&quot;
+export now=&quot;--force --grace-period=0&quot;
+</code></pre>
+</li>
+<li><input disabled="" type="checkbox"> Keep calm, read every task&#39;s target context carefully, and execute!</li>
+</ul>
+<div class='page-break'></div>
+  </div>
+</body>
+</html>

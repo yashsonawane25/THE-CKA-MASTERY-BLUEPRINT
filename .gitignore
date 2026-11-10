@@ -1,0 +1,11 @@
+# Node modules and build artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System & temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log

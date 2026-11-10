@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Volume IV: Command & Troubleshooting Field Guide</title>
+  <style>
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #1a202c;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0b192c;
+    font-weight: 700;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 24pt;
+    border-bottom: 3px solid #1e3e62;
+    padding-bottom: 6px;
+    margin-top: 24pt;
+    margin-bottom: 14pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #1e3e62;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+  }
+
+  h4 {
+    font-size: 11pt;
+    color: #334155;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+  }
+
+  p, ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 8pt;
+  }
+
+  code {
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 9pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 10pt 0;
+    border-left: 4px solid #38bdf8;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  blockquote {
+    border-left: 4px solid #2563eb;
+    background-color: #eff6ff;
+    padding: 10px 14px;
+    margin: 12pt 0;
+    border-radius: 0 6px 6px 0;
+    color: #1e3a8a;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #0b192c;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 20pt 0;
+    page-break-after: avoid;
+  }
+
+  .cover-page {
+    text-align: center;
+    padding-top: 100pt;
+    padding-bottom: 80pt;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .cover-title {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0b192c;
+    line-height: 1.15;
+    margin-bottom: 12pt;
+  }
+
+  .cover-subtitle {
+    font-size: 16pt;
+    color: #1e3e62;
+    margin-bottom: 24pt;
+    font-weight: 500;
+  }
+
+  .cover-edition {
+    display: inline-block;
+    background-color: #0b192c;
+    color: #38bdf8;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40pt;
+  }
+
+  .cover-meta {
+    font-size: 10pt;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .badge-pass { background-color: #dcfce7; color: #166534; }
+  .badge-warn { background-color: #fef9c3; color: #854d0e; }
+  .badge-crit { background-color: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+  <div class="cover-page">
+    <div class="cover-edition">2026–2027 PROFESSIONAL EDITION (VERSION 2.0)</div>
+    <div class="cover-title">Volume IV: Command & Troubleshooting Field Guide</div>
+    <div class="cover-subtitle">Imperative CLI Recipes, JSONPath Filters & Linux Systemd Diagnostics</div>
+    <div class="cover-meta">
+      <strong>Cloud Native Engineering Press</strong><br/>
+      Targeting Kubernetes v1.31.x / v1.32.x (Forward Compatible through v1.33+)<br/>
+      Independent Professional Certification Study System<br/>
+      Certified Kubernetes Administrator (CNCF / The Linux Foundation)
+    </div>
+  </div>
+  <div class="page-break"></div>
+  <div class="content-container">
+    <h1>VOLUME IV: THE CKA COMMAND AND TROUBLESHOOTING FIELD GUIDE</h1>
+<h2>PART 1: KUBECTL ADMINISTRATION, JSONPATH &amp; WORKLOAD COMMANDS</h2>
+<hr>
+<h2>1. ESSENTIAL SHELL ALIASES AND SPEED BOILERPLATE</h2>
+<p>To pass the CKA exam within the 120-minute limit, configure these shell aliases immediately upon opening the remote desktop terminal:</p>
+<pre><code class="language-bash"># 1. Instant Command Aliases
+alias k=kubectl
+alias kgp=&quot;kubectl get pods -o wide&quot;
+alias kgs=&quot;kubectl get svc -o wide&quot;
+alias kgn=&quot;kubectl get nodes -o wide&quot;
+alias kd=&quot;kubectl describe&quot;
+
+# 2. Bash Autocompletion for &#39;k&#39;
+source &lt;(kubectl completion bash)
+complete -o default -F __start_kubectl k
+
+# 3. Imperative Generation Fast Variables
+export do=&quot;--dry-run=client -o yaml&quot;
+export now=&quot;--force --grace-period=0&quot;
+
+# 4. Vim Configuration for Flawless YAML Editing
+cat &lt;&lt;EOF &gt; ~/.vimrc
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set number
+EOF
+</code></pre>
+<hr>
+<h2>2. KUBECTL WORKLOAD COMMAND REFERENCE</h2>
+<hr>
+<h3>Command: Imperative Pod Generation</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>kubectl run &lt;pod-name&gt; --image=&lt;image&gt; [--port=&lt;port&gt;] [--env=&quot;KEY=VAL&quot;] [--labels=&quot;k=v&quot;] [--dry-run=client -o yaml]</code></li>
+<li><strong>Purpose:</strong> Generates a standalone Pod manifest without authoring YAML manually.</li>
+<li><strong>Example:</strong><pre><code class="language-bash">kubectl run redis-cache --image=redis:7.2-alpine --port=6379 --env=&quot;ALLOW_EMPTY_PASSWORD=yes&quot; $do &gt; redis.yaml
+</code></pre>
+</li>
+<li><strong>Flag Explanation:</strong><ul>
+<li><code>--image</code>: Container image to pull from registry.</li>
+<li><code>--port</code>: Container port declaration (<code>containerPort: 6379</code>).</li>
+<li><code>--env</code>: Key-value environment variables injected into the container.</li>
+<li><code>--dry-run=client -o yaml</code>: Evaluates client-side syntax and prints raw YAML to stdout without sending requests to the API server.</li>
+</ul>
+</li>
+<li><strong>Expected Output:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: redis-cache
+  name: redis-cache
+spec:
+  containers:
+  - env:
+    - name: ALLOW_EMPTY_PASSWORD
+      value: &quot;yes&quot;
+    image: redis:7.2-alpine
+    name: redis-cache
+    ports:
+    - containerPort: 6379
+</code></pre>
+</li>
+<li><strong>Common Errors:</strong> Forgetting <code>$do</code> (<code>--dry-run=client -o yaml</code>) and accidentally deploying the pod to the live cluster immediately.</li>
+<li><strong>Safety Warning:</strong> Pods created directly via <code>kubectl run</code> are unmanaged; they lack self-healing or auto-recreation if the worker node crashes.</li>
+</ul>
+<hr>
+<h3>Command: Imperative Deployment Creation &amp; Scaling</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>kubectl create deployment &lt;name&gt; --image=&lt;image&gt; [--replicas=&lt;count&gt;] [--port=&lt;port&gt;]</code></li>
+<li><strong>Purpose:</strong> Creates a self-healing Deployment managing a ReplicaSet.</li>
+<li><strong>Example:</strong><pre><code class="language-bash">kubectl create deployment web-frontend --image=nginx:1.27-alpine --replicas=3 --port=80 $do &gt; deploy.yaml
+kubectl apply -f deploy.yaml
+</code></pre>
+</li>
+<li><strong>Scaling Example:</strong><pre><code class="language-bash">kubectl scale deployment web-frontend --replicas=5
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong>
+<code>deployment.apps/web-frontend created</code>
+<code>deployment.apps/web-frontend scaled</code></li>
+<li><strong>Common Errors:</strong> Attempting to specify pod resource requests/limits directly on the CLI; resource constraints must be edited inside the generated YAML.</li>
+</ul>
+<hr>
+<h3>Command: Rolling Update &amp; Revision Recording (Modern Replacement for Removed <code>--record</code>)</h3>
+<ul>
+<li><strong>Syntax:</strong><pre><code class="language-bash">kubectl set image deployment/&lt;name&gt; &lt;container-name&gt;=&lt;new-image&gt;
+kubectl annotate deployment/&lt;name&gt; kubernetes.io/change-cause=&quot;&lt;description&gt;&quot; --overwrite
+</code></pre>
+</li>
+<li><strong>Purpose:</strong> Performs a zero-downtime rolling update and records the reason in the rollout revision history.</li>
+<li><strong>Example:</strong><pre><code class="language-bash"># Step 1: Update container image in-place
+kubectl set image deployment/web-frontend nginx=nginx:1.27.2-alpine
+
+# Step 2: Record change cause using official Kubernetes annotation
+kubectl annotate deployment/web-frontend kubernetes.io/change-cause=&quot;Upgraded nginx to 1.27.2-alpine&quot; --overwrite
+
+# Step 3: Monitor rollout progress
+kubectl rollout status deployment/web-frontend
+
+# Step 4: Inspect rollout history
+kubectl rollout history deployment/web-frontend
+</code></pre>
+</li>
+<li><strong>CRITICAL NOTE ON REMOVED <code>--record</code> FLAG:</strong>  <blockquote>
+<p>[!IMPORTANT]
+The <code>--record</code> flag was deprecated in Kubernetes v1.19 and <strong>permanently removed</strong> in modern kubectl releases (<code>v1.26+</code>). Running <code>kubectl set image ... --record</code> produces warnings/errors and will not populate the change-cause field. The official, supported standard is annotating the Deployment with <code>kubernetes.io/change-cause=&quot;...&quot;</code>.</p>
+</blockquote>
+</li>
+<li><strong>Expected Output:</strong><pre><code class="language-text">deployment.apps/web-frontend image updated
+deployment.apps/web-frontend annotated
+Waiting for deployment &quot;web-frontend&quot; rollout to finish: 1 out of 5 new replicas have been updated...
+deployment &quot;web-frontend&quot; successfully rolled out
+REVISION  CHANGE-CAUSE
+1         Initial deployment
+2         Upgraded nginx to 1.27.2-alpine
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>Command: Instant Deployment Rollback</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>kubectl rollout undo deployment/&lt;name&gt; [--to-revision=&lt;rev&gt;]</code></li>
+<li><strong>Purpose:</strong> Immediately reverts a failing rollout to the previous revision or a specific revision number.</li>
+<li><strong>Example:</strong><pre><code class="language-bash"># Rollback to immediate previous revision
+kubectl rollout undo deployment/web-frontend
+
+# Rollback to specific stable revision
+kubectl rollout undo deployment/web-frontend --to-revision=1
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong> <code>deployment.apps/web-frontend rolled back</code></li>
+</ul>
+<hr>
+<h3>Command: Job and CronJob Generation</h3>
+<ul>
+<li><strong>Syntax:</strong><ul>
+<li>Job: <code>kubectl create job &lt;name&gt; --image=&lt;image&gt; [--dry-run=client -o yaml] -- &lt;command&gt;</code></li>
+<li>CronJob: <code>kubectl create cronjob &lt;name&gt; --image=&lt;image&gt; --schedule=&quot;&lt;cron&gt;&quot; [--dry-run=client -o yaml] -- &lt;command&gt;</code></li>
+</ul>
+</li>
+<li><strong>Example:</strong><pre><code class="language-bash"># Batch Job
+kubectl create job db-backup --image=busybox:1.36 $do -- sh -c &quot;echo &#39;Backup completed&#39; &amp;&amp; exit 0&quot; &gt; job.yaml
+
+# Scheduled CronJob (Runs every 15 minutes)
+kubectl create cronjob sync-task --image=curlimages/curl:8.10.1 --schedule=&quot;*/15 * * * *&quot; $do -- curl -s https://api.internal/sync &gt; cronjob.yaml
+</code></pre>
+</li>
+<li><strong>Common Errors:</strong> CronJobs require the 5-field standard cron syntax (<code>minute hour day-of-month month day-of-week</code>). Forgetting quotes around <code>--schedule=&quot;* * * * *&quot;</code> causes bash expansion syntax errors.</li>
+</ul>
+<hr>
+<h3>Command: ConfigMap and Secret Generation</h3>
+<ul>
+<li><strong>Syntax:</strong><ul>
+<li>ConfigMap from literal: <code>kubectl create configmap &lt;name&gt; --from-literal=&lt;key&gt;=&lt;val&gt;</code></li>
+<li>ConfigMap from file: <code>kubectl create configmap &lt;name&gt; --from-file=&lt;path&gt;</code></li>
+<li>Generic Secret: <code>kubectl create secret generic &lt;name&gt; --from-literal=&lt;key&gt;=&lt;val&gt;</code></li>
+<li>TLS Secret: <code>kubectl create secret tls &lt;name&gt; --cert=&lt;cert.crt&gt; --key=&lt;key.key&gt;</code></li>
+<li>Docker Registry Secret: <code>kubectl create secret docker-registry &lt;name&gt; --docker-server=&lt;server&gt; --docker-username=&lt;u&gt; --docker-password=&lt;p&gt;</code></li>
+</ul>
+</li>
+<li><strong>Examples:</strong><pre><code class="language-bash">kubectl create configmap app-settings --from-literal=ENVIRONMENT=production --from-literal=DB_PORT=5432
+kubectl create secret generic app-credentials --from-literal=DB_PASS=&quot;s3cur3P@ssw0rd!&quot;
+kubectl create secret tls ingress-tls --cert=/etc/ssl/tls.crt --key=/etc/ssl/tls.key
+</code></pre>
+</li>
+<li><strong>Safety Warning:</strong> Values stored in standard Kubernetes Secrets are merely Base64-encoded, not encrypted at rest by default unless KMS / encryption-provider is enabled on <code>kube-apiserver</code>.</li>
+</ul>
+<hr>
+<h2>3. NETWORKING, SERVICES &amp; GATEWAY API COMMANDS</h2>
+<hr>
+<h3>Command: Exposing Workloads via Service</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>kubectl expose (deployment|pod) &lt;name&gt; --port=&lt;svc-port&gt; [--target-port=&lt;pod-port&gt;] [--type=(ClusterIP|NodePort|LoadBalancer)]</code></li>
+<li><strong>Purpose:</strong> Automatically generates a Service that inherits the target deployment&#39;s exact label selector.</li>
+<li><strong>Example:</strong><pre><code class="language-bash"># Expose as internal ClusterIP
+kubectl expose deployment web-frontend --port=80 --target-port=8080 --name=web-svc
+
+# Expose as external NodePort
+kubectl expose deployment web-frontend --type=NodePort --port=80 --target-port=8080 --name=web-np
+</code></pre>
+</li>
+<li><strong>Verification:</strong><pre><code class="language-bash">kubectl get svc web-svc -o wide
+kubectl get endpointslices -l kubernetes.io/service-name=web-svc
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>Command: Inspecting Gateway API Resources</h3>
+<ul>
+<li><strong>Syntax:</strong><pre><code class="language-bash">kubectl get gatewayclasses
+kubectl get gateways -A
+kubectl get httproutes -A
+kubectl describe httproute &lt;route-name&gt;
+</code></pre>
+</li>
+<li><strong>Purpose:</strong> Queries modern Gateway API infrastructure and identifies routing acceptance status.</li>
+<li><strong>Example:</strong><pre><code class="language-bash">kubectl describe httproute payments-route
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong><pre><code class="language-text">Status:
+  Parents:
+    Conditions:
+      Last Transition Time:  2026-11-09T18:00:00Z
+      Message:               Route was accepted
+      Reason:                Accepted
+      Status:                True
+      Type:                  Accepted
+      Status:                True
+      Type:                  ResolvedRefs
+    Controller Name:         gateway.networking.k8s.io/gateway-controller
+    Parent Ref:
+      Group:  gateway.networking.k8s.io
+      Kind:   Gateway
+      Name:   prod-gateway
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>4. ADVANCED JSONPATH, SORTING &amp; CUSTOM COLUMNS</h2>
+<hr>
+<h3>Filter: List Pods Sorted by Creation Timestamp</h3>
+<pre><code class="language-bash">kubectl get pods -A --sort-by=.metadata.creationTimestamp
+</code></pre>
+<p><em>Purpose:</em> Immediately displays the most recently created or restarted pods across all namespaces.</p>
+<hr>
+<h3>Filter: Extract Node Internal IP Addresses</h3>
+<pre><code class="language-bash">kubectl get nodes -o jsonpath=&#39;{range .items[*]}{.metadata.name}{&quot;\t&quot;}{range .status.addresses[?(@.type==&quot;InternalIP&quot;)]}{.address}{&quot;\n&quot;}{end}{end}&#39;
+</code></pre>
+<p><em>Purpose:</em> Cleanly outputs node hostnames paired with their physical internal IP addresses for cluster-level SSH operations.</p>
+<hr>
+<h3>Filter: Extract All Pod Names Running on a Specific Node</h3>
+<pre><code class="language-bash">kubectl get pods -A --field-selector spec.nodeName=worker-01 -o jsonpath=&#39;{.items[*].metadata.name}&#39;
+</code></pre>
+<p><em>Purpose:</em> Finds every pod placed on an affected worker node prior to draining or troubleshooting.</p>
+<hr>
+<h3>Filter: List Container Images across All Deployments</h3>
+<pre><code class="language-bash">kubectl get deployments -A -o custom-columns=NAMESPACE:.metadata.namespace,DEPLOYMENT:.metadata.name,IMAGE:.spec.template.spec.containers[*].image
+</code></pre>
+<p><em>Purpose:</em> Verifies container image tags across all production deployments in a formatted table.</p>
+<hr>
+<h3>Filter: Extract Non-Ready Nodes</h3>
+<pre><code class="language-bash">kubectl get nodes -o jsonpath=&#39;{range .items[*]}{.metadata.name}{&quot;\t&quot;}{range .status.conditions[?(@.type==&quot;Ready&quot;)]}{.status}{&quot;\n&quot;}{end}{end}&#39; | grep -v &quot;True&quot;
+</code></pre>
+<p><em>Purpose:</em> Instant programmatic filter isolating nodes in <code>NotReady</code> or <code>Unknown</code> condition.</p>
+<hr>
+<h2>5. RBAC &amp; PERMISSION AUDITING COMMANDS</h2>
+<hr>
+<h3>Command: Permission Checking (<code>auth can-i</code>)</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>kubectl auth can-i &lt;verb&gt; &lt;resource&gt; [--as=&lt;user&gt;] [--as-group=&lt;group&gt;] [-n &lt;namespace&gt;]</code></li>
+<li><strong>Purpose:</strong> Verifies RBAC authorization without requiring context switching or certificates.</li>
+<li><strong>Examples:</strong><pre><code class="language-bash"># Can current user delete pods in production?
+kubectl auth can-i delete pods -n production
+
+# Can ServiceAccount &#39;deployer&#39; in namespace &#39;cicd&#39; create deployments in &#39;default&#39;?
+kubectl auth can-i create deployments --as=system:serviceaccount:cicd:deployer -n default
+
+# Can developer user &#39;jane&#39; view secrets in any namespace?
+kubectl auth can-i get secrets -A --as=jane
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong> <code>yes</code> or <code>no</code></li>
+</ul>
+<hr>
+<h3>Command: Imperative Role &amp; RoleBinding Creation</h3>
+<pre><code class="language-bash"># 1. Create a Role with specific verbs and resources
+kubectl create role pod-admin --verb=get,list,watch,create,delete --resource=pods,pods/log -n staging
+
+# 2. Bind the Role to a User
+kubectl create rolebinding pod-admin-binding --role=pod-admin --user=jane -n staging
+
+# 3. Create a ClusterRole across all namespaces
+kubectl create clusterrole node-reader --verb=get,list,watch --resource=nodes
+
+# 4. Bind ClusterRole to a ServiceAccount
+kubectl create clusterrolebinding node-reader-binding --clusterrole=node-reader --serviceaccount=kube-system:monitor-sa
+</code></pre>
+<div class='page-break'></div><h1>VOLUME IV: THE CKA COMMAND AND TROUBLESHOOTING FIELD GUIDE</h1>
+<h2>PART 2: CLUSTER ADMINISTRATION, ETCD, CRICTL &amp; LINUX DIAGNOSTICS</h2>
+<hr>
+<h2>1. KUBEADM CLUSTER LIFECYCLE &amp; CERTIFICATE MANAGEMENT</h2>
+<hr>
+<h3>Command: Certificate Expiration Inspection</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>sudo kubeadm certs check-expiration</code></li>
+<li><strong>Purpose:</strong> Inspects cryptographic TLS certificates in <code>/etc/kubernetes/pki/</code> and reports remaining lifespan.</li>
+<li><strong>Example:</strong><pre><code class="language-bash">sudo kubeadm certs check-expiration
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong><pre><code class="language-text">CERTIFICATE                EXPIRES                  RESIDUAL TIME   CERTIFICATE AUTHORITY
+admin.conf                 Nov 09, 2027 12:00 UTC   364d            ca
+apiserver                  Nov 09, 2027 12:00 UTC   364d            ca
+apiserver-etcd-client      Nov 09, 2027 12:00 UTC   364d            etcd-ca
+apiserver-kubelet-client   Nov 09, 2027 12:00 UTC   364d            ca
+controller-manager.conf    Nov 09, 2027 12:00 UTC   364d            ca
+etcd-healthcheck-client    Nov 09, 2027 12:00 UTC   364d            etcd-ca
+etcd-peer                  Nov 09, 2027 12:00 UTC   364d            etcd-ca
+etcd-server                Nov 09, 2027 12:00 UTC   364d            etcd-ca
+front-proxy-client         Nov 09, 2027 12:00 UTC   364d            front-proxy-ca
+scheduler.conf             Nov 09, 2027 12:00 UTC   364d            ca
+</code></pre>
+</li>
+<li><strong>Common Mistakes:</strong> Running without <code>sudo</code>, causing <code>permission denied</code> errors when accessing <code>/etc/kubernetes/pki/*.key</code>.</li>
+</ul>
+<hr>
+<h3>Command: Certificate Renewal Procedure</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>sudo kubeadm certs renew (all|&lt;cert-name&gt;)</code></li>
+<li><strong>Purpose:</strong> Generates fresh 1-year cryptographic TLS certificates signed by the local CA.</li>
+<li><strong>Runbook:</strong><pre><code class="language-bash"># Step 1: Renew all certificates
+sudo kubeadm certs renew all
+
+# Step 2: Restart control plane static pods by moving manifests temporarily
+sudo mv /etc/kubernetes/manifests/*.yaml /tmp/
+sleep 5
+sudo mv /tmp/*.yaml /etc/kubernetes/manifests/
+
+# Step 3: Update local user kubeconfig with renewed admin credentials
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# Step 4: Verify API access
+kubectl get nodes
+</code></pre>
+</li>
+<li><strong>Safety Warning:</strong> Renewing certificates updates <code>/etc/kubernetes/admin.conf</code>. If you forget Step 3, your local <code>kubectl</code> commands will immediately fail with <code>401 Unauthorized / certificate has expired</code>!</li>
+</ul>
+<hr>
+<h3>Command: Cluster Version Upgrade (Control Plane)</h3>
+<ul>
+<li><strong>Syntax:</strong><ul>
+<li><code>sudo kubeadm upgrade plan</code></li>
+<li><code>sudo kubeadm upgrade apply &lt;version&gt;</code></li>
+</ul>
+</li>
+<li><strong>Runbook:</strong><pre><code class="language-bash"># 1. Unhold kubeadm and install target version
+sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+
+# 2. Plan the upgrade to verify compatibility
+sudo kubeadm upgrade plan
+
+# 3. Apply the upgrade to the control plane
+sudo kubeadm upgrade apply v1.31.2 -y
+
+# 4. Drain control plane node
+kubectl drain &lt;cp-node&gt; --ignore-daemonsets
+
+# 5. Upgrade kubelet and kubectl
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+
+# 6. Restart kubelet daemon
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+
+# 7. Uncordon control plane node
+kubectl uncordon &lt;cp-node&gt;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>Command: Worker Node Upgrade Runbook</h3>
+<pre><code class="language-bash"># 1. Drain worker node from control plane / bastion
+kubectl drain &lt;worker-node&gt; --ignore-daemonsets --delete-emptydir-data
+
+# 2. SSH into worker node
+ssh &lt;worker-node&gt;
+
+# 3. Upgrade kubeadm binary
+sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+
+# 4. Upgrade local worker configuration
+sudo kubeadm upgrade node
+
+# 5. Upgrade kubelet and kubectl
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+
+# 6. Restart kubelet
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+exit
+
+# 7. Uncordon worker node from control plane
+kubectl uncordon &lt;worker-node&gt;
+</code></pre>
+<hr>
+<h3>Command: Generate Node Join Token</h3>
+<ul>
+<li><strong>Syntax:</strong> <code>kubeadm token create --print-join-command</code></li>
+<li><strong>Purpose:</strong> Generates a new bootstrap token and prints the complete <code>kubeadm join</code> command with CA hash for joining new worker nodes.</li>
+<li><strong>Example:</strong><pre><code class="language-bash">kubeadm token create --print-join-command
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong><pre><code class="language-bash">kubeadm join 192.168.1.10:6443 --token abcdef.0123456789abcdef \
+    --discovery-token-ca-cert-hash sha256:7c8b4e2f9d1a3b5c7e9f...
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>2. ETCD DISASTER RECOVERY &amp; ETCDCTL RUNBOOK</h2>
+<hr>
+<h3>Command: etcd Snapshot Backup</h3>
+<ul>
+<li><strong>Syntax:</strong><pre><code class="language-bash">ETCDCTL_API=3 etcdctl --endpoints=&lt;endpoint&gt; \
+  --cacert=&lt;ca-path&gt; --cert=&lt;cert-path&gt; --key=&lt;key-path&gt; \
+  snapshot save &lt;output-file.db&gt;
+</code></pre>
+</li>
+<li><strong>Standard Control Plane Backup Command:</strong><pre><code class="language-bash">ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+  --cert=/etc/kubernetes/pki/etcd/server.crt \
+  --key=/etc/kubernetes/pki/etcd/server.key \
+  snapshot save /opt/etcd-backup.db
+</code></pre>
+</li>
+<li><strong>Verify Snapshot Integrity:</strong><pre><code class="language-bash">ETCDCTL_API=3 etcdctl --write-out=table snapshot status /opt/etcd-backup.db
+</code></pre>
+</li>
+<li><strong>Expected Output:</strong><pre><code class="language-text">+----------+----------+------------+------------+
+|   HASH   | REVISION | TOTAL KEYS | TOTAL SIZE |
++----------+----------+------------+------------+
+| fe84a10c |    15820 |       1450 |     3.2 MB |
++----------+----------+------------+------------+
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>Command: etcd Disaster Recovery Restore Procedure</h3>
+<p>When etcd is corrupted, execute this step-by-step restoration:</p>
+<pre><code class="language-bash"># Step 1: Restore snapshot to a NEW data directory
+ETCDCTL_API=3 etcdctl snapshot restore /opt/etcd-backup.db \
+  --data-dir=/var/lib/etcd-restored \
+  --initial-cluster=&quot;controlplane=https://127.0.0.1:2380&quot; \
+  --initial-cluster-token=&quot;etcd-cluster-1&quot; \
+  --initial-advertise-peer-urls=&quot;https://127.0.0.1:2380&quot; \
+  --name=&quot;controlplane&quot;
+
+# Step 2: Update the hostPath mount in the etcd static pod manifest
+sudo sed -i &#39;s|path: /var/lib/etcd|path: /var/lib/etcd-restored|g&#39; /etc/kubernetes/manifests/etcd.yaml
+
+# Step 3: Wait for kubelet to restart the etcd static pod (30-60 seconds)
+# Step 4: Verify health
+kubectl get nodes
+</code></pre>
+<ul>
+<li><strong>Safety Warning:</strong> NEVER restore directly into <code>/var/lib/etcd</code> without specifying <code>--data-dir=/var/lib/etcd-restored</code>. Restoring over an existing directory causes write collisions and corrupts the Raft log.</li>
+</ul>
+<hr>
+<h2>3. CRICTL CONTAINER RUNTIME REFERENCE</h2>
+<p><code>crictl</code> communicates directly with the CRI socket (<code>/run/containerd/containerd.sock</code>). It is the primary troubleshooting tool when <code>kubectl</code> is unavailable.</p>
+<hr>
+<h3>Common CRICTL Operations:</h3>
+<pre><code class="language-bash"># Configure endpoint once if not set
+cat &lt;&lt;EOF | sudo tee /etc/crictl.yaml
+runtime-endpoint: unix:///run/containerd/containerd.sock
+image-endpoint: unix:///run/containerd/containerd.sock
+timeout: 10
+EOF
+
+# 1. List all active and stopped Pod sandboxes
+sudo crictl pods
+
+# 2. List all containers (including exited and crashing containers)
+sudo crictl ps -a
+
+# 3. Filter containers by name (e.g. static control plane pods)
+sudo crictl ps -a --name kube-apiserver
+
+# 4. View raw stdout/stderr logs directly from the runtime
+sudo crictl logs &lt;container-id&gt;
+
+# 5. Execute interactive shell inside a container
+sudo crictl exec -it &lt;container-id&gt; sh
+
+# 6. Prune all unused container images to free disk space
+sudo crictl rmi --prune
+</code></pre>
+<hr>
+<h2>4. LINUX SYSTEMD &amp; KERNEL DIAGNOSTICS</h2>
+<hr>
+<h3>Inspecting System Daemons with systemctl &amp; journalctl</h3>
+<pre><code class="language-bash"># Check service status
+sudo systemctl status kubelet
+sudo systemctl status containerd
+
+# Tail kubelet systemd journal logs
+sudo journalctl -u kubelet -n 100 --no-pager
+sudo journalctl -u kubelet -f
+
+# Tail containerd runtime logs
+sudo journalctl -u containerd -n 100 --no-pager
+
+# Reload daemon configuration after editing systemd service files
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+</code></pre>
+<hr>
+<h2>5. NETWORK &amp; CONNECTIVITY DIAGNOSTICS</h2>
+<pre><code class="language-bash"># 1. Check IP addresses and network interfaces
+ip -br addr show
+ip route show
+
+# 2. Check listening TCP ports and process owners (verify port 6443, 2379, 10250)
+ss -tulpen | grep -E &quot;6443|2379|10250|10259|10257&quot;
+
+# 3. Test TCP port reachability with 3-second timeout
+nc -zvw3 192.168.1.10 6443
+
+# 4. Inspect raw HTTP/HTTPS API response with TLS verbose output
+curl -Iv -k https://127.0.0.1:6443/version
+
+# 5. Capture live packet traffic on CNI bridge interface
+sudo tcpdump -nn -i any port 6443 -c 10
+sudo tcpdump -nn -i cbr0 icmp
+
+# 6. Test CoreDNS resolution from inside the cluster
+kubectl run dns-test --rm -it --image=busybox:1.28 -- nslookup kubernetes.default
+kubectl run dns-test --rm -it --image=busybox:1.28 -- nslookup kube-dns.kube-system.svc.cluster.local
+</code></pre>
+<div class='page-break'></div>
+  </div>
+</body>
+</html>

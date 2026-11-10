@@ -1,0 +1,32 @@
+name: Validate Kubernetes Manifests & Shell Scripts
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-yaml:
+    name: Lint & Validate Manifests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Kubeconform
+      run: |
+        curl -sL https://github.com/yannh/kubeconform/releases/download/v0.6.4/kubeconform-linux-amd64.tar.gz | tar xz
+        sudo mv kubeconform /usr/local/bin/
+
+    - name: Validate Kubernetes YAML Schemas (v1.31.0)
+      run: |
+        kubeconform -summary -kubernetes-version 1.31.0 -strict \
+          -schema-location default \
+          -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' \
+          labs/**/*.yaml setup/**/*.yaml
+
+    - name: ShellCheck Verification
+      run: |
+        sudo apt-get install -y shellcheck
+        find scripts/ verification/ troubleshooting/ -name "*.sh" -exec shellcheck {} +

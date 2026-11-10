@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Volume III: Visual Architecture Atlas</title>
+  <style>
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #1a202c;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0b192c;
+    font-weight: 700;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 24pt;
+    border-bottom: 3px solid #1e3e62;
+    padding-bottom: 6px;
+    margin-top: 24pt;
+    margin-bottom: 14pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #1e3e62;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+  }
+
+  h4 {
+    font-size: 11pt;
+    color: #334155;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+  }
+
+  p, ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 8pt;
+  }
+
+  code {
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 9pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 10pt 0;
+    border-left: 4px solid #38bdf8;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  blockquote {
+    border-left: 4px solid #2563eb;
+    background-color: #eff6ff;
+    padding: 10px 14px;
+    margin: 12pt 0;
+    border-radius: 0 6px 6px 0;
+    color: #1e3a8a;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #0b192c;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 20pt 0;
+    page-break-after: avoid;
+  }
+
+  .cover-page {
+    text-align: center;
+    padding-top: 100pt;
+    padding-bottom: 80pt;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .cover-title {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0b192c;
+    line-height: 1.15;
+    margin-bottom: 12pt;
+  }
+
+  .cover-subtitle {
+    font-size: 16pt;
+    color: #1e3e62;
+    margin-bottom: 24pt;
+    font-weight: 500;
+  }
+
+  .cover-edition {
+    display: inline-block;
+    background-color: #0b192c;
+    color: #38bdf8;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40pt;
+  }
+
+  .cover-meta {
+    font-size: 10pt;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .badge-pass { background-color: #dcfce7; color: #166534; }
+  .badge-warn { background-color: #fef9c3; color: #854d0e; }
+  .badge-crit { background-color: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+  <div class="cover-page">
+    <div class="cover-edition">2026–2027 PROFESSIONAL EDITION (VERSION 2.0)</div>
+    <div class="cover-title">Volume III: Visual Architecture Atlas</div>
+    <div class="cover-subtitle">66 Original Technical Schematics, Packet Flows & Troubleshooting Decision Trees</div>
+    <div class="cover-meta">
+      <strong>Cloud Native Engineering Press</strong><br/>
+      Targeting Kubernetes v1.31.x / v1.32.x (Forward Compatible through v1.33+)<br/>
+      Independent Professional Certification Study System<br/>
+      Certified Kubernetes Administrator (CNCF / The Linux Foundation)
+    </div>
+  </div>
+  <div class="page-break"></div>
+  <div class="content-container">
+    <h1>VOLUME III: THE KUBERNETES VISUAL ARCHITECTURE ATLAS</h1>
+<h2>PART 1: CORE ARCHITECTURE &amp; PACKET FLOW SCHEMATICS (DIAGRAMS 01–32)</h2>
+<hr>
+<h2>1. Complete Kubernetes Cluster Architecture</h2>
+<pre><code class="language-mermaid">graph TB
+    subgraph Control_Plane[&quot;CONTROL PLANE (MASTER)&quot;]
+        APIServer[&quot;kube-apiserver&lt;br/&gt;(Port 6443)&quot;]
+        Scheduler[&quot;kube-scheduler&quot;]
+        KCM[&quot;kube-controller-manager&quot;]
+        CCM[&quot;cloud-controller-manager&quot;]
+        ETCD[(&quot;etcd Cluster&lt;br/&gt;(Port 2379/2380)&quot;)]
+        
+        Scheduler --&gt;|Watch / Bind| APIServer
+        KCM --&gt;|Reconcile State| APIServer
+        CCM --&gt;|Cloud Sync| APIServer
+        APIServer &lt;--&gt;|Raft Consensus| ETCD
+    end
+
+    subgraph Worker_Node_1[&quot;WORKER NODE 1&quot;]
+        Kubelet1[&quot;kubelet (systemd)&quot;]
+        Proxy1[&quot;kube-proxy (iptables/IPVS)&quot;]
+        Runtime1[&quot;containerd (CRI Runtime)&quot;]
+        CNI1[&quot;CNI Plugin (veth / Bridge)&quot;]
+        Pod1[&quot;Pod A (10.244.1.10)&quot;]
+        Pod2[&quot;Pod B (10.244.1.11)&quot;]
+        
+        Kubelet1 --&gt;|gRPC / CRI| Runtime1
+        Runtime1 --&gt; Pod1
+        Runtime1 --&gt; Pod2
+        CNI1 -.-&gt;|IP Allocation| Pod1
+        CNI1 -.-&gt;|IP Allocation| Pod2
+    end
+
+    subgraph Worker_Node_2[&quot;WORKER NODE 2&quot;]
+        Kubelet2[&quot;kubelet (systemd)&quot;]
+        Proxy2[&quot;kube-proxy (iptables/IPVS)&quot;]
+        Runtime2[&quot;containerd (CRI Runtime)&quot;]
+        Pod3[&quot;Pod C (10.244.2.15)&quot;]
+        
+        Kubelet2 --&gt;|gRPC / CRI| Runtime2
+        Runtime2 --&gt; Pod3
+    end
+
+    Admin[&quot;Cluster Administrator / kubectl&quot;] --&gt;|HTTPS / mTLS| APIServer
+    Kubelet1 --&gt;|Heartbeat / Pod Status| APIServer
+    Kubelet2 --&gt;|Heartbeat / Pod Status| APIServer
+    Proxy1 --&gt;|Watch Endpoints| APIServer
+    Proxy2 --&gt;|Watch Endpoints| APIServer
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>The Kubernetes architecture divides cluster operations into the Control Plane and Worker Nodes. The <code>kube-apiserver</code> acts as the single central communications gateway; no component communicates directly with <code>etcd</code> other than the API server. Controllers and schedulers run continuously, watching the desired state via API server stream watches and reconciling reality to match. Worker nodes run <code>kubelet</code> (managing container lifecycles via CRI) and <code>kube-proxy</code> (programming network filter rules via iptables or IPVS).</p>
+<hr>
+<h2>2. Control Plane Component Inter-Communication</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Admin as Administrator (kubectl)
+    participant API as kube-apiserver
+    participant ETCD as etcd Store
+    participant Sched as kube-scheduler
+    participant KCM as kube-controller-mgr
+    participant Kube as kubelet (Node)
+
+    Admin-&gt;&gt;API: POST /api/v1/namespaces/default/pods (Create Pod)
+    API-&gt;&gt;ETCD: Persist Pod Spec (nodeName: &quot;&quot;)
+    ETCD--&gt;&gt;API: Write Acknowledged
+    API--&gt;&gt;Admin: 201 Created (Pod Pending)
+
+    Note over API,Sched: Async Watch Stream Triggered
+    API--&gt;&gt;Sched: Watch Event: Unassigned Pod Detected
+    Sched-&gt;&gt;Sched: Run Filtering (Predicates) &amp; Scoring (Priorities)
+    Sched-&gt;&gt;API: POST /binding (Assign Pod to node-01)
+    API-&gt;&gt;ETCD: Update Pod Spec (nodeName: &quot;node-01&quot;)
+    ETCD--&gt;&gt;API: Write Acknowledged
+
+    Note over API,Kube: Node Watch Stream Triggered
+    API--&gt;&gt;Kube: Watch Event: Pod Scheduled to node-01
+    Kube-&gt;&gt;Kube: Request Runtime (CRI) &amp; Network (CNI)
+    Kube-&gt;&gt;API: PATCH /status (Phase: Running, PodIP: 10.244.1.20)
+    API-&gt;&gt;ETCD: Persist Pod Status
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>All control-plane communication is asynchronous and mediated entirely by <code>kube-apiserver</code> watch streams. Neither the scheduler nor the kubelet poll; they maintain long-lived HTTP/2 streams watching specific API resource endpoints. When a scheduling decision is made, the scheduler writes a <code>/binding</code> subresource rather than mutating the Pod directly.</p>
+<hr>
+<h2>3. API Server Request Lifecycle</h2>
+<pre><code class="language-mermaid">flowchart LR
+    Request[&quot;Incoming HTTPS Request&lt;br/&gt;(Client / kubectl)&quot;] --&gt; AuthN{&quot;1. Authentication&lt;br/&gt;(Cert, OIDC, Token)&quot;}
+    AuthN -- Rejected --&gt; R401[&quot;401 Unauthorized&quot;]
+    AuthN -- Success --&gt; AuthZ{&quot;2. Authorization&lt;br/&gt;(RBAC, Node, Webhook)&quot;}
+    AuthZ -- Rejected --&gt; R403[&quot;403 Forbidden&quot;]
+    AuthZ -- Success --&gt; Mutating{&quot;3. Mutating Webhooks&lt;br/&gt;(Modify Spec / Defaults)&quot;}
+    Mutating --&gt; Schema{&quot;4. Schema Validation&lt;br/&gt;(OpenAPI / Syntax)&quot;}
+    Schema -- Invalid --&gt; R422[&quot;422 Unprocessable Entity&quot;]
+    Schema -- Valid --&gt; Validating{&quot;5. Validating Webhooks&lt;br/&gt;(Policy Enforcement)&quot;}
+    Validating -- Denied --&gt; R400[&quot;400 Bad Request&quot;]
+    Validating -- Allowed --&gt; ETCD[(&quot;6. etcd Storage&lt;br/&gt;(Write &amp; Commit)&quot;)]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Every API request traverses a deterministic 6-stage pipeline:</p>
+<ol>
+<li><strong>Authentication (AuthN):</strong> Resolves client identity to Username, UID, and Groups using Client Certificates (mTLS), Bearer Tokens (ServiceAccounts), or OIDC.</li>
+<li><strong>Authorization (AuthZ):</strong> Evaluates RBAC <code>Roles</code> and <code>ClusterRoles</code> using Rule Evaluation (Node authorizer checks kubelet rights).</li>
+<li><strong>Mutating Admission Webhooks:</strong> Injects defaults or modifies the specification (e.g., Istio sidecar injection).</li>
+<li><strong>Object Schema Validation:</strong> Verifies schema definitions against OpenAPI v3 specifications.</li>
+<li><strong>Validating Admission Webhooks:</strong> Enforces cluster-wide constraints without mutating (e.g., Gatekeeper, Kyverno).</li>
+<li><strong>etcd Persistence:</strong> Object state is committed to disk via Raft consensus.</li>
+</ol>
+<hr>
+<h2>4. etcd Raft Distributed Consensus &amp; Leader Election</h2>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; Follower: Node Boot / Join
+    Follower --&gt; Candidate: Election Timeout Expires (150ms-300ms)
+    Candidate --&gt; Leader: Receives Majority Votes (Quorum: N/2 + 1)
+    Candidate --&gt; Follower: Discovers Current Leader or Newer Term
+    Leader --&gt; Follower: Steps Down if Higher Term Detected
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>etcd uses the Raft distributed consensus protocol. In an $N$-node cluster, a strict quorum of $\lfloor N/2 \rfloor + 1$ members is required to establish leadership and commit log entries:</p>
+<ul>
+<li>3-node cluster: Quorum is 2 (tolerates 1 failure).</li>
+<li>5-node cluster: Quorum is 3 (tolerates 2 failures).
+If quorum is lost, etcd refuses all write requests to prevent split-brain state corruption.</li>
+</ul>
+<hr>
+<h2>5. etcd Quorum Loss &amp; Multi-Member Disaster Recovery</h2>
+<pre><code class="language-mermaid">flowchart TD
+    QuorumLoss[&quot;etcd Quorum Lost&lt;br/&gt;(2 of 3 Members Down)&quot;] --&gt; StopMembers[&quot;1. Stop kube-apiserver &amp; etcd on all nodes&quot;]
+    StopMembers --&gt; InspectSnapshot[&quot;2. Identify Latest Valid Snapshot&lt;br/&gt;etcdctl snapshot status snapshot.db&quot;]
+    InspectSnapshot --&gt; RestoreDataDir[&quot;3. Restore to New Data Directory&lt;br/&gt;etcdctl snapshot restore snapshot.db&lt;br/&gt;--data-dir=/var/lib/etcd-restored&lt;br/&gt;--initial-cluster=... --initial-cluster-token=...&quot;]
+    RestoreDataDir --&gt; UpdateStaticPod[&quot;4. Update /etc/kubernetes/manifests/etcd.yaml&lt;br/&gt;Modify hostPath volume mount to /var/lib/etcd-restored&quot;]
+    UpdateStaticPod --&gt; KubeletRestart[&quot;5. Kubelet Automatically Recreates etcd Static Pod&quot;]
+    KubeletRestart --&gt; VerifyHealth[&quot;6. Verify Health: etcdctl endpoint health&lt;br/&gt;Verify API Server: kubectl get nodes&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>When an etcd cluster experiences catastrophic failure, manual snapshot restoration is required. Restoring must always target a <em>new, non-existing directory</em> (<code>--data-dir=/var/lib/etcd-restored</code>) to prevent collision with corrupted wal files. The static pod manifest is then updated so kubelet restarts the container pointing to the clean database.</p>
+<hr>
+<h2>6. kube-scheduler Two-Phase Pipeline: Filtering &amp; Scoring</h2>
+<pre><code class="language-mermaid">flowchart TD
+    UnscheduledPod[&quot;Unscheduled Pod Spec&quot;] --&gt; FilteringPhase[&quot;PHASE 1: FILTERING (Predicates)&quot;]
+    
+    subgraph Filtering[&quot;Filtering Predicates (Drop Ineligible Nodes)&quot;]
+        F1[&quot;NodeResourcesFit (CPU / Memory Requests)&quot;]
+        F2[&quot;NodeName &amp; NodeSelector Matching&quot;]
+        F3[&quot;PodFitsHostPorts (Port Collisions)&quot;]
+        F4[&quot;PodToleratesNodeTaints (Taint Check)&quot;]
+        F5[&quot;NodeAffinity &amp; TopologySpread&quot;]
+    end
+    
+    FilteringPhase --&gt; Filtering
+    Filtering --&gt; FilterEval{&quot;Any Nodes Pass?&quot;}
+    FilterEval -- No --&gt; PodPending[&quot;Pod Stuck in Pending&lt;br/&gt;(0/3 nodes available: Insufficient memory)&quot;]
+    FilterEval -- Yes (1 Node) --&gt; BindNode[&quot;Directly Bind to Only Passing Node&quot;]
+    FilterEval -- Yes (&gt;1 Nodes) --&gt; ScoringPhase[&quot;PHASE 2: SCORING (Priorities)&quot;]
+
+    subgraph Scoring[&quot;Scoring Priorities (Weight 0-100)&quot;]
+        S1[&quot;NodeResourcesBalancedAllocation&quot;]
+        S2[&quot;ImageLocalityPriority (Cached Image On Node)&quot;]
+        S3[&quot;NodeAffinityPriority (preferredDuringScheduling)&quot;]
+        S4[&quot;TaintTolerationPriority&quot;]
+    end
+
+    ScoringPhase --&gt; Scoring
+    Scoring --&gt; RankNodes[&quot;Calculate Weighted Sum Across All Plugins&quot;]
+    RankNodes --&gt; SelectedNode[&quot;Node with Highest Cumulative Score Selected&quot;]
+    SelectedNode --&gt; Bind[&quot;Write /binding Subresource to API Server&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Scheduling operates in two distinct phases:</p>
+<ol>
+<li><strong>Filtering (Predicates):</strong> Evaluates hard requirements. If a node fails even one predicate (insufficient RAM, untolerated taint), it is removed from consideration.</li>
+<li><strong>Scoring (Priorities):</strong> Evaluates soft preferences on surviving nodes, assigning scores from 0 to 100. Weights are applied, and the node with the highest aggregate score is chosen.</li>
+</ol>
+<hr>
+<h2>7. kube-controller-manager Reconciliation Loops</h2>
+<pre><code class="language-mermaid">flowchart LR
+    DesiredState[&quot;Desired State&lt;br/&gt;(etcd Spec)&quot;] --&gt; Reconciler{&quot;Reconciliation&lt;br/&gt;Control Loop&quot;}
+    ActualState[&quot;Actual State&lt;br/&gt;(Cluster Telemetry)&quot;] --&gt; Reconciler
+    Reconciler -- Match --&gt; Idle[&quot;Sleep &amp; Watch&quot;]
+    Reconciler -- Deviation Detected --&gt; Action[&quot;Execute Corrective Actions&lt;br/&gt;(Create / Terminate / Update Pods)&quot;]
+    Action --&gt; APICall[&quot;POST / DELETE to API Server&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Every Kubernetes controller runs an infinite control loop (<code>syncHandler</code>). It computes the diff $\Delta = \text{Desired State} - \text{Actual State}$. If replicas desired is 5 and actual is 3, the Deployment controller instructs the ReplicaSet controller to issue API requests creating 2 new Pods.</p>
+<hr>
+<h2>8. kubelet Internal Architecture</h2>
+<pre><code class="language-mermaid">graph TB
+    subgraph Kubelet[&quot;kubelet Daemon (systemd)&quot;]
+        SyncLoop[&quot;syncLoop (Core Event Loop)&quot;]
+        PLEG[&quot;PLEG (Pod Lifecycle Event Generator)&quot;]
+        cAdvisor[&quot;cAdvisor (Metrics &amp; Cgroup Telemetry)&quot;]
+        ProbeManager[&quot;Probe Manager (Liveness/Readiness)&quot;]
+        VolumeManager[&quot;Volume Manager (Attach &amp; Mount)&quot;]
+    end
+
+    APIServer[&quot;kube-apiserver&quot;] &lt;--&gt;|Watch Pods / Report Status| SyncLoop
+    PLEG --&gt;|Runtime State Changes| SyncLoop
+    cAdvisor --&gt;|Node &amp; Container Stats| SyncLoop
+    ProbeManager --&gt;|Health Telemetry| SyncLoop
+    VolumeManager --&gt;|Mount CSI Devices| SyncLoop
+
+    SyncLoop --&gt;|gRPC CRI| ContainerRuntime[&quot;containerd (/run/containerd/containerd.sock)&quot;]
+    SyncLoop --&gt;|gRPC CNI| CNIPlugin[&quot;CNI Network Plugin (/opt/cni/bin)&quot;]
+    SyncLoop --&gt;|gRPC CSI| CSIPlugin[&quot;CSI Node Plugin (/var/lib/kubelet/csi-plugins)&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>The kubelet is the primary node agent. The <code>syncLoop</code> orchestrates updates based on events from:</p>
+<ul>
+<li>Pod manifests (from API server watch, static pod directory <code>/etc/kubernetes/manifests/</code>, or HTTP endpoints).</li>
+<li>PLEG (Pod Lifecycle Event Generator), which queries the container runtime via CRI to detect stopped or crashed containers.</li>
+<li>Probe Manager, which executes HTTP, TCP, exec, or gRPC probes.</li>
+</ul>
+<hr>
+<h2>9. containerd Architecture, shim-v2, and runc</h2>
+<pre><code class="language-mermaid">graph LR
+    Kubelet[&quot;kubelet&quot;] --&gt;|CRI gRPC API| Containerd[&quot;containerd daemon&lt;br/&gt;(/run/containerd/containerd.sock)&quot;]
+    Containerd --&gt; CtrShim[&quot;containerd-shim-v2&lt;br/&gt;(Per Pod Process)&quot;]
+    CtrShim --&gt; Runc[&quot;runc (OCI Runtime)&quot;]
+    Runc --&gt; Kernel[&quot;Linux Kernel&lt;br/&gt;(Namespaces, Cgroups, Chroot)&quot;]
+    Kernel --&gt; Container[&quot;Running Container Process&quot;]
+    CtrShim -.-&gt;|Maintains STDIO &amp; Exit Status| Container
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br><code>containerd</code> decouples pod execution from daemon restarts using <code>containerd-shim-v2</code>. When a container starts, <code>runc</code> initializes the Linux namespaces and cgroups, hands execution off to the containerized binary, and exits immediately. The lightweight shim stays alive as the container&#39;s parent process, holding open standard I/O pipes and capturing exit codes so <code>containerd</code> can restart without stopping running workloads.</p>
+<hr>
+<h2>10. Pod Lifecycle State Machine</h2>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; Pending: Manifest Created
+    Pending --&gt; ContainerCreating: Scheduled to Node
+    ContainerCreating --&gt; Running: All InitContainers Completed &amp; App Started
+    Running --&gt; CrashLoopBackOff: Container Exits with Non-Zero Code
+    CrashLoopBackOff --&gt; Running: Backoff Exponential Delay Elapsed (10s..300s)
+    Running --&gt; Succeeded: Run-To-Completion (Exit 0)
+    Running --&gt; Failed: Container Failed (restartPolicy: Never)
+    Running --&gt; Terminating: Deletion Request Received (SIGTERM -&gt; Grace Period -&gt; SIGKILL)
+    Terminating --&gt; [*]: Volume Unmounted &amp; CNI Teardown
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>A Pod progresses through strict phases. <code>CrashLoopBackOff</code> is not an official phase but a condition indicating repeated container termination. Kubernetes applies an exponential backoff delay (10s, 20s, 40s... capped at 300s) before re-attempting initialization.</p>
+<hr>
+<h2>11. Multi-Container Pod Design Patterns</h2>
+<pre><code class="language-mermaid">graph TD
+    subgraph Pod[&quot;Pod Network &amp; IPC Namespace (Shared localhost)&quot;]
+        Init[&quot;Init Container&lt;br/&gt;(Runs to completion first)&quot;]
+        App[&quot;Main Application Container&lt;br/&gt;(Port 8080)&quot;]
+        Sidecar[&quot;Sidecar Container&lt;br/&gt;(Log Shipper / Envoy Proxy)&quot;]
+        SharedVol[&quot;Shared Volume (emptyDir)&lt;br/&gt;/var/log/app&quot;]
+    end
+
+    Init --&gt;|1. Setup Configuration &amp; DB Schema| SharedVol
+    App --&gt;|2. Writes Application Logs| SharedVol
+    Sidecar --&gt;|3. Tails Logs &amp; Streams to Cloud| SharedVol
+    Sidecar &lt;--&gt;|Localhost Intercept (127.0.0.1:8080)| App
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Multi-container Pods share:</p>
+<ol>
+<li><strong>Network Namespace:</strong> Same IP address, port space, and <code>localhost</code> loopback interface.</li>
+<li><strong>IPC Namespace:</strong> Shared POSIX shared memory and semaphores.</li>
+<li><strong>Mounted Volumes:</strong> Containers share filesystem directories via <code>emptyDir</code> or shared PersistentVolumes.
+Init containers run sequentially to full exit code <code>0</code> before the main application and sidecars start in parallel.</li>
+</ol>
+<hr>
+<h2>12. Deployment, ReplicaSet, and Pod Cascading Hierarchy</h2>
+<pre><code class="language-mermaid">graph TD
+    Deploy[&quot;Deployment: web-app&lt;br/&gt;(spec.replicas: 3, strategy: RollingUpdate)&quot;]
+    RS1[&quot;ReplicaSet: web-app-v1 (hash: 6bf579)&lt;br/&gt;replicas: 0 (Historical)&quot;]
+    RS2[&quot;ReplicaSet: web-app-v2 (hash: 84d99c)&lt;br/&gt;replicas: 3 (Active)&quot;]
+    
+    Pod1[&quot;Pod: web-app-v2-a&quot;]
+    Pod2[&quot;Pod: web-app-v2-b&quot;]
+    Pod3[&quot;Pod: web-app-v2-c&quot;]
+
+    Deploy --&gt;|Owns &amp; Manages| RS1
+    Deploy --&gt;|Owns &amp; Manages| RS2
+    RS2 --&gt;|Owns| Pod1
+    RS2 --&gt;|Owns| Pod2
+    RS2 --&gt;|Owns| Pod3
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Deployments do not create or manage Pods directly. A Deployment creates and manages <code>ReplicaSets</code> (identified by a 10-character pod-template-hash), and the ReplicaSets create and monitor the individual Pods. Rollbacks are executed simply by scaling up the old ReplicaSet while scaling down the current one.</p>
+<hr>
+<h2>13. Rolling Update Progression with maxSurge and maxUnavailable</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    participant D as Deployment (replicas: 4, maxSurge: 1, maxUnavailable: 1)
+    participant V1 as RS v1 (Active: 4)
+    participant V2 as RS v2 (New: 0)
+
+    Note over D: Update Container Image Triggered
+    D-&gt;&gt;V2: Scale Up to 1 (Surge allowed: 4+1 = 5 total)
+    V2--&gt;&gt;D: Pod 1 Running &amp; Ready
+    D-&gt;&gt;V1: Scale Down to 3 (Unavailable allowed: 4-1 = 3 min ready)
+    D-&gt;&gt;V2: Scale Up to 2
+    V2--&gt;&gt;D: Pod 2 Running &amp; Ready
+    D-&gt;&gt;V1: Scale Down to 2
+    D-&gt;&gt;V2: Scale Up to 3
+    V2--&gt;&gt;D: Pod 3 Running &amp; Ready
+    D-&gt;&gt;V1: Scale Down to 1
+    D-&gt;&gt;V2: Scale Up to 4
+    V2--&gt;&gt;D: Pod 4 Running &amp; Ready
+    D-&gt;&gt;V1: Scale Down to 0
+    Note over D: Rollout Fully Completed
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Rolling updates preserve availability using two constraints:</p>
+<ul>
+<li><code>maxSurge</code>: Maximum number of Pods that can be scheduled above the desired replica count.</li>
+<li><code>maxUnavailable</code>: Maximum number of Pods that can be unavailable during the update.
+During an update, new Pods must pass readiness probes before older Pods are scheduled for termination.</li>
+</ul>
+<hr>
+<h2>14. StatefulSet Stable Network Identity &amp; Ordered Scaling</h2>
+<pre><code class="language-mermaid">graph TB
+    subgraph StatefulSet[&quot;StatefulSet: db (replicas: 3)&quot;]
+        Pod0[&quot;db-0 (Ordinal 0)&lt;br/&gt;PV: data-db-0 (10Gi)&quot;]
+        Pod1[&quot;db-1 (Ordinal 1)&lt;br/&gt;PV: data-db-1 (10Gi)&quot;]
+        Pod2[&quot;db-2 (Ordinal 2)&lt;br/&gt;PV: data-db-2 (10Gi)&quot;]
+    end
+
+    Headless[&quot;Headless Service: db-service (clusterIP: None)&quot;]
+    
+    Headless -.-&gt;|DNS: db-0.db-service.default.svc.cluster.local| Pod0
+    Headless -.-&gt;|DNS: db-1.db-service.default.svc.cluster.local| Pod1
+    Headless -.-&gt;|DNS: db-2.db-service.default.svc.cluster.local| Pod2
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>StatefulSets provide:</p>
+<ol>
+<li><strong>Deterministic Ordinals:</strong> Pods are named <code>$(statefulset-name)-$(ordinal)</code> from 0 to $N-1$.</li>
+<li><strong>Sequential Operations:</strong> Pod $i$ must be Running and Ready before Pod $i+1$ is initialized. Scale-down occurs in reverse order.</li>
+<li><strong>Persistent Volume Attachment:</strong> Each replica receives an independent PersistentVolume via <code>volumeClaimTemplates</code> that persists across pod deletion.</li>
+<li><strong>Stable Network Identity:</strong> Paired with a Headless Service (<code>clusterIP: None</code>), each Pod receives a predictable DNS A-record.</li>
+</ol>
+<hr>
+<h2>15. DaemonSet Node Scheduling &amp; Taint Tolerations</h2>
+<pre><code class="language-mermaid">graph TD
+    subgraph Nodes[&quot;Cluster Nodes&quot;]
+        N1[&quot;Control Plane&lt;br/&gt;Taint: node-role.kubernetes.io/control-plane:NoSchedule&quot;]
+        N2[&quot;Worker Node 1&lt;br/&gt;No Taints&quot;]
+        N3[&quot;Worker Node 2 (Edge)&lt;br/&gt;Taint: dedicated=edge:NoSchedule&quot;]
+    end
+
+    DS[&quot;DaemonSet: fluentd-logging&quot;]
+    
+    DS --&gt;|Tolerates control-plane taint| P1[&quot;fluentd Pod on Control Plane&quot;]
+    DS --&gt;|Standard Scheduling| P2[&quot;fluentd Pod on Worker 1&quot;]
+    DS -.-&gt;|Blocked without edge toleration| N3
+    P1 --&gt; N1
+    P2 --&gt; N2
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>A DaemonSet ensures that a copy of a Pod runs on all (or selected) nodes. By default, DaemonSet pods automatically include tolerations for standard node taints (<code>node.kubernetes.io/not-ready</code>, <code>unreachable</code>, <code>disk-pressure</code>). To run on control-plane nodes or specialized nodes with custom taints, explicit tolerations must be defined in the DaemonSet pod template.</p>
+<hr>
+<h2>16. Job &amp; CronJob Execution Pipeline</h2>
+<pre><code class="language-mermaid">flowchart TD
+    CronJob[&quot;CronJob: report-generator&lt;br/&gt;schedule: &#39;0 2 * * *&#39; (Daily 2 AM)&quot;] --&gt; TimeTrigger{&quot;2:00 AM Reached&quot;}
+    TimeTrigger --&gt; CreateJob[&quot;Creates Job: report-generator-28491820&quot;]
+    CreateJob --&gt; JobController[&quot;Job Controller Reconciler&quot;]
+    JobController --&gt; LaunchPod[&quot;Launches Pod (restartPolicy: OnFailure)&quot;]
+    LaunchPod --&gt; RunContainer[&quot;Executes Batch Workload&quot;]
+    RunContainer -- Exit 0 --&gt; JobComplete[&quot;Job Status: Completed (Succeeded = 1)&quot;]
+    RunContainer -- Exit 1 --&gt; CheckBackoff{&quot;backoffLimit (e.g. 6) Exceeded?&quot;}
+    CheckBackoff -- No --&gt; Reattempt[&quot;Exponential Backoff &amp; Relaunch Pod&quot;]
+    CheckBackoff -- Yes --&gt; JobFailed[&quot;Job Status: Failed&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>CronJobs manage time-based execution by instantiating <code>Jobs</code>. Jobs guarantee batch run-to-completion. Unlike Deployments, Pods managed by a Job must declare <code>restartPolicy: OnFailure</code> or <code>Never</code>. If a container fails, the Job controller retries until <code>backoffLimit</code> is reached.</p>
+<hr>
+<h2>17. ConfigMap and Secret Injection Mechanics</h2>
+<pre><code class="language-mermaid">graph LR
+    subgraph Storage[&quot;etcd Storage&quot;]
+        CM[&quot;ConfigMap: app-config&lt;br/&gt;(DATABASE_URL, LOG_LEVEL)&quot;]
+        SEC[&quot;Secret: app-secret&lt;br/&gt;(API_KEY, DB_PASS)&quot;]
+    end
+
+    subgraph Pod[&quot;Target Pod&quot;]
+        Env[&quot;Environment Variables&lt;br/&gt;(env / envFrom)&quot;]
+        VolumeMount[&quot;Volume Mount&lt;br/&gt;/etc/config/app.properties&lt;br/&gt;/etc/secrets/token&quot;]
+    end
+
+    CM --&gt;|Injected at Pod Creation| Env
+    SEC --&gt;|Injected at Pod Creation| Env
+    CM --&gt;|Mounted as Files| VolumeMount
+    SEC --&gt;|Mounted as tmpfs Files| VolumeMount
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>ConfigMaps and Secrets can be consumed via:</p>
+<ol>
+<li><strong>Environment Variables:</strong> Values are evaluated at container creation. Modifying the ConfigMap <em>does not</em> update running environment variables without a pod restart.</li>
+<li><strong>Volume Mounts:</strong> Injected as files. Kubernetes atomic directory swapping ensures files are dynamically updated without restarting the pod (eventual consistency within kubelet sync periods). Secrets are stored in <code>tmpfs</code> (RAM) on the node to prevent disk persistence.</li>
+</ol>
+<hr>
+<h2>18. Resource Requests, Limits, and Kernel CFS Quotas</h2>
+<pre><code class="language-mermaid">flowchart TD
+    PodSpec[&quot;Pod Spec:&lt;br/&gt;resources.requests.cpu: 500m&lt;br/&gt;resources.limits.cpu: 1000m&lt;br/&gt;resources.requests.memory: 256Mi&lt;br/&gt;resources.limits.memory: 512Mi&quot;] --&gt; Translation[&quot;Kubelet Translates to Linux Cgroup Parameters&quot;]
+    
+    Translation --&gt; CPUReq[&quot;cpu.shares = 512 (Relative Priority)&quot;]
+    Translation --&gt; CPULim[&quot;cpu.cfs_quota_us = 100000&lt;br/&gt;cpu.cfs_period_us = 100000&lt;br/&gt;(Hard CFS Throttling)&quot;]
+    Translation --&gt; MemReq[&quot;memory.min / low (OOM Score Adjustment)&quot;]
+    Translation --&gt; MemLim[&quot;memory.max = 536870912 Bytes (Hard Limit)&quot;]
+
+    CPULim --&gt; CPUExceed{&quot;App Exceeds 1000m CPU?&quot;}
+    CPUExceed -- Yes --&gt; Throttled[&quot;Kernel Throttles CPU Execution Cycles&lt;br/&gt;(No Pod Kill)&quot;]
+
+    MemLim --&gt; MemExceed{&quot;App Exceeds 512Mi RAM?&quot;}
+    MemExceed -- Yes --&gt; OOMKill[&quot;Linux Kernel OOM Killer Invoked&lt;br/&gt;Exit Code 137 (OOMKilled)&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ul>
+<li><strong>CPU Requests:</strong> Used by <code>kube-scheduler</code> for placement and translated to kernel <code>cpu.shares</code>.</li>
+<li><strong>CPU Limits:</strong> Enforced via Completely Fair Scheduler (CFS) bandwidth quotas. Exceeding limits results in CPU cycle throttling, not termination.</li>
+<li><strong>Memory Requests:</strong> Determines QoS class (<code>Guaranteed</code>, <code>Burstable</code>, <code>BestEffort</code>) and OOM-score adjustment.</li>
+<li><strong>Memory Limits:</strong> Enforced as a hard memory ceiling. Exceeding memory limits triggers an instantaneous kernel <code>OOMKilled</code> (Exit Code 137).</li>
+</ul>
+<hr>
+<h2>19. Liveness, Readiness, and Startup Probe Execution Lifecycle</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Start[&quot;Container Started&quot;] --&gt; StartupCheck{&quot;Startup Probe&lt;br/&gt;Defined?&quot;}
+    
+    StartupCheck -- Yes --&gt; RunStartup[&quot;Execute Startup Probe&quot;]
+    RunStartup -- Failing --&gt; CheckStartupLimit{&quot;failureThreshold&lt;br/&gt;Exceeded?&quot;}
+    CheckStartupLimit -- No --&gt; RunStartup
+    CheckStartupLimit -- Yes --&gt; RestartStartup[&quot;Restart Container&quot;]
+    
+    StartupCheck -- No / Succeeded --&gt; ParallelChecks[&quot;Run Liveness &amp; Readiness Concurrently&quot;]
+    
+    subgraph ActiveChecks[&quot;Active Health Checking&quot;]
+        Readiness[&quot;Readiness Probe&lt;br/&gt;(Is app ready to receive traffic?)&quot;]
+        Liveness[&quot;Liveness Probe&lt;br/&gt;(Is app deadlocked / broken?)&quot;]
+    end
+
+    ParallelChecks --&gt; Readiness
+    ParallelChecks --&gt; Liveness
+
+    Readiness -- Pass --&gt; AddEndpoints[&quot;Add Pod IP to Service EndpointSlice&lt;br/&gt;(Traffic Flows)&quot;]
+    Readiness -- Fail --&gt; RemoveEndpoints[&quot;Remove Pod IP from EndpointSlice&lt;br/&gt;(No Traffic Sent to Pod)&quot;]
+
+    Liveness -- Pass --&gt; MaintainRunning[&quot;Container Remains Running&quot;]
+    Liveness -- Fail --&gt; KubeletRestart[&quot;Kubelet Kills Container &amp; Triggers Restart&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ol>
+<li><strong>Startup Probe:</strong> Disables liveness and readiness checks during slow initialization. If it fails, the container is killed.</li>
+<li><strong>Readiness Probe:</strong> Controls service routing. A failed readiness probe removes the Pod from Service <code>EndpointSlices</code> without killing the container.</li>
+<li><strong>Liveness Probe:</strong> Detects deadlocks and internal application halts. A failed liveness probe triggers an immediate container restart by the kubelet.</li>
+</ol>
+<hr>
+<h2>20. Node Affinity, Anti-Affinity, and Topology Spread Constraints</h2>
+<pre><code class="language-mermaid">graph TD
+    Pod[&quot;Scheduled Pod Spec&quot;]
+    
+    subgraph HardReq[&quot;Hard Requirements (RequiredDuringSchedulingIgnoredDuringExecution)&quot;]
+        NodeAffinity[&quot;Node Affinity:&lt;br/&gt;topology.kubernetes.io/zone In [us-east-1a, us-east-1b]&quot;]
+        PodAntiAffinity[&quot;Pod Anti-Affinity:&lt;br/&gt;MatchLabel: app=web (Do not co-locate with another web pod)&quot;]
+    end
+
+    subgraph Topology[&quot;Topology Spread Constraints&quot;]
+        Spread[&quot;topologySpreadConstraints:&lt;br/&gt;maxSkew: 1&lt;br/&gt;topologyKey: topology.kubernetes.io/zone&lt;br/&gt;whenUnsatisfiable: DoNotSchedule&quot;]
+    end
+
+    Pod --&gt; HardReq
+    Pod --&gt; Topology
+    HardReq --&gt; Filter[&quot;Filtering Phase: Drops non-matching nodes&quot;]
+    Topology --&gt; Balance[&quot;Distributes replicas evenly across availability zones&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ul>
+<li><code>requiredDuringSchedulingIgnoredDuringExecution</code>: Strict rule. If no node matches, the Pod remains <code>Pending</code>.</li>
+<li><code>preferredDuringSchedulingIgnoredDuringExecution</code>: Soft rule used during the scoring phase.</li>
+<li><code>topologySpreadConstraints</code>: Ensures high availability by preventing pods from concentrating in a single failure domain (zone, rack, or host), strictly bounding skew by <code>maxSkew</code>.</li>
+</ul>
+<hr>
+<h2>21. Taints, Tolerations, and Node Cordon/Drain Eviction</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Admin as Administrator
+    participant API as kube-apiserver
+    participant Node as Worker Node (node-02)
+    participant Pods as Workload Pods
+
+    Admin-&gt;&gt;API: kubectl cordon node-02
+    API-&gt;&gt;Node: Mark unschedulable (node.spec.unschedulable = true)
+    Note over Node: No new pods will be scheduled on node-02
+
+    Admin-&gt;&gt;API: kubectl drain node-02 --ignore-daemonsets --delete-emptydir-data
+    API-&gt;&gt;Pods: Send Eviction API request to each Pod on node-02
+    Note over API: Respects PodDisruptionBudgets (PDB)
+    Pods-&gt;&gt;Pods: Receive SIGTERM &amp; Graceful Shutdown (30s)
+    API-&gt;&gt;Node: Delete Pods from node-02
+    Note over API: Deployment Controller reschedules replacement Pods on other nodes
+
+    Admin-&gt;&gt;Node: Perform OS Patching / Kubelet Upgrade / Reboot
+    Admin-&gt;&gt;API: kubectl uncordon node-02
+    API-&gt;&gt;Node: Mark schedulable (node.spec.unschedulable = false)
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ul>
+<li><strong>Taints:</strong> Applied to nodes (<code>key=value:Effect</code>). Effects include <code>NoSchedule</code>, <code>PreferNoSchedule</code>, and <code>NoExecute</code>.</li>
+<li><strong>Tolerations:</strong> Declared on Pods to allow scheduling on tainted nodes.</li>
+<li><strong>Cordoning:</strong> Marks a node unschedulable without disturbing running pods.</li>
+<li><strong>Draining:</strong> Safely evicts running pods via the Eviction API (honoring PDBs) so the host can undergo maintenance.</li>
+</ul>
+<hr>
+<h2>22. Pod Priority, PriorityClasses, and Preemption</h2>
+<pre><code class="language-mermaid">flowchart TD
+    HighPod[&quot;Incoming High-Priority Pod&lt;br/&gt;(priorityClassName: production-critical, Value: 1000000)&quot;] --&gt; Sched[&quot;kube-scheduler Evaluates Nodes&quot;]
+    Sched --&gt; FitCheck{&quot;Can Pod fit on any node&lt;br/&gt;without changes?&quot;}
+    FitCheck -- Yes --&gt; ScheduleStandard[&quot;Schedule Normally&quot;]
+    FitCheck -- No --&gt; Preemption[&quot;PREEMPTION ALGORITHM TRIGGERED&quot;]
+
+    Preemption --&gt; ScanNodes[&quot;Scan nodes for lower-priority pods&quot;]
+    ScanNodes --&gt; SelectVictims[&quot;Select lowest-priority victim pods&lt;br/&gt;(priorityClassName: batch-low, Value: 100)&quot;]
+    SelectVictims --&gt; EvictVictim[&quot;Send Eviction / Delete to Victim Pods&quot;]
+    EvictVictim --&gt; WaitGrace[&quot;Wait for termination grace period&quot;]
+    WaitGrace --&gt; BindHigh[&quot;Bind High-Priority Pod to Freed Node Capacity&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>When high-priority workloads cannot be scheduled due to insufficient resources, the scheduler&#39;s preemption logic evicts lower-priority pods. The scheduler sets <code>nominatedNodeName</code> on the high-priority pod while waiting for the victims to terminate cleanly.</p>
+<hr>
+<h2>23. Horizontal Pod Autoscaler (HPA) Metrics Flow</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    participant App as Pods (App Replicas)
+    participant cAd as cAdvisor (Node Kubelet)
+    participant MS as metrics-server
+    participant HPA as HPA Controller
+    participant Dep as Deployment Controller
+
+    App-&gt;&gt;cAd: Execute Workload (CPU/Memory Consumption)
+    cAd-&gt;&gt;cAd: Aggregate Cgroup Telemetry
+    MS-&gt;&gt;cAd: Scrape Summary API (/stats/summary) every 15s
+    HPA-&gt;&gt;MS: Query Metrics API (metrics.k8s.io/v1beta1) every 15s
+    Note over HPA: Compute Formula:&lt;br/&gt;desiredReplicas = ceil[currentReplicas * (currentMetric / targetMetric)]
+    HPA-&gt;&gt;Dep: Update Scale Subresource (e.g. Scale 2 -&gt; 5 Replicas)
+    Dep-&gt;&gt;App: Spawn Additional Pods
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>The HPA controller queries the <code>metrics.k8s.io</code> API provided by <code>metrics-server</code>. It computes the target scale using the formula:
+$$\text{desiredReplicas} = \left\lceil \text{currentReplicas} \times \left( \frac{\text{currentMetricValue}}{\text{targetMetricValue}} \right) \right\rceil$$
+Stabilization windows prevent rapid thrashing (flapping) during metric spikes.</p>
+<hr>
+<h2>24. ResourceQuota and LimitRange Admission Controller</h2>
+<pre><code class="language-mermaid">flowchart LR
+    CreateReq[&quot;kubectl create Pod Spec&lt;br/&gt;(cpu: 500m, memory: 1Gi)&quot;] --&gt; LR{&quot;LimitRange Admission Check&quot;}
+    
+    subgraph LimitRangeRules[&quot;LimitRange (Per Pod/Container Defaults &amp; Bounds)&quot;]
+        LR1[&quot;Inject default requests/limits if missing&quot;]
+        LR2[&quot;Enforce min/max allowed per container&quot;]
+    end
+
+    LR --&gt; LimitRangeRules
+    LimitRangeRules -- Violates Bounds --&gt; RejectLR[&quot;403 Forbidden: LimitRange Exceeded&quot;]
+    LimitRangeRules -- Passes --&gt; RQ{&quot;ResourceQuota Admission Check&quot;}
+
+    subgraph ResourceQuotaRules[&quot;ResourceQuota (Namespace Aggregate Capacity)&quot;]
+        RQ1[&quot;Sum current allocated requests + new request&quot;]
+        RQ2[&quot;Compare against hard quota ceiling&quot;]
+    end
+
+    RQ --&gt; ResourceQuotaRules
+    ResourceQuotaRules -- Exceeds Aggregate --&gt; RejectRQ[&quot;403 Forbidden: Exceeded Quota&quot;]
+    ResourceQuotaRules -- Under Ceiling --&gt; Allow[&quot;Commit Pod to etcd&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ul>
+<li><strong>LimitRange:</strong> Enforces constraints on individual Pods/containers within a namespace (min/max bounds and automatic default injection).</li>
+<li><strong>ResourceQuota:</strong> Enforces aggregate limits on total resources (CPU, Memory, Pod count, PVC count) consumed across the entire namespace.</li>
+</ul>
+<hr>
+<h2>25. Kubernetes Networking: Intra-Node vs. Inter-Node Packet Flow</h2>
+<pre><code class="language-mermaid">flowchart TD
+    subgraph Node1[&quot;WORKER NODE 1 (192.168.1.10)&quot;]
+        PodA[&quot;Pod A&lt;br/&gt;10.244.1.5&quot;] &lt;--&gt;|veth pair| Bridge1[&quot;cbr0 / CNI Bridge&quot;]
+        PodB[&quot;Pod B&lt;br/&gt;10.244.1.6&quot;] &lt;--&gt;|veth pair| Bridge1
+        Bridge1 &lt;--&gt;|Host Route| VXLAN1[&quot;VXLAN Tunnel Interface (flannel.1 / calico)&quot;]
+    end
+
+    subgraph Node2[&quot;WORKER NODE 2 (192.168.1.20)&quot;]
+        PodC[&quot;Pod C&lt;br/&gt;10.244.2.8&quot;] &lt;--&gt;|veth pair| Bridge2[&quot;cbr0 / CNI Bridge&quot;]
+        Bridge2 &lt;--&gt;|Host Route| VXLAN2[&quot;VXLAN Tunnel Interface (flannel.1 / calico)&quot;]
+    end
+
+    PodA -.-&gt;|Intra-Node: Local Bridge Switching| PodB
+    VXLAN1 == Encapsulated UDP Packet (Port 4789 / 8472) ==&gt; VXLAN2
+    VXLAN2 --&gt;|Decapsulate| PodC
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ol>
+<li><strong>Intra-Node:</strong> Traffic between Pod A and Pod B stays entirely on the local Linux bridge (<code>cbr0</code> or veth pair). No encapsulation or external routing occurs.</li>
+<li><strong>Inter-Node:</strong> Traffic destined for Pod C (different subnet <code>10.244.2.0/24</code>) is routed to the overlay interface (e.g., <code>flannel.1</code>), encapsulated inside an outer UDP packet, transmitted across the physical network, and decapsulated by the destination node&#39;s CNI interface.</li>
+</ol>
+<hr>
+<h2>26. Kubernetes Service Routing: iptables vs. IPVS</h2>
+<pre><code class="language-mermaid">graph TD
+    Client[&quot;Client Pod (10.244.1.5)&quot;] --&gt;|Connects to Service ClusterIP 10.96.0.100:80| Kernel[&quot;Linux Kernel Netfilter&quot;]
+
+    subgraph Mode[&quot;kube-proxy Mode&quot;]
+        IPTables[&quot;iptables Mode (Sequential Chains)&lt;br/&gt;PREROUTING -&gt; KUBE-SERVICES -&gt; KUBE-SVC-XXX&lt;br/&gt;Random probability load balancing: 1/n&quot;]
+        IPVS[&quot;IPVS Mode (Kernel Hash Tables)&lt;br/&gt;Netlink IPVS Virtual Server (10.96.0.100:80)&lt;br/&gt;Algorithms: Round-Robin, Least-Connection, Source-Hash&quot;]
+    end
+
+    Kernel --&gt; Mode
+    Mode --&gt; DNAT[&quot;DNAT: Translate ClusterIP to Endpoint Pod IP (10.244.2.15:8080)&quot;]
+    DNAT --&gt; TargetPod[&quot;Target Pod (10.244.2.15)&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Services do not run as processes; they are virtual IPs programmed by <code>kube-proxy</code>.</p>
+<ul>
+<li><strong>iptables:</strong> Uses sequentially evaluated packet filter chains. Rules grow $O(N)$ with service counts, introducing latency at scale.</li>
+<li><strong>IPVS:</strong> Uses kernel hash tables offering $O(1)$ lookups, supporting large-scale enterprise deployments with granular load-balancing algorithms.</li>
+</ul>
+<hr>
+<h2>27. EndpointSlice Architecture</h2>
+<pre><code class="language-mermaid">graph TD
+    Svc[&quot;Service: api-service&lt;br/&gt;(ClusterIP: 10.96.10.50)&quot;]
+    
+    subgraph Traditional[&quot;Legacy Endpoints (Single Monolithic Object)&quot;]
+        EP[&quot;Endpoints: api-service&lt;br/&gt;Contains 5,000 Pod IPs&lt;br/&gt;(1.5MB etcd object updated on ANY pod change)&quot;]
+    end
+
+    subgraph Modern[&quot;EndpointSlices (Scalable Partitioning)&quot;]
+        EPS1[&quot;EndpointSlice: api-service-1&lt;br/&gt;Endpoints 1 to 100&quot;]
+        EPS2[&quot;EndpointSlice: api-service-2&lt;br/&gt;Endpoints 101 to 200&quot;]
+        EPS3[&quot;EndpointSlice: api-service-N&lt;br/&gt;Endpoints N to N+100&quot;]
+    end
+
+    Svc --&gt; Traditional
+    Svc --&gt; Modern
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Legacy <code>Endpoints</code> stored all backing pod IPs in a single API resource. For a service with 2,000 replicas, a single pod scaling event forced the API server and all kube-proxy instances to re-transmit the entire multi-megabyte object. <code>EndpointSlices</code> partition endpoints into chunks of 100, dramatically reducing control-plane bandwidth and CPU load.</p>
+<hr>
+<h2>28. Cluster DNS Resolution: CoreDNS</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    participant Pod as Application Pod
+    participant CoreDNS as CoreDNS (10.96.0.10)
+    participant Upstream as External Upstream DNS (8.8.8.8)
+
+    Note over Pod: Read /etc/resolv.conf&lt;br/&gt;nameserver 10.96.0.10&lt;br/&gt;search default.svc.cluster.local svc.cluster.local cluster.local
+    Pod-&gt;&gt;CoreDNS: Query: backend-svc (Appends default.svc.cluster.local)
+    CoreDNS-&gt;&gt;CoreDNS: Match in-memory Service cache
+    CoreDNS--&gt;&gt;Pod: Return Service ClusterIP (10.96.40.22)
+
+    Pod-&gt;&gt;CoreDNS: Query: external.example.com
+    CoreDNS-&gt;&gt;CoreDNS: Does not match cluster.local zone
+    CoreDNS-&gt;&gt;Upstream: Forward DNS Query to 8.8.8.8
+    Upstream--&gt;&gt;CoreDNS: Return Public IP (93.184.216.34)
+    CoreDNS--&gt;&gt;Pod: Return Public IP
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Every Pod inherits <code>/etc/resolv.conf</code> configured with <code>nameserver 10.96.0.10</code> (CoreDNS Service IP) and search paths. Queries for bare names (<code>backend-svc</code>) sequentially append search domains until a match is resolved by CoreDNS. External domains are forwarded upstream to host resolvers.</p>
+<hr>
+<h2>29. Ingress Controller Architecture</h2>
+<pre><code class="language-mermaid">graph TD
+    Client[&quot;External Client (HTTPS:443)&quot;] --&gt; LB[&quot;External Load Balancer&quot;]
+    LB --&gt; NodePort[&quot;NodePort 30443 (Worker Nodes)&quot;]
+    NodePort --&gt; IngressPod[&quot;Ingress Controller Pod (nginx / traefik)&quot;]
+    
+    subgraph Rules[&quot;Ingress Resource (networking.k8s.io/v1)&quot;]
+        R1[&quot;Host: api.example.com /path: /v1 -&gt; Service api-svc:8080&quot;]
+        R2[&quot;Host: web.example.com /path: /   -&gt; Service web-svc:80&quot;]
+    end
+
+    IngressPod --&gt; Rules
+    Rules --&gt; PodA[&quot;api-svc Pod (10.244.1.15)&quot;]
+    Rules --&gt; PodB[&quot;web-svc Pod (10.244.2.22)&quot;]
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>An Ingress Controller is a specialized reverse proxy running inside the cluster. It bypasses <code>kube-proxy</code> ClusterIP routing for performance, querying <code>EndpointSlices</code> directly to stream traffic straight to container endpoints with TLS termination and path rewrites.</p>
+<hr>
+<h2>30. Gateway API Architecture &amp; Role Separation</h2>
+<pre><code class="language-mermaid">graph TD
+    subgraph InfraProvider[&quot;Infrastructure Provider&quot;]
+        GC[&quot;GatewayClass: standard-gateway&lt;br/&gt;(controller: acme.io/gateway-controller)&quot;]
+    end
+
+    subgraph ClusterAdmin[&quot;Cluster Administrator&quot;]
+        GW[&quot;Gateway: prod-gateway&lt;br/&gt;(Listeners: HTTPS:443, Host: *.example.com)&quot;]
+    end
+
+    subgraph AppDeveloper[&quot;Application Developer (Namespaces)&quot;]
+        HR1[&quot;HTTPRoute: payments-route&lt;br/&gt;(ParentRef: prod-gateway, Path: /payments)&quot;]
+        HR2[&quot;HTTPRoute: orders-route&lt;br/&gt;(ParentRef: prod-gateway, Path: /orders)&quot;]
+        Svc1[&quot;Service: payments-svc&quot;]
+        Svc2[&quot;Service: orders-svc&quot;]
+    end
+
+    GC --&gt;|Defines Controller| GW
+    GW --&gt;|Attached By| HR1
+    GW --&gt;|Attached By| HR2
+    HR1 --&gt; Svc1
+    HR2 --&gt; Svc2
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Gateway API succeeds Ingress by splitting routing into three decoupled personas:</p>
+<ol>
+<li><strong>Infrastructure Provider (<code>GatewayClass</code>):</strong> Defines the underlying load-balancing implementation.</li>
+<li><strong>Cluster Administrator (<code>Gateway</code>):</strong> Declares network ports, IP allocations, and TLS certificates.</li>
+<li><strong>Application Developer (<code>HTTPRoute</code>):</strong> Defines routing rules, header matches, and canary weights without needing cluster-admin privileges.</li>
+</ol>
+<hr>
+<h2>31. NetworkPolicy Traffic Filtering Matrix</h2>
+<pre><code class="language-mermaid">graph LR
+    subgraph External[&quot;Traffic Sources&quot;]
+        World[&quot;Internet / Outside Cluster&quot;]
+        OtherNS[&quot;Pods in Other Namespaces&quot;]
+        SameNS[&quot;Pods in Same Namespace&quot;]
+    end
+
+    subgraph Target[&quot;Target Pod (app: secure-db, port: 5432)&quot;]
+        NetPol[&quot;NetworkPolicy Enforcement&lt;br/&gt;policyTypes: [Ingress, Egress]&quot;]
+        DBPod[&quot;Postgres Container (5432)&quot;]
+    end
+
+    World -- Blocked by Default Deny --&gt; NetPol
+    OtherNS -- Allowed if namespaceSelector Matches --&gt; NetPol
+    SameNS -- Allowed if podSelector Matches app: backend --&gt; NetPol
+    NetPol --&gt; DBPod
+</code></pre>
+<p><strong>Architectural Explanation:</strong>  </p>
+<ul>
+<li>By default, all Pod network traffic is <strong>non-isolated</strong> (open allow-all).</li>
+<li>The moment a <code>NetworkPolicy</code> selects a Pod, it transitions to <strong>default-deny</strong> for that policy type (Ingress or Egress).</li>
+<li>Traffic is whitelisted only when source criteria (podSelector, namespaceSelector, ipBlock) and destination port match explicitly.</li>
+</ul>
+<hr>
+<h2>32. CSI Architecture and Volume Mount Protocol</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    participant API as kube-apiserver
+    participant Attacher as CSI External Attacher
+    participant Provisioner as CSI External Provisioner
+    participant Kube as Node Kubelet
+    participant Driver as CSI Node Plugin
+
+    API-&gt;&gt;Provisioner: Create PVC with StorageClass
+    Provisioner-&gt;&gt;Provisioner: Provision Remote Storage Disk (e.g. AWS EBS / Ceph)
+    Provisioner-&gt;&gt;API: Create PersistentVolume (PV) bound to PVC
+
+    API-&gt;&gt;Attacher: Pod Scheduled to node-01
+    Attacher-&gt;&gt;Attacher: Call ControllerPublishVolume (Attach Disk to VM)
+    Attacher-&gt;&gt;API: Update VolumeAttachment Status (Attached)
+
+    API-&gt;&gt;Kube: VolumeAttachment Ready for Mount
+    Kube-&gt;&gt;Driver: NodeStageVolume (Format filesystem e.g. ext4)
+    Kube-&gt;&gt;Driver: NodePublishVolume (Bind mount to /var/lib/kubelet/pods/UID/volumes)
+    Kube-&gt;&gt;Kube: Launch Container with Mounted Filesystem
+</code></pre>
+<p><strong>Architectural Explanation:</strong><br>Container Storage Interface (CSI) separates storage plugins from core Kubernetes code:</p>
+<ol>
+<li><strong>Controller Plugins:</strong> Run on control plane (<code>csi-provisioner</code>, <code>csi-attacher</code>) to provision and attach block devices to nodes.</li>
+<li><strong>Node Plugins:</strong> Run as DaemonSets on worker nodes (<code>csi-node-driver-registrar</code>) to execute local format (<code>NodeStageVolume</code>) and mount (<code>NodePublishVolume</code>) calls.</li>
+</ol>
+<div class='page-break'></div><h1>VOLUME III: THE KUBERNETES VISUAL ARCHITECTURE ATLAS</h1>
+<h2>PART 2: SYSTEMATIC TROUBLESHOOTING DECISION TREES (DIAGRAMS 33–64)</h2>
+<hr>
+<h2>33. Universal 60-Second Node Triage Decision Tree</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Start[&quot;Node Reports Issue / Alert&quot;] --&gt; Step1[&quot;1. Run: kubectl get nodes -o wide&quot;]
+    Step1 --&gt; CheckStatus{&quot;Is Node Status Ready?&quot;}
+    
+    CheckStatus -- NotReady --&gt; GoNotReady[&quot;Follow Diagram 34: Node NotReady Tree&quot;]
+    CheckStatus -- Ready --&gt; Step2[&quot;2. Check Node Resource Pressure:&lt;br/&gt;kubectl describe node &lt;name&gt; | grep -A 5 Conditions&quot;]
+    
+    Step2 --&gt; PressureCheck{&quot;Any Condition True?&lt;br/&gt;MemoryPressure, DiskPressure, PIDPressure&quot;}
+    PressureCheck -- Yes --&gt; GoPressure[&quot;Follow Diagram 57-59: Resource Pressure Trees&quot;]
+    PressureCheck -- No --&gt; Step3[&quot;3. Inspect System Logs on Node:&lt;br/&gt;journalctl -u kubelet -e --no-pager&quot;]
+    
+    Step3 --&gt; KubeletLog{&quot;Any Fatal Errors in Kubelet?&quot;}
+    KubeletLog -- Yes --&gt; GoKubelet[&quot;Follow Diagram 35: Kubelet Systemd Failure&quot;]
+    KubeletLog -- No --&gt; Step4[&quot;4. Check Container Runtime:&lt;br/&gt;crictl info &amp;&amp; systemctl status containerd&quot;]
+    Step4 --&gt; RuntimeCheck{&quot;Runtime Active &amp; Responsive?&quot;}
+    RuntimeCheck -- No --&gt; GoRuntime[&quot;Follow Diagram 36: containerd Failure&quot;]
+    RuntimeCheck -- Yes --&gt; NodeHealthy[&quot;Node Infrastructure Verified Healthy&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>When troubleshooting an affected cluster, never jump blindly into pod manifests. Follow this 60-second triage protocol to isolate node-level infrastructure failures from workload application faults in under one minute.</p>
+<hr>
+<h2>34. Node Status: NotReady Diagnostic and Remediation Algorithm</h2>
+<pre><code class="language-mermaid">flowchart TD
+    NotReady[&quot;Node Reports NotReady in kubectl get nodes&quot;] --&gt; SSH[&quot;SSH into Affected Node&quot;]
+    SSH --&gt; SvcCheck[&quot;systemctl status kubelet&quot;]
+    
+    SvcCheck --&gt; IsRunning{&quot;Is kubelet running?&quot;}
+    IsRunning -- Inactive / Failed --&gt; StartKubelet[&quot;systemctl restart kubelet&lt;br/&gt;journalctl -u kubelet -xe&quot;]
+    IsRunning -- Active (Running) --&gt; CheckAPIReach{&quot;Can Node reach kube-apiserver?&lt;br/&gt;curl -k https://&lt;control-plane&gt;:6443/version&quot;}
+    
+    CheckAPIReach -- Connection Refused / Timeout --&gt; NetIssue[&quot;Firewall / Network / Security Group Blocking Port 6443&quot;]
+    CheckAPIReach -- 200 OK or 401 Unauthorized --&gt; CertCheck{&quot;Are Kubelet Certificates Valid?&lt;br/&gt;openssl x509 -in /var/lib/kubelet/pki/kubelet-client-current.pem -noout -dates&quot;}
+    
+    CertCheck -- Expired --&gt; RenewCert[&quot;Regenerate Certs via kubeadm / kubeconfig bootstrap&quot;]
+    CertCheck -- Valid --&gt; CgroupCheck{&quot;Do Kubelet &amp; containerd Cgroup Drivers Match?&lt;br/&gt;SystemdCgroup = true in config.toml&quot;}
+    
+    CgroupCheck -- Mismatch --&gt; FixCgroup[&quot;Align cgroup to systemd &amp; restart daemons&quot;]
+    CgroupCheck -- Match --&gt; DiskCheck{&quot;Is Node Root Disk 100% Full?&lt;br/&gt;df -h /&quot;}
+    DiskCheck -- Full --&gt; CleanDisk[&quot;Prune dead containers &amp; logs: crictl rmi --prune&quot;]
+    DiskCheck -- Not Full --&gt; NodeReady[&quot;Kubelet Posts NodeStatus -&gt; Node Transitions to Ready&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>A <code>NotReady</code> condition occurs when the node lease fails to renew or heartbeat times out. Root causes fall into:</p>
+<ol>
+<li>Dead <code>kubelet</code> systemd service.</li>
+<li>Network partition to the API server on port 6443.</li>
+<li>Expired TLS client certificates in <code>/var/lib/kubelet/pki/</code>.</li>
+<li>Cgroup driver mismatch between kubelet and containerd.</li>
+<li>Disk space exhaustion preventing container creation.</li>
+</ol>
+<hr>
+<h2>35. kubelet Systemd Service Failure &amp; Cgroup Driver Mismatch</h2>
+<pre><code class="language-mermaid">flowchart TD
+    FailedKubelet[&quot;systemctl status kubelet reports failed&quot;] --&gt; Journal[&quot;Run: journalctl -u kubelet -n 100 --no-pager&quot;]
+    Journal --&gt; Analyze{&quot;Analyze Error Message&quot;}
+    
+    Analyze -- &quot;cgroup driver mismatch&quot; --&gt; CheckConfig[&quot;Inspect /etc/containerd/config.toml&lt;br/&gt;Look for: SystemdCgroup = true&quot;]
+    CheckConfig --&gt; EditConfig[&quot;Set SystemdCgroup = true&lt;br/&gt;systemctl restart containerd &amp;&amp; systemctl restart kubelet&quot;]
+    
+    Analyze -- &quot;failed to load kubelet config file&quot; --&gt; CheckFile[&quot;Inspect /var/lib/kubelet/config.yaml&lt;br/&gt;Verify valid YAML syntax and paths&quot;]
+    
+    Analyze -- &quot;failed to run Kubelet: misconfiguration: kubelet cgroup&quot; --&gt; SwapCheck{&quot;Is Linux Swap Active?&lt;br/&gt;Run: swapon --show&quot;}
+    SwapCheck -- Swap Active --&gt; TurnOffSwap[&quot;Run: sudo swapoff -a&lt;br/&gt;Comment swap line in /etc/fstab&quot;]
+    
+    Analyze -- &quot;certificate signed by unknown authority&quot; --&gt; KubeconfigFix[&quot;Verify /etc/kubernetes/kubelet.conf points to correct CA&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>The kubelet will refuse to start if Linux swap memory is enabled (unless configured explicitly with <code>failSwapOn: false</code>) or if the cgroup driver does not match the container runtime (<code>systemd</code> is mandatory in modern Kubernetes).</p>
+<hr>
+<h2>36. Container Runtime (containerd) Socket and CRI Resolution</h2>
+<pre><code class="language-mermaid">flowchart TD
+    RuntimeDown[&quot;containerd service failing or crictl errors&quot;] --&gt; CheckStatus[&quot;systemctl status containerd&quot;]
+    CheckStatus --&gt; SockCheck{&quot;Does socket exist?&lt;br/&gt;ls -la /run/containerd/containerd.sock&quot;}
+    
+    SockCheck -- No --&gt; CheckCrashLog[&quot;Inspect: journalctl -u containerd -n 50 --no-pager&quot;]
+    CheckCrashLog --&gt; BrokenConfig{&quot;Invalid syntax in /etc/containerd/config.toml?&quot;}
+    BrokenConfig -- Yes --&gt; DefaultConfig[&quot;Generate clean config:&lt;br/&gt;containerd config default &gt; /etc/containerd/config.toml&lt;br/&gt;Set SystemdCgroup = true&lt;br/&gt;systemctl restart containerd&quot;]
+    
+    SockCheck -- Yes --&gt; CrictlTest{&quot;Does crictl work?&lt;br/&gt;crictl pods&quot;}
+    CrictlTest -- Socket error --&gt; SetEndpoint[&quot;Configure /etc/crictl.yaml:&lt;br/&gt;runtime-endpoint: unix:///run/containerd/containerd.sock&quot;]
+    CrictlTest -- Success --&gt; Ready[&quot;Container runtime fully operational&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br><code>crictl</code> requires an explicit runtime endpoint configuration. If <code>/etc/crictl.yaml</code> is absent, run <code>crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock</code>. Corrupted <code>config.toml</code> files should be regenerated from <code>containerd config default</code>.</p>
+<hr>
+<h2>37. Control Plane Static Pod Outage &amp; Log Recovery</h2>
+<pre><code class="language-mermaid">flowchart TD
+    ControlPlaneDown[&quot;Control Plane Not Responding&lt;br/&gt;kubectl fails: Connection Refused on 6443&quot;] --&gt; SSH[&quot;SSH to Control Plane Node&quot;]
+    SSH --&gt; InspectStatic[&quot;Inspect /etc/kubernetes/manifests/&lt;br/&gt;kube-apiserver.yaml, etcd.yaml, kube-scheduler.yaml&quot;]
+    
+    InspectStatic --&gt; CheckCRI[&quot;Inspect Static Containers with crictl:&lt;br/&gt;crictl ps -a --name kube-apiserver&quot;]
+    CheckCRI --&gt; ContainerFound{&quot;Is API Server container listed?&quot;}
+    
+    ContainerFound -- Exited / Crashing --&gt; FetchLogs[&quot;Fetch logs directly from container runtime:&lt;br/&gt;crictl logs &lt;container-id&gt;&quot;]
+    ContainerFound -- Missing Entirely --&gt; ManifestCheck[&quot;Verify manifest syntax &amp; permissions in /etc/kubernetes/manifests/&quot;]
+    
+    FetchLogs --&gt; ErrorType{&quot;Identify Root Error&quot;}
+    ErrorType -- &quot;etcdserver: request timed out / connection refused&quot; --&gt; CheckEtcd[&quot;Verify etcd static container is healthy (Port 2379)&quot;]
+    ErrorType -- &quot;address already in use&quot; --&gt; PortConflict[&quot;Kill orphaned process holding port 6443: fuser -k 6443/tcp&quot;]
+    ErrorType -- &quot;certificate has expired&quot; --&gt; CertRenew[&quot;Renew certificates: kubeadm certs renew all&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>When the API server is down, <code>kubectl</code> cannot be used. Troubleshooting must be conducted on the control-plane host using <code>crictl ps -a</code> and inspecting raw static pod container logs directly under <code>/var/log/pods/</code> or via <code>crictl logs</code>.</p>
+<hr>
+<h2>38. kube-apiserver Port 6443 Connection Refused Resolution</h2>
+<pre><code class="language-mermaid">flowchart TD
+    ConnRefused[&quot;kubectl: The connection to server 192.168.1.10:6443 was refused&quot;] --&gt; Step1[&quot;Check kubelet on Master: systemctl is-active kubelet&quot;]
+    Step1 -- Inactive --&gt; StartK[&quot;systemctl start kubelet&quot;]
+    Step1 -- Active --&gt; Step2[&quot;Check if apiserver container is running:&lt;br/&gt;crictl ps | grep kube-apiserver&quot;]
+    
+    Step2 -- Running --&gt; FWCheck[&quot;Check Linux Firewall / iptables:&lt;br/&gt;ufw status or iptables -L -n | grep 6443&quot;]
+    FWCheck -- Blocked --&gt; AllowPort[&quot;Allow TCP Port 6443&quot;]
+    
+    Step2 -- Not Running --&gt; Step3[&quot;Inspect latest apiserver container log:&lt;br/&gt;crictl logs $(crictl ps -a --name kube-apiserver -q | head -n 1)&quot;]
+    Step3 --&gt; AnalyzeErr{&quot;Error Cause?&quot;}
+    AnalyzeErr -- ETCD unreachable --&gt; FixETCD[&quot;Recover etcd container on port 2379&quot;]
+    AnalyzeErr -- Bad flag in manifest --&gt; FixYAML[&quot;Fix invalid flag in /etc/kubernetes/manifests/kube-apiserver.yaml&quot;]
+    AnalyzeErr -- Expired PKI --&gt; FixPKI[&quot;kubeadm certs renew all &amp;&amp; systemctl restart kubelet&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>&quot;Connection refused&quot; on port 6443 means no process is listening on the port. It is almost always caused by the <code>kube-apiserver</code> static pod crashing on startup due to etcd connection failure or bad arguments in <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>.</p>
+<hr>
+<h2>39. etcd Cluster Health, Cert Expiration &amp; Quorum Restoration</h2>
+<pre><code class="language-mermaid">flowchart TD
+    ETCDAlert[&quot;etcd Health Alert / Timeout&quot;] --&gt; EnvSetup[&quot;Export Auth Environment Variables:&lt;br/&gt;ETCDCTL_API=3&lt;br/&gt;CACERT=/etc/kubernetes/pki/etcd/ca.crt&lt;br/&gt;CERT=/etc/kubernetes/pki/etcd/server.crt&lt;br/&gt;KEY=/etc/kubernetes/pki/etcd/server.key&quot;]
+    
+    EnvSetup --&gt; HealthCheck[&quot;Run: etcdctl --cacert=$CACERT --cert=$CERT --key=$KEY&lt;br/&gt;--endpoints=https://127.0.0.1:2379 endpoint health&quot;]
+    
+    HealthCheck --&gt; IsHealthy{&quot;Is endpoint healthy?&quot;}
+    IsHealthy -- Yes --&gt; CheckQuorum[&quot;Run: etcdctl member list -w table&lt;br/&gt;Verify all members have active peer status&quot;]
+    
+    IsHealthy -- No (tls: bad certificate) --&gt; CheckCerts[&quot;Check cert dates:&lt;br/&gt;kubeadm certs check-expiration&quot;]
+    CheckCerts --&gt; RenewAll[&quot;kubeadm certs renew etcd-server etcd-peer&quot;]
+    
+    IsHealthy -- No (connection refused) --&gt; CheckDisk[&quot;Check if etcd disk is full (df -h /var/lib/etcd)&quot;]
+    CheckDisk -- Out of space --&gt; ExpandDisk[&quot;Free disk space or restore from uncorrupted snapshot&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>All <code>etcdctl</code> commands in Kubernetes require mTLS authentication using <code>/etc/kubernetes/pki/etcd/server.crt</code> and <code>server.key</code>. Always verify cluster health before attempting snapshot restores.</p>
+<hr>
+<h2>40. CoreDNS Resolution Failure &amp; Loop Detection Diagnostic Tree</h2>
+<pre><code class="language-mermaid">flowchart TD
+    DNSFail[&quot;Pod cannot resolve service names (e.g. nslookup kubernetes.default)&quot;] --&gt; Step1[&quot;Check CoreDNS Pods:&lt;br/&gt;kubectl get pods -n kube-system -l k8s-app=kube-dns&quot;]
+    
+    Step1 --&gt; PodState{&quot;CoreDNS Pods Running?&quot;}
+    PodState -- CrashLoopBackOff --&gt; CheckLoop{&quot;Are logs reporting &#39;Loop ... detected&#39;?&quot;}
+    CheckLoop -- Yes --&gt; FixLoop[&quot;Loop occurs when host /etc/resolv.conf points to 127.0.0.53 loopback.&lt;br/&gt;Update /etc/resolv.conf on host to upstream DNS (8.8.8.8) &amp; restart CoreDNS&quot;]
+    
+    PodState -- Pending --&gt; CheckSched[&quot;Check node taints or missing CNI network plugin&quot;]
+    
+    PodState -- Running --&gt; Step2[&quot;Test DNS Service IP &amp; Endpoints:&lt;br/&gt;kubectl get svc kube-dns -n kube-system&lt;br/&gt;kubectl get endpoints kube-dns -n kube-system&quot;]
+    
+    Step2 --&gt; EndpointsPresent{&quot;Are endpoints populated?&quot;}
+    EndpointsPresent -- No --&gt; CheckKubeProxy[&quot;kube-proxy issue or pod selector mismatch&quot;]
+    EndpointsPresent -- Yes --&gt; Step3[&quot;Test Direct Query:&lt;br/&gt;kubectl run test-dns --rm -it --image=busybox:1.28 -- nslookup 10.96.0.1&quot;]
+    Step3 -- Success --&gt; NetPolCheck[&quot;Inspect NetworkPolicies in application namespace blocking Port 53 UDP&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>CoreDNS CrashLoopBackOff with <code>Loop detected</code> is a classic Linux systemd-resolved bug where CoreDNS forwards to local loopback and detects infinite recursion. The fix is updating host nameservers and editing the <code>Corefile</code> in <code>ConfigMap/coredns</code>.</p>
+<hr>
+<h2>41. Pod Stuck in Pending: Scheduling Failure Flowchart</h2>
+<pre><code class="language-mermaid">flowchart TD
+    PendingPod[&quot;Pod Stuck in Pending&quot;] --&gt; Describe[&quot;Run: kubectl describe pod &lt;pod-name&gt;&quot;]
+    Describe --&gt; ReadEvents[&quot;Examine &#39;Events&#39; Section at Bottom&quot;]
+    
+    ReadEvents --&gt; Reason{&quot;Evaluate Scheduling Failure Reason&quot;}
+    
+    Reason -- &quot;0/N nodes available: Insufficient cpu / memory&quot; --&gt; Action1[&quot;Lower pod resource requests or scale cluster / node capacity&quot;]
+    Reason -- &quot;node(s) had untolerated taint&quot; --&gt; Action2[&quot;Add matching toleration to pod spec or remove taint from node&quot;]
+    Reason -- &quot;node(s) didn&#39;t match Pod&#39;s node affinity/selector&quot; --&gt; Action3[&quot;Correct labels on node (kubectl label node ...) or adjust pod spec&quot;]
+    Reason -- &quot;0/N nodes available: node(s) had volume node-affinity conflict&quot; --&gt; Action4[&quot;PVC is bound to PV in a different availability zone than scheduled node&quot;]
+    Reason -- &quot;No events recorded&quot; --&gt; Action5[&quot;kube-scheduler is dead or control plane disconnected&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>If a Pod is <code>Pending</code>, the <code>kube-scheduler</code> has failed to bind it to a node. The <code>Events</code> table of <code>kubectl describe pod</code> lists the exact predicate that failed on every node.</p>
+<hr>
+<h2>42. Pod CrashLoopBackOff: Exit Code Analysis</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Crash[&quot;Pod in CrashLoopBackOff&quot;] --&gt; GetCode[&quot;Run: kubectl describe pod &lt;pod-name&gt;&lt;br/&gt;Inspect Last State: Exit Code&quot;]
+    
+    GetCode --&gt; ExitCode{&quot;Analyze Exit Code&quot;}
+    
+    ExitCode -- &quot;Exit Code 0&quot; --&gt; Reason0[&quot;Container completed work and exited normally.&lt;br/&gt;Fix: Add long-running process or command (e.g. sleep infinity)&quot;]
+    ExitCode -- &quot;Exit Code 1&quot; --&gt; Reason1[&quot;Application general error / syntax error.&lt;br/&gt;Check: kubectl logs &lt;pod-name&gt; --previous&quot;]
+    ExitCode -- &quot;Exit Code 137&quot; --&gt; Reason137[&quot;OOMKilled (Out of Memory - 128 + 9 SIGKILL).&lt;br/&gt;Fix: Increase resources.limits.memory in pod spec&quot;]
+    ExitCode -- &quot;Exit Code 139&quot; --&gt; Reason139[&quot;Segmentation Fault (SIGSEGV). Corrupted binary or library.&quot;]
+    ExitCode -- &quot;Exit Code 143&quot; --&gt; Reason143[&quot;Graceful Termination (128 + 15 SIGTERM). Stopped by orchestrator.&quot;]
+    ExitCode -- &quot;Exit Code 255&quot; --&gt; Reason255[&quot;Entrypoint or CMD command does not exist in container image.&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Exit codes convey the precise termination cause:</p>
+<ul>
+<li>Exit Code 0: Task finished (Jobs use this; long-running services crash without a persistent foreground daemon).</li>
+<li>Exit Code 137: Memory limit exceeded (OOMKilled) or external <code>kill -9</code>.</li>
+<li>Always run <code>kubectl logs &lt;pod-name&gt; --previous</code> to see what printed immediately before the crash.</li>
+</ul>
+<hr>
+<h2>43. ImagePullBackOff &amp; Private Registry Credential Failure</h2>
+<pre><code class="language-mermaid">flowchart TD
+    ImageErr[&quot;Pod in ImagePullBackOff / ErrImagePull&quot;] --&gt; Describe[&quot;Run: kubectl describe pod &lt;pod-name&gt;&quot;]
+    Describe --&gt; CheckMsg{&quot;Analyze Failed Event Message&quot;}
+    
+    CheckMsg -- &quot;manifest for &lt;image&gt;:&lt;tag&gt; not found&quot; --&gt; FixTag[&quot;Image tag does not exist. Correct tag in pod spec.&quot;]
+    CheckMsg -- &quot;repository does not exist or may require &#39;docker login&#39;&quot; --&gt; FixAuth[&quot;Private Registry Authentication Required&quot;]
+    CheckMsg -- &quot;dial tcp: lookup registry... i/o timeout&quot; --&gt; FixDNS[&quot;Worker node cannot resolve DNS or internet gateway down&quot;]
+    
+    FixAuth --&gt; CreateSecret[&quot;Create Docker Registry Secret:&lt;br/&gt;kubectl create secret docker-registry reg-cred&lt;br/&gt;--docker-server=... --docker-username=... --docker-password=...&quot;]
+    CreateSecret --&gt; AttachSecret[&quot;Add imagePullSecrets to Pod Spec:&lt;br/&gt;spec.imagePullSecrets:&lt;br/&gt;  - name: reg-cred&quot;]
+    AttachSecret --&gt; PodPulls[&quot;Kubelet Authenticates &amp; Pulls Image&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br><code>ImagePullBackOff</code> indicates that the container image cannot be downloaded. Ensure the image tag is exact and that <code>imagePullSecrets</code> are defined in the pod manifest or bound to the ServiceAccount.</p>
+<hr>
+<h2>44. CreateContainerConfigError &amp; Missing ConfigMap/Secret</h2>
+<pre><code class="language-mermaid">flowchart TD
+    ConfigErr[&quot;Pod in CreateContainerConfigError&quot;] --&gt; Describe[&quot;Run: kubectl describe pod &lt;pod-name&gt;&quot;]
+    Describe --&gt; InspectMsg{&quot;Analyze Event Message&quot;}
+    
+    InspectMsg -- &quot;configmap &#39;&lt;name&gt;&#39; not found&quot; --&gt; CreateCM[&quot;Create missing ConfigMap in the SAME namespace as pod&quot;]
+    InspectMsg -- &quot;secret &#39;&lt;name&gt;&#39; not found&quot; --&gt; CreateSec[&quot;Create missing Secret in the SAME namespace as pod&quot;]
+    InspectMsg -- &quot;key &#39;&lt;key&gt;&#39; not found&quot; --&gt; AddKey[&quot;Add missing key-value pair to ConfigMap or Secret&quot;]
+    
+    CreateCM --&gt; KubeletAutoStarts[&quot;Kubelet automatically detects created resource and starts Pod&quot;]
+    CreateSec --&gt; KubeletAutoStarts
+    AddKey --&gt; KubeletAutoStarts
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br><code>CreateContainerConfigError</code> occurs before the container process is launched because a referenced <code>configMapKeyRef</code> or <code>secretKeyRef</code> does not exist in the pod&#39;s namespace. The pod transitions to <code>Running</code> automatically once the missing resource is created.</p>
+<hr>
+<h2>45. Service Connectivity Failure: ClusterIP Unreachable</h2>
+<pre><code class="language-mermaid">flowchart TD
+    SvcFail[&quot;Cannot reach Service ClusterIP (curl http://&lt;cluster-ip&gt;:&lt;port&gt;)&quot;] --&gt; Step1[&quot;1. Verify Endpoints:&lt;br/&gt;kubectl get endpoints &lt;service-name&gt;&quot;]
+    
+    Step1 --&gt; HasEndpoints{&quot;Are Pod IPs listed under ENDPOINTS?&quot;}
+    HasEndpoints -- None / &lt;none&gt; --&gt; CheckSelector[&quot;Compare Service spec.selector with Pod metadata.labels.&lt;br/&gt;Labels MUST match exactly!&quot;]
+    CheckSelector --&gt; CheckProbes[&quot;Check if backing Pods are failing Readiness probes.&lt;br/&gt;Unready pods are stripped from endpoints!&quot;]
+    
+    HasEndpoints -- Valid Pod IPs --&gt; Step2[&quot;2. Test direct Pod IP connectivity:&lt;br/&gt;curl http://&lt;pod-ip&gt;:&lt;targetPort&gt;&quot;]
+    Step2 -- Direct Pod Fails --&gt; CheckApp[&quot;App inside container not listening on expected port or bound only to 127.0.0.1&quot;]
+    
+    Step2 -- Direct Pod Succeeds --&gt; Step3[&quot;3. Inspect kube-proxy &amp; iptables:&lt;br/&gt;kubectl get pods -n kube-system -l k8s-app=kube-proxy&quot;]
+    Step3 --&gt; ProxyHealthy{&quot;kube-proxy running on all nodes?&quot;}
+    ProxyHealthy -- No --&gt; RestartProxy[&quot;Restart kube-proxy daemonset&quot;]
+    ProxyHealthy -- Yes --&gt; NetPolCheck[&quot;Check for NetworkPolicies blocking ingress on target pod&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>A healthy Service requires:</p>
+<ol>
+<li>Exact label selector matching pod labels.</li>
+<li>Backing pods passing readiness probes.</li>
+<li>Target container listening on <code>0.0.0.0</code> (not <code>127.0.0.1</code>).</li>
+<li>Active <code>kube-proxy</code> iptables/IPVS rules on every node.</li>
+</ol>
+<hr>
+<h2>46. NodePort Service Port Refused &amp; Firewall Mismatch</h2>
+<pre><code class="language-mermaid">flowchart TD
+    NPFail[&quot;Cannot reach NodePort (curl http://&lt;node-ip&gt;:&lt;nodePort&gt;)&quot;] --&gt; Step1[&quot;Check Service Definition: kubectl get svc &lt;name&gt;&quot;]
+    Step1 --&gt; VerifyType{&quot;Is service type NodePort?&quot;}
+    VerifyType -- No --&gt; FixType[&quot;Set spec.type: NodePort&quot;]
+    
+    VerifyType -- Yes --&gt; Step2[&quot;Identify allocated NodePort (Range 30000-32767)&quot;]
+    Step2 --&gt; LocalTest[&quot;SSH into Node &amp; test locally:&lt;br/&gt;curl http://127.0.0.1:&lt;nodePort&gt;&quot;]
+    
+    LocalTest -- Works on Node --&gt; ExternalFW[&quot;Local node port works -&gt; External firewall / Cloud Security Group is blocking port&quot;]
+    LocalTest -- Connection Refused --&gt; ProxyCheck[&quot;Check kube-proxy logs for iptables programming errors&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>If a NodePort works via <code>curl http://127.0.0.1:&lt;port&gt;</code> on the node itself but fails from outside, the host firewall (<code>ufw</code>, <code>firewalld</code>) or cloud security group is blocking the port range 30000–32767.</p>
+<hr>
+<h2>47. Ingress 404 Not Found &amp; 502/503 Bad Gateway</h2>
+<pre><code class="language-mermaid">flowchart TD
+    IngressErr[&quot;HTTP Error via Ingress&quot;] --&gt; Code{&quot;HTTP Status Code?&quot;}
+    
+    Code -- 404 Not Found --&gt; CheckHostPath[&quot;Verify Ingress Host &amp; Path:&lt;br/&gt;1. Does request Host header match spec.rules[].host?&lt;br/&gt;2. Does path match pathType (Prefix vs Exact)?&lt;br/&gt;3. Verify default backend configuration&quot;]
+    
+    Code -- 502 Bad Gateway --&gt; CheckTarget[&quot;Target backend Service / Pod is refusing connection.&lt;br/&gt;Verify container is listening on targetPort specified in Service&quot;]
+    
+    Code -- 503 Service Unavailable --&gt; CheckEndP[&quot;Service has 0 healthy endpoints.&lt;br/&gt;Check pod readiness probes and replica counts&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong>  </p>
+<ul>
+<li><strong>404 Not Found:</strong> Ingress controller received the request, but no rule matched the <code>Host</code> or <code>Path</code>.</li>
+<li><strong>502 Bad Gateway:</strong> Ingress routed traffic to the upstream pod, but the pod refused the TCP connection (port mismatch).</li>
+<li><strong>503 Service Unavailable:</strong> No backing pods are in <code>Ready</code> state.</li>
+</ul>
+<hr>
+<h2>48. Gateway API HTTPRoute Detached &amp; Unresolved ParentRef</h2>
+<pre><code class="language-mermaid">flowchart TD
+    RouteFail[&quot;HTTPRoute Not Serving Traffic&quot;] --&gt; InspectRoute[&quot;Run: kubectl describe httproute &lt;name&gt;&quot;]
+    InspectRoute --&gt; CheckConditions[&quot;Check Status -&gt; Conditions&quot;]
+    
+    CheckConditions --&gt; ParentRefCond{&quot;Accepted: True &amp; Programmed: True?&quot;}
+    
+    ParentRefCond -- &quot;Accepted: False / ResolvedRefs: False&quot; --&gt; RefIssue{&quot;Why is ParentRef Rejected?&quot;}
+    RefIssue -- &quot;Gateway not found&quot; --&gt; CheckGWName[&quot;Verify spec.parentRefs[].name matches an existing Gateway&quot;]
+    RefIssue -- &quot;Cross-namespace reference not allowed&quot; --&gt; ReferenceGrant[&quot;Create ReferenceGrant in Gateway namespace to allow cross-namespace routes&quot;]
+    RefIssue -- &quot;SectionName / Port mismatch&quot; --&gt; FixPort[&quot;Ensure HTTPRoute parentRef sectionName matches listener name in Gateway&quot;]
+    
+    ParentRefCond -- &quot;Accepted: True&quot; --&gt; BackendCheck[&quot;Verify backendRefs point to valid Services with endpoints&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Gateway API routes decouple routing from gateways. An <code>HTTPRoute</code> must be accepted by the parent <code>Gateway</code>. If they reside in different namespaces, a <code>ReferenceGrant</code> resource is mandatory for security authorization.</p>
+<hr>
+<h2>49. NetworkPolicy Dropped Packet Triage</h2>
+<pre><code class="language-mermaid">flowchart TD
+    NetPolIssue[&quot;Pods Cannot Communicate / Timeouts Occur&quot;] --&gt; CheckCNI[&quot;1. Verify CNI Supports NetworkPolicies&lt;br/&gt;(Calico, Cilium, Weave support NetPol; Flannel DOES NOT without Canal)&quot;]
+    
+    CheckCNI -- Flannel Only --&gt; UpgradeCNI[&quot;Install Calico or Canal to enforce NetworkPolicies&quot;]
+    CheckCNI -- Supported --&gt; Step2[&quot;2. Inspect Policies in Namespace:&lt;br/&gt;kubectl get netpol -n &lt;namespace&gt;&quot;]
+    
+    Step2 --&gt; EvaluateRules[&quot;Evaluate podSelector and policyTypes:&lt;br/&gt;Does any NetPol select the target Pod?&quot;]
+    EvaluateRules -- Selected --&gt; CheckDefaultDeny[&quot;Selected pod is now in Default-Deny mode for that traffic direction&quot;]
+    
+    CheckDefaultDeny --&gt; VerifyWhitelist[&quot;Verify Ingress/Egress Whitelist Rules:&lt;br/&gt;1. podSelector matches client?&lt;br/&gt;2. namespaceSelector matches client namespace?&lt;br/&gt;3. ports[].port matches target port?&quot;]
+    VerifyWhitelist -- Mismatch --&gt; FixNetPol[&quot;Update NetworkPolicy YAML to permit required traffic&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>NetworkPolicies are silent drop filters. If <code>flannel</code> is used alone, policies are silently ignored without error. When debugging, test reachability with <code>kubectl exec -it &lt;pod&gt; -- nc -zvw3 &lt;ip&gt; &lt;port&gt;</code>.</p>
+<hr>
+<h2>50. PersistentVolume &amp; Claim Stuck in Pending / Binding Failure</h2>
+<pre><code class="language-mermaid">flowchart TD
+    PVCFail[&quot;PVC Stuck in Pending&quot;] --&gt; DescribePVC[&quot;Run: kubectl describe pvc &lt;pvc-name&gt;&quot;]
+    DescribePVC --&gt; CheckEvents[&quot;Read Events Section&quot;]
+    
+    CheckEvents --&gt; EventMsg{&quot;Analyze Event Message&quot;}
+    
+    EventMsg -- &quot;waiting for first consumer to be created&quot; --&gt; NormalBehavior[&quot;StorageClass uses volumeBindingMode: WaitForFirstConsumer.&lt;br/&gt;PVC will remain Pending until a Pod using it is scheduled!&quot;]
+    
+    EventMsg -- &quot;no persistent volumes available&quot; --&gt; StaticIssue[&quot;Static Provisioning: No existing PV matches size, accessModes, or storageClassName&quot;]
+    StaticIssue --&gt; FixPV[&quot;Create PV with capacity &gt;= PVC request and identical accessModes&quot;]
+    
+    EventMsg -- &quot;provisioning failed&quot; --&gt; DynamicIssue[&quot;Dynamic Provisioning: CSI driver error or invalid StorageClass parameters&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br><code>volumeBindingMode: WaitForFirstConsumer</code> is standard practice. It delays volume creation until the Pod is placed on a node, ensuring the storage volume is provisioned in the same availability zone as the node.</p>
+<hr>
+<h2>51. Volume Mount Failure: Multi-Attach Error &amp; Node Lock</h2>
+<pre><code class="language-mermaid">flowchart TD
+    AttachFail[&quot;Pod in ContainerCreating: Volume Attach Failed&quot;] --&gt; Describe[&quot;Run: kubectl describe pod &lt;pod-name&gt;&quot;]
+    Describe --&gt; ReadErr{&quot;Multi-Attach error for volume ... Volume is already exclusively attached to one node&quot;}
+    
+    ReadErr --&gt; Cause[&quot;Previous node did not release disk lock during sudden crash / cordon&quot;]
+    Cause --&gt; Step1[&quot;1. Identify old node holding attachment:&lt;br/&gt;kubectl get volumeattachments&quot;]
+    Step1 --&gt; Step2[&quot;2. Delete orphaned VolumeAttachment object:&lt;br/&gt;kubectl delete volumeattachment &lt;attachment-id&gt;&quot;]
+    Step2 --&gt; Step3[&quot;3. Alternatively, force delete terminated pod on old node:&lt;br/&gt;kubectl delete pod &lt;old-pod&gt; --force --grace-period=0&quot;]
+    Step3 --&gt; VolumeMounts[&quot;Kubelet attaches volume to new node &amp; starts Pod&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Cloud block storage (EBS, GPD, Cinder) can only attach to one VM at a time (<code>ReadWriteOnce</code>). When a node crashes, the <code>csi-attacher</code> waits for safe detachment before allowing a new host to mount the volume.</p>
+<hr>
+<h2>52. Dynamic Storage Provisioner Failure &amp; StorageClass Tree</h2>
+<pre><code class="language-mermaid">flowchart TD
+    DynFail[&quot;Dynamic PVC Provisioning Fails&quot;] --&gt; SC[&quot;Inspect StorageClass: kubectl get sc &lt;name&gt; -o yaml&quot;]
+    SC --&gt; CheckDriver[&quot;Check provisioner field (e.g. ebs.csi.aws.com, standard)&quot;]
+    
+    CheckDriver --&gt; CheckDriverPods[&quot;Verify CSI Controller Pods are Running:&lt;br/&gt;kubectl get pods -A | grep csi&quot;]
+    CheckDriverPods -- CSI Pods Down --&gt; FixCSI[&quot;Restart CSI controller deployment&quot;]
+    CheckDriverPods -- Running --&gt; CheckLogs[&quot;Inspect CSI provisioner logs:&lt;br/&gt;kubectl logs -n kube-system &lt;csi-provisioner-pod&gt;&quot;]
+    CheckLogs --&gt; IAMAuth[&quot;Cloud IAM permission denied / invalid disk type parameter in StorageClass&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Dynamic volume provisioning depends on the in-cluster CSI storage controller. If PVC provisioning fails without events, inspect the <code>csi-provisioner</code> container logs in <code>kube-system</code>.</p>
+<hr>
+<h2>53. RBAC Unauthorized (403 Forbidden) Audit</h2>
+<pre><code class="language-mermaid">flowchart TD
+    RBACFail[&quot;API Error: 403 Forbidden: User &#39;X&#39; cannot &#39;verb&#39; &#39;resource&#39; in namespace &#39;Y&#39;&quot;] --&gt; Step1[&quot;Test permissions with auth can-i:&lt;br/&gt;kubectl auth can-i &lt;verb&gt; &lt;resource&gt; --as=&lt;user&gt; -n &lt;namespace&gt;&quot;]
+    
+    Step1 --&gt; CheckRole[&quot;Inspect Role / ClusterRole:&lt;br/&gt;Does any rule grant verb on resource?&quot;]
+    CheckRole -- Missing Verb/Resource --&gt; UpdateRole[&quot;Add required apiGroups, resources, and verbs to Role&quot;]
+    
+    CheckRole -- Rule Exists --&gt; CheckBinding[&quot;Inspect RoleBinding / ClusterRoleBinding&quot;]
+    CheckBinding --&gt; CheckSubject{&quot;Does subjects[] match User/Group/ServiceAccount exactly?&quot;}
+    CheckBinding -- Namespace Mismatch --&gt; FixBinding[&quot;Ensure ServiceAccount namespace in subjects matches its true namespace&quot;]
+    CheckBinding -- Typo in Name --&gt; FixSubject[&quot;Correct user/group/serviceaccount name&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Always use <code>kubectl auth can-i &lt;verb&gt; &lt;resource&gt; --as=&lt;user&gt; -n &lt;ns&gt;</code> to verify permissions without switching contexts. Common errors include forgetting <code>apiGroups</code> (e.g., <code>apps</code> for deployments) or referencing a ServiceAccount in the wrong namespace in <code>subjects</code>.</p>
+<hr>
+<h2>54. Certificate Expiration &amp; kubeadm certs Renewal</h2>
+<pre><code class="language-mermaid">flowchart TD
+    CertAlert[&quot;Cluster Down / Cert Expiration Warning&quot;] --&gt; CheckDates[&quot;Run: kubeadm certs check-expiration&quot;]
+    CheckDates --&gt; ScanTable[&quot;Inspect Expiration Date for all Control Plane Certificates&quot;]
+    
+    ScanTable --&gt; Expired{&quot;Any Certificate Expired?&quot;}
+    Expired -- Yes --&gt; RenewCommand[&quot;Run: kubeadm certs renew all&quot;]
+    RenewCommand --&gt; RestartPods[&quot;Restart Control Plane Static Pods:&lt;br/&gt;Move manifests temporarily out of /etc/kubernetes/manifests/ and back&lt;br/&gt;or: kill -s SIGHUP $(pgrep kube-apiserver)&quot;]
+    RestartPods --&gt; UpdateAdminConf[&quot;Update local admin.conf:&lt;br/&gt;cp /etc/kubernetes/admin.conf ~/.kube/config&quot;]
+    UpdateAdminConf --&gt; Verify[&quot;Verify kubectl get nodes succeeds&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Kubernetes control plane certificates created by <code>kubeadm</code> expire after 1 year. The renewal process takes less than 2 minutes using <code>kubeadm certs renew all</code>, followed by reloading the static pods.</p>
+<hr>
+<h2>55. Cluster Upgrade Failure &amp; Node Version Skew Recovery</h2>
+<pre><code class="language-mermaid">flowchart TD
+    UpgradeFail[&quot;kubeadm upgrade plan or apply fails&quot;] --&gt; CheckError{&quot;Analyze Upgrade Error&quot;}
+    
+    CheckError -- &quot;version skew violation&quot; --&gt; SkewRule[&quot;Kubernetes requires upgrading minor versions sequentially (e.g. 1.30 -&gt; 1.31 -&gt; 1.32). NEVER skip minor versions!&quot;]
+    
+    CheckError -- &quot;control plane not ready&quot; --&gt; HealthCheck[&quot;Ensure all nodes are Ready and etcd is healthy before starting upgrade&quot;]
+    
+    CheckError -- &quot;apt-get / package hold error&quot; --&gt; Unhold[&quot;Unhold packages: sudo apt-mark unhold kubeadm kubelet kubectl&lt;br/&gt;Install target version: sudo apt-get install -y kubeadm=1.31.2-1.1&lt;br/&gt;Hold packages: sudo apt-mark hold kubeadm&quot;]
+    
+    Unhold --&gt; Reapply[&quot;Run: sudo kubeadm upgrade apply v1.31.2&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Upgrades must follow strict sequence: Control Plane first (<code>kubeadm upgrade apply</code>, then upgrade <code>kubelet</code>), followed by worker nodes one-by-one (<code>kubeadm upgrade node</code>, drain, upgrade <code>kubelet</code>, uncordon).</p>
+<hr>
+<h2>56. Worker Node Join Failure: Token &amp; Discovery Timeout</h2>
+<pre><code class="language-mermaid">flowchart TD
+    JoinFail[&quot;kubeadm join times out or throws token error&quot;] --&gt; CheckMsg{&quot;Analyze Join Error&quot;}
+    
+    CheckMsg -- &quot;token has expired&quot; --&gt; CreateToken[&quot;Generate new join token on Control Plane:&lt;br/&gt;kubeadm token create --print-join-command&quot;]
+    
+    CheckMsg -- &quot;discovery token CA hash mismatch&quot; --&gt; GetHash[&quot;Compute correct CA hash on Control Plane:&lt;br/&gt;openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt |&lt;br/&gt;openssl rsa -pubin -outform der 2&gt;/dev/null |&lt;br/&gt;openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;&quot;]
+    
+    CheckMsg -- &quot;connection refused / timeout to 6443&quot; --&gt; TestNet[&quot;Test network connectivity from worker to control plane:&lt;br/&gt;nc -zvw3 &lt;control-plane-ip&gt; 6443&quot;]
+    
+    CreateToken --&gt; RunJoin[&quot;Execute corrected kubeadm join command on worker&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Bootstrap tokens expire after 24 hours. If joining a worker node after token expiration, generate a fresh join command using <code>kubeadm token create --print-join-command</code>.</p>
+<hr>
+<h2>57. High CPU &amp; Memory Throttling: CFS Quota Investigation</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Throttle[&quot;Application Latency Spikes / High CPU Alarm&quot;] --&gt; Step1[&quot;Check Pod Resource Metrics:&lt;br/&gt;kubectl top pods -n &lt;namespace&gt;&quot;]
+    Step1 --&gt; Step2[&quot;Check Node Resource Metrics:&lt;br/&gt;kubectl top nodes&quot;]
+    
+    Step2 --&gt; CheckCgroup[&quot;SSH to Worker Node &amp; Inspect CFS Throttling:&lt;br/&gt;cat /sys/fs/cgroup/cpu/kubepods/.../cpu.stat&quot;]
+    CheckCgroup --&gt; MetricEval{&quot;nr_throttled &gt; 0 and throttled_time is high?&quot;}
+    
+    MetricEval -- Yes --&gt; FixLimit[&quot;Pod is hitting CPU Limits ceiling.&lt;br/&gt;Increase resources.limits.cpu or remove CPU limit (best practice for latency-sensitive apps)&quot;]
+    MetricEval -- No --&gt; AppProfile[&quot;Application thread contention or external bottleneck&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>CPU throttling occurs when a container attempts to burst beyond its CFS quota. Removing or raising CPU limits allows workloads to utilize idle CPU cycles without degrading latency.</p>
+<hr>
+<h2>58. DiskPressure &amp; Node Eviction: Ephemeral Storage Cleanup</h2>
+<pre><code class="language-mermaid">flowchart TD
+    DiskPress[&quot;Node Condition: DiskPressure = True&lt;br/&gt;Pods Evicted with The node was low on resource: ephemeral-storage&quot;] --&gt; SSH[&quot;SSH to Affected Node&quot;]
+    SSH --&gt; CheckDisk[&quot;Check Disk Usage: df -h /&quot;]
+    
+    CheckDisk --&gt; Step1[&quot;1. Prune unused images and exited containers:&lt;br/&gt;crictl rmi --prune&quot;]
+    Step1 --&gt; Step2[&quot;2. Clean up large container logs:&lt;br/&gt;truncate -s 0 /var/log/pods/*/*/*.log&quot;]
+    Step2 --&gt; Step3[&quot;3. Inspect /var/lib/kubelet for orphaned pod directories&quot;]
+    
+    Step3 --&gt; Recover[&quot;Disk utilization drops below threshold (85%) -&gt; Node DiskPressure clears to False&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>When node disk utilization exceeds 85%, kubelet initiates hard eviction of Pods consuming excessive ephemeral storage. Clearing old container images with <code>crictl rmi --prune</code> immediately restores disk headroom.</p>
+<hr>
+<h2>59. PID Pressure &amp; Kernel Process Exhaustion</h2>
+<pre><code class="language-mermaid">flowchart TD
+    PIDPress[&quot;Node Condition: PIDPressure = True&quot;] --&gt; CheckPIDs[&quot;SSH to Node &amp; Check Process Count:&lt;br/&gt;ps -eLf | wc -l&lt;br/&gt;sysctl kernel.pid_max&quot;]
+    
+    CheckPIDs --&gt; FindCulprit[&quot;Identify container leaking threads/processes:&lt;br/&gt;ps aux --sort -nlwp | head -n 20&quot;]
+    FindCulprit --&gt; KillProcess[&quot;Drain node &amp; restart runaway container&quot;]
+    
+    KillProcess --&gt; EnforceLimit[&quot;Add Pod PID Limits in kubelet configuration:&lt;br/&gt;podPidsLimit: 4096 in /var/lib/kubelet/config.yaml&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>A fork-bomb or process leak inside a container can exhaust the Linux kernel PID table, causing the entire host to freeze. Modern kubelets enforce <code>podPidsLimit</code> to isolate process leaks to the offending container.</p>
+<hr>
+<h2>60. StatefulSet Out-of-Order Pod Startup &amp; PVC Orphan Cleanup</h2>
+<pre><code class="language-mermaid">flowchart TD
+    StatefulFail[&quot;StatefulSet pod db-1 will not start&quot;] --&gt; Step1[&quot;Check previous ordinal db-0:&lt;br/&gt;kubectl get pod db-0&quot;]
+    Step1 --&gt; IsReady{&quot;Is db-0 in Running &amp; Ready state?&quot;}
+    
+    IsReady -- No --&gt; FixDB0[&quot;StatefulSets require sequential startup.&lt;br/&gt;Fix db-0 before db-1 can be scheduled!&quot;]
+    
+    IsReady -- Yes --&gt; CheckPVC[&quot;Check PVC: kubectl get pvc data-db-1&quot;]
+    CheckPVC --&gt; PVCMissing{&quot;Does PVC exist?&quot;}
+    PVCMissing -- No --&gt; RecreatePVC[&quot;Ensure volumeClaimTemplates is correctly defined in StatefulSet spec&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>By default (<code>podManagementPolicy: OrderedReady</code>), StatefulSets require pod $N-1$ to pass all readiness checks before pod $N$ is created. If pod 0 is crashing, pod 1 will never start.</p>
+<hr>
+<h2>61. Helm Release Stuck in Pending-Install / Pending-Upgrade</h2>
+<pre><code class="language-mermaid">flowchart TD
+    HelmStuck[&quot;Helm command fails: release X has another operation in progress&quot;] --&gt; ListReleases[&quot;Run: helm list -a&quot;]
+    ListReleases --&gt; CheckStatus{&quot;Status: pending-install or pending-upgrade?&quot;}
+    
+    CheckStatus -- Yes --&gt; Step1[&quot;Identify Helm Secret storing release state:&lt;br/&gt;kubectl get secret -l owner=helm,name=&lt;release-name&gt;&quot;]
+    Step1 --&gt; Step2[&quot;Delete the pending secret version:&lt;br/&gt;kubectl delete secret sh.helm.release.v1.&lt;name&gt;.v&lt;latest-rev&gt;&quot;]
+    Step2 --&gt; Step3[&quot;Re-run helm rollback or helm upgrade&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Helm 3 stores release state in Kubernetes Secrets within the release namespace. When a deployment is interrupted, the release state gets stuck in <code>pending-upgrade</code>. Deleting the hung secret releases the state lock.</p>
+<hr>
+<h2>62. Custom Resource Definition (CRD) Validation &amp; Operator Errors</h2>
+<pre><code class="language-mermaid">flowchart TD
+    CRDFail[&quot;Error creating Custom Resource: validation failure&quot;] --&gt; Step1[&quot;Inspect CRD Schema: kubectl describe crd &lt;crd-name&gt;&quot;]
+    Step1 --&gt; CheckVersion[&quot;Verify apiVersion and kind match CRD spec.group and spec.names&quot;]
+    
+    CheckVersion --&gt; Step2[&quot;Inspect Operator Logs:&lt;br/&gt;kubectl logs -n &lt;operator-ns&gt; -l app=&lt;operator-name&gt;&quot;]
+    Step2 --&gt; OperatorCrash{&quot;Is operator reconciler throwing panic / errors?&quot;}
+    OperatorCrash -- Yes --&gt; RBACCheck[&quot;Verify Operator ServiceAccount has RBAC rights to manage the Custom Resource&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>Custom Resources require valid OpenAPI v3 schemas in the CRD definition. If a valid CR is created but never reconciled, inspect the operator pod logs for RBAC authorization failures.</p>
+<hr>
+<h2>63. DaemonSet Pod Missing on Specific Worker Node</h2>
+<pre><code class="language-mermaid">flowchart TD
+    DSMissing[&quot;DaemonSet pod not running on worker-02&quot;] --&gt; DescribeNode[&quot;Inspect Node: kubectl describe node worker-02&quot;]
+    DescribeNode --&gt; CheckTaints[&quot;Check Taints on worker-02&quot;]
+    
+    CheckTaints --&gt; HasCustomTaint{&quot;Does node have custom taints?&quot;}
+    HasCustomTaint -- Yes --&gt; AddToleration[&quot;Add matching toleration to DaemonSet spec.template.spec.tolerations&quot;]
+    
+    HasCustomTaint -- No --&gt; CheckSelector[&quot;Check nodeSelector &amp; nodeAffinity in DaemonSet spec&quot;]
+    CheckSelector --&gt; LabelMatch{&quot;Does worker-02 have required labels?&quot;}
+    LabelMatch -- No --&gt; LabelNode[&quot;Label node: kubectl label node worker-02 &lt;key&gt;=&lt;value&gt;&quot;]
+    LabelMatch -- Yes --&gt; CheckResources[&quot;Check if worker-02 is out of CPU or memory&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>DaemonSet pods automatically tolerate standard node conditions, but custom operational taints (e.g., <code>gpu=true:NoSchedule</code>) or specific <code>nodeSelectors</code> will prevent DaemonSet scheduling unless declared.</p>
+<hr>
+<h2>64. Master Exam Day Time-Management &amp; Emergency Task Rescue</h2>
+<pre><code class="language-mermaid">flowchart TD
+    ExamTask[&quot;New CKA Exam Task Presented&quot;] --&gt; Step1[&quot;1. IMMEDIATELY SWITCH CONTEXT:&lt;br/&gt;kubectl config use-context &lt;context-name&gt;&quot;]
+    Step1 --&gt; Step2[&quot;2. Set Namespace Variable:&lt;br/&gt;NS=&lt;task-namespace&gt; (or append -n $NS to all commands)&quot;]
+    
+    Step2 --&gt; AssessTime{&quot;Can this task be completed in under 6 minutes?&quot;}
+    AssessTime -- No / Complex &amp; Confusing --&gt; FlagTask[&quot;FLAG TASK FOR REVIEW &amp; MOVE TO NEXT TASK IMMEDIATELY&quot;]
+    
+    AssessTime -- Yes --&gt; ImperativeFirst[&quot;Use Imperative Generators:&lt;br/&gt;kubectl create / run ... --dry-run=client -o yaml &gt; task.yaml&quot;]
+    ImperativeFirst --&gt; ApplyTask[&quot;vim task.yaml &amp;&amp; kubectl apply -f task.yaml&quot;]
+    ApplyTask --&gt; FastVerify[&quot;Run Quick Verification:&lt;br/&gt;kubectl get pod/svc -n $NS &amp;&amp; curl test&quot;]
+    FastVerify --&gt; PassNext[&quot;Task Complete -&gt; Proceed to Next Task&quot;]
+</code></pre>
+<p><strong>Diagnostic Explanation:</strong><br>The golden rule of the CKA exam: <strong>Never spend more than 8 minutes on a single task on the first pass</strong>. If a task is unclear, flag it, skip it, and capture all easy points across the remaining tasks before returning.</p>
+<div class='page-break'></div>
+  </div>
+</body>
+</html>

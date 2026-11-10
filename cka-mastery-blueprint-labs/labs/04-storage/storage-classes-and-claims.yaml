@@ -1,0 +1,21 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: delayed-binding-sc
+provisioner: rancher.io/local-path
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: demo-rwop-pvc
+  namespace: default
+spec:
+  storageClassName: delayed-binding-sc
+  accessModes:
+  - ReadWriteOncePod
+  resources:
+    requests:
+      storage: 2Gi

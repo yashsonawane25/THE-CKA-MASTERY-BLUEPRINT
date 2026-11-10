@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CKA Mastery Blueprint: Premium Features Suite</title>
+  <style>
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #1a202c;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0b192c;
+    font-weight: 700;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 24pt;
+    border-bottom: 3px solid #1e3e62;
+    padding-bottom: 6px;
+    margin-top: 24pt;
+    margin-bottom: 14pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #1e3e62;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+  }
+
+  h4 {
+    font-size: 11pt;
+    color: #334155;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+  }
+
+  p, ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 8pt;
+  }
+
+  code {
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 9pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 10pt 0;
+    border-left: 4px solid #38bdf8;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  blockquote {
+    border-left: 4px solid #2563eb;
+    background-color: #eff6ff;
+    padding: 10px 14px;
+    margin: 12pt 0;
+    border-radius: 0 6px 6px 0;
+    color: #1e3a8a;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #0b192c;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 20pt 0;
+    page-break-after: avoid;
+  }
+
+  .cover-page {
+    text-align: center;
+    padding-top: 100pt;
+    padding-bottom: 80pt;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .cover-title {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0b192c;
+    line-height: 1.15;
+    margin-bottom: 12pt;
+  }
+
+  .cover-subtitle {
+    font-size: 16pt;
+    color: #1e3e62;
+    margin-bottom: 24pt;
+    font-weight: 500;
+  }
+
+  .cover-edition {
+    display: inline-block;
+    background-color: #0b192c;
+    color: #38bdf8;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40pt;
+  }
+
+  .cover-meta {
+    font-size: 10pt;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .badge-pass { background-color: #dcfce7; color: #166534; }
+  .badge-warn { background-color: #fef9c3; color: #854d0e; }
+  .badge-crit { background-color: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+  <div class="cover-page">
+    <div class="cover-edition">2026–2027 PROFESSIONAL EDITION (VERSION 2.0)</div>
+    <div class="cover-title">CKA Mastery Blueprint: Premium Features Suite</div>
+    <div class="cover-subtitle">Readiness Assessment, Study Plans, Flashcards, Tracker, Mistake Journal & Interview Guide</div>
+    <div class="cover-meta">
+      <strong>Cloud Native Engineering Press</strong><br/>
+      Targeting Kubernetes v1.31.x / v1.32.x (Forward Compatible through v1.33+)<br/>
+      Independent Professional Certification Study System<br/>
+      Certified Kubernetes Administrator (CNCF / The Linux Foundation)
+    </div>
+  </div>
+  <div class="page-break"></div>
+  <div class="content-container">
+    <h1>CKA READINESS ASSESSMENT &amp; DIAGNOSTIC SYSTEM</h1>
+<h2>INITIAL KNOWLEDGE EVALUATION &amp; PERSONALIZED STUDY ROADMAP</h2>
+<hr>
+<h2>1. ASSESSMENT OBJECTIVE &amp; METHODOLOGY</h2>
+<p>Before embarking on your CKA preparation journey, taking this 25-question diagnostic assessment establishes your baseline across the 5 official CKA domains.</p>
+<ul>
+<li><strong>Format:</strong> Multiple-choice scenario questions with single best answer.</li>
+<li><strong>Scoring:</strong> 4 points per correct answer (Total: 100 points).</li>
+<li><strong>Passing Benchmark:</strong> 70 points indicates intermediate readiness; below 50 points recommends starting with the 60-Day Beginner Track.</li>
+</ul>
+<hr>
+<h2>2. DIAGNOSTIC ASSESSMENT QUESTIONS</h2>
+<h3>DOMAIN 1: CLUSTER ARCHITECTURE, INSTALLATION &amp; CONFIGURATION (25%)</h3>
+<p><strong>Q1.</strong> When executing <code>kubeadm init</code>, which flag is mandatory to allow other control plane nodes to securely join an HA cluster?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>--experimental-upload-certs</code></li>
+<li><input disabled="" type="checkbox"> B. <code>--upload-certs</code></li>
+<li><input disabled="" type="checkbox"> C. <code>--ha-enable</code></li>
+<li><input disabled="" type="checkbox"> D. <code>--control-plane-sync</code></li>
+</ul>
+<p><strong>Q2.</strong> An etcd cluster consists of 5 members. How many simultaneous member failures can this cluster tolerate while maintaining full write availability?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. 1</li>
+<li><input disabled="" type="checkbox"> B. 2</li>
+<li><input disabled="" type="checkbox"> C. 3</li>
+<li><input disabled="" type="checkbox"> D. 4</li>
+</ul>
+<p><strong>Q3.</strong> You need to safely upgrade a worker node from v1.31.0 to v1.31.2. Which command must be executed on the control plane <em>before</em> upgrading packages on the worker node?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubectl cordon &lt;node&gt;</code></li>
+<li><input disabled="" type="checkbox"> B. <code>kubectl drain &lt;node&gt; --ignore-daemonsets --delete-emptydir-data</code></li>
+<li><input disabled="" type="checkbox"> C. <code>kubectl delete node &lt;node&gt;</code></li>
+<li><input disabled="" type="checkbox"> D. <code>kubeadm upgrade node</code></li>
+</ul>
+<p><strong>Q4.</strong> A ServiceAccount named <code>deployer</code> in namespace <code>qa</code> needs to create deployments in namespace <code>staging</code>. Which RBAC resource must be created?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>Role</code> in <code>qa</code> and <code>RoleBinding</code> in <code>qa</code>.</li>
+<li><input disabled="" type="checkbox"> B. <code>ClusterRole</code> and <code>ClusterRoleBinding</code>.</li>
+<li><input disabled="" type="checkbox"> C. <code>Role</code> in <code>staging</code> and <code>RoleBinding</code> in <code>staging</code> referencing <code>qa:deployer</code> in subjects.</li>
+<li><input disabled="" type="checkbox"> D. <code>Role</code> in <code>staging</code> and <code>RoleBinding</code> in <code>qa</code>.</li>
+</ul>
+<p><strong>Q5.</strong> Which command is used to renew control plane certificates created by kubeadm?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubeadm alpha certs renew</code></li>
+<li><input disabled="" type="checkbox"> B. <code>kubeadm certs renew all</code></li>
+<li><input disabled="" type="checkbox"> C. <code>kubectl cert-manager renew</code></li>
+<li><input disabled="" type="checkbox"> D. <code>openssl req -renew</code></li>
+</ul>
+<hr>
+<h3>DOMAIN 2: WORKLOADS &amp; SCHEDULING (15%)</h3>
+<p><strong>Q6.</strong> A Deployment rollout of <code>app-v2</code> is failing due to CrashLoopBackOff. Which command reverts the deployment to revision 1 without editing YAML?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubectl rollout undo deployment app --to-revision=1</code></li>
+<li><input disabled="" type="checkbox"> B. <code>kubectl rollback deployment app -v 1</code></li>
+<li><input disabled="" type="checkbox"> C. <code>kubectl set image deployment app app=app:v1</code></li>
+<li><input disabled="" type="checkbox"> D. <code>kubectl revert deployment app 1</code></li>
+</ul>
+<p><strong>Q7.</strong> A container in a Pod is terminated with exit code <code>137</code>. What is the primary cause?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. Application segmentation fault.</li>
+<li><input disabled="" type="checkbox"> B. Memory consumption exceeded <code>resources.limits.memory</code> (OOMKilled).</li>
+<li><input disabled="" type="checkbox"> C. Liveness probe failed 3 consecutive times.</li>
+<li><input disabled="" type="checkbox"> D. Missing ConfigMap environment variable.</li>
+</ul>
+<p><strong>Q8.</strong> You want to ensure that Pods of Deployment <code>api</code> are never co-located on the same physical host as another <code>api</code> Pod. Which feature must be declared?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>nodeSelector</code></li>
+<li><input disabled="" type="checkbox"> B. <code>podAntiAffinity</code> with <code>topologyKey: kubernetes.io/hostname</code></li>
+<li><input disabled="" type="checkbox"> C. <code>topologySpreadConstraints</code> with <code>maxSkew: 0</code></li>
+<li><input disabled="" type="checkbox"> D. <code>nodeAffinity</code> with <code>NotIn</code> operator</li>
+</ul>
+<p><strong>Q9.</strong> A batch Job has <code>completions: 5</code> and <code>parallelism: 2</code>. How many Pods run simultaneously?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. 1</li>
+<li><input disabled="" type="checkbox"> B. 2</li>
+<li><input disabled="" type="checkbox"> C. 5</li>
+<li><input disabled="" type="checkbox"> D. 10</li>
+</ul>
+<hr>
+<h3>DOMAIN 3: SERVICES &amp; NETWORKING (20%)</h3>
+<p><strong>Q10.</strong> What is the fully qualified domain name (FQDN) for a Service named <code>auth-svc</code> located in namespace <code>security</code> using default cluster domain?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>auth-svc.security.cluster.local</code></li>
+<li><input disabled="" type="checkbox"> B. <code>auth-svc.security.svc.cluster.local</code></li>
+<li><input disabled="" type="checkbox"> C. <code>auth-svc.svc.security.cluster</code></li>
+<li><input disabled="" type="checkbox"> D. <code>security.auth-svc.k8s.local</code></li>
+</ul>
+<p><strong>Q11.</strong> When using the Gateway API, which resource decouples infrastructure listeners (ports and TLS) from developer routing paths?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>Ingress</code></li>
+<li><input disabled="" type="checkbox"> B. <code>GatewayClass</code></li>
+<li><input disabled="" type="checkbox"> C. <code>Gateway</code></li>
+<li><input disabled="" type="checkbox"> D. <code>HTTPRoute</code></li>
+</ul>
+<p><strong>Q12.</strong> An HTTPRoute in namespace <code>frontend</code> needs to bind to a Gateway in namespace <code>infra</code>. Which resource must exist in namespace <code>infra</code> to permit this cross-namespace attachment?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>NetworkPolicy</code></li>
+<li><input disabled="" type="checkbox"> B. <code>ReferenceGrant</code></li>
+<li><input disabled="" type="checkbox"> C. <code>ClusterRoleBinding</code></li>
+<li><input disabled="" type="checkbox"> D. <code>SecretExport</code></li>
+</ul>
+<p><strong>Q13.</strong> A namespace has a NetworkPolicy with <code>podSelector: {}</code> and <code>policyTypes: [Ingress]</code>, but no <code>ingress:</code> rules defined. What is the effect?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. All ingress traffic is allowed.</li>
+<li><input disabled="" type="checkbox"> B. All ingress traffic to all pods in the namespace is denied (Default Deny).</li>
+<li><input disabled="" type="checkbox"> C. Traffic from the same namespace is allowed, external traffic is denied.</li>
+<li><input disabled="" type="checkbox"> D. DNS traffic is blocked.</li>
+</ul>
+<p><strong>Q14.</strong> In a NetworkPolicy <code>ingress.from</code> clause, what is the semantic difference between listing <code>namespaceSelector</code> and <code>podSelector</code> under a single list item versus two separate hyphens?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. Single item is OR; separate hyphens is AND.</li>
+<li><input disabled="" type="checkbox"> B. Single item is AND; separate hyphens is OR.</li>
+<li><input disabled="" type="checkbox"> C. Both syntaxes produce identical AND behavior.</li>
+<li><input disabled="" type="checkbox"> D. Separate hyphens are invalid syntax.</li>
+</ul>
+<hr>
+<h3>DOMAIN 4: STORAGE (10%)</h3>
+<p><strong>Q15.</strong> A StorageClass has <code>volumeBindingMode: WaitForFirstConsumer</code>. When is the PersistentVolume dynamically provisioned?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. Immediately when the PersistentVolumeClaim is created.</li>
+<li><input disabled="" type="checkbox"> B. When a Pod consuming the PVC is scheduled to a specific node.</li>
+<li><input disabled="" type="checkbox"> C. When the first container inside the Pod writes data.</li>
+<li><input disabled="" type="checkbox"> D. When the node reboots.</li>
+</ul>
+<p><strong>Q16.</strong> Which volume access mode guarantees that only a single Pod in the entire cluster can mount the volume read-write?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>ReadWriteOnce</code> (RWO)</li>
+<li><input disabled="" type="checkbox"> B. <code>ReadOnlyMany</code> (ROX)</li>
+<li><input disabled="" type="checkbox"> C. <code>ReadWriteMany</code> (RWX)</li>
+<li><input disabled="" type="checkbox"> D. <code>ReadWriteOncePod</code> (RWOP)</li>
+</ul>
+<p><strong>Q17.</strong> A PersistentVolume has <code>persistentVolumeReclaimPolicy: Retain</code>. What happens when the bound PersistentVolumeClaim is deleted?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. The PV is immediately deleted and underlying cloud storage destroyed.</li>
+<li><input disabled="" type="checkbox"> B. The PV enters <code>Released</code> status; storage and data remain intact on disk.</li>
+<li><input disabled="" type="checkbox"> C. The PV enters <code>Available</code> status and binds to any new PVC.</li>
+<li><input disabled="" type="checkbox"> D. The PV is formatted with a fresh filesystem.</li>
+</ul>
+<hr>
+<h3>DOMAIN 5: TROUBLESHOOTING (30%)</h3>
+<p><strong>Q18.</strong> A worker node shows status <code>NotReady</code>. You SSH into the node and run <code>systemctl status kubelet</code>. The service is failed. What is the most effective command to view the crash stack trace?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubectl logs kubelet</code></li>
+<li><input disabled="" type="checkbox"> B. <code>journalctl -u kubelet -e --no-pager</code></li>
+<li><input disabled="" type="checkbox"> C. <code>cat /var/log/syslog | grep error</code></li>
+<li><input disabled="" type="checkbox"> D. <code>crictl logs kubelet</code></li>
+</ul>
+<p><strong>Q19.</strong> <code>kubectl</code> commands return <code>The connection to the server &lt;ip&gt;:6443 was refused</code>. You SSH into the control plane host. How do you view logs of the crashed API server?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubectl logs kube-apiserver -n kube-system</code></li>
+<li><input disabled="" type="checkbox"> B. <code>systemctl status kube-apiserver</code></li>
+<li><input disabled="" type="checkbox"> C. <code>crictl ps -a --name kube-apiserver</code> followed by <code>crictl logs &lt;id&gt;</code></li>
+<li><input disabled="" type="checkbox"> D. <code>tail -f /var/log/messages</code></li>
+</ul>
+<p><strong>Q20.</strong> You are executing an etcd snapshot restore on the control plane node. Where should the restored data directory be placed?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. Directly over <code>/var/lib/etcd</code> without flags.</li>
+<li><input disabled="" type="checkbox"> B. A brand new directory (e.g. <code>/var/lib/etcd-restored</code>) specified by <code>--data-dir</code>.</li>
+<li><input disabled="" type="checkbox"> C. Inside <code>/tmp/etcd/</code></li>
+<li><input disabled="" type="checkbox"> D. Over <code>/etc/kubernetes/pki/</code></li>
+</ul>
+<p><strong>Q21.</strong> After restoring etcd to <code>/var/lib/etcd-restored</code>, what must be updated so kubelet launches the restored database?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubectl edit pod etcd -n kube-system</code></li>
+<li><input disabled="" type="checkbox"> B. Modify the <code>hostPath.path</code> in <code>/etc/kubernetes/manifests/etcd.yaml</code>.</li>
+<li><input disabled="" type="checkbox"> C. <code>kubeadm init phase etcd</code></li>
+<li><input disabled="" type="checkbox"> D. Restart containerd.</li>
+</ul>
+<p><strong>Q22.</strong> Workload Pods cannot resolve DNS names. CoreDNS pods are in <code>CrashLoopBackOff</code> logging <code>Loop (127.0.0.1:53 -&gt; :53) detected</code>. What is the root cause?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. CoreDNS image is corrupted.</li>
+<li><input disabled="" type="checkbox"> B. Host <code>/etc/resolv.conf</code> nameserver points to local loopback (127.0.0.53) causing an infinite forwarding loop.</li>
+<li><input disabled="" type="checkbox"> C. Kubelet is missing the <code>--cluster-dns</code> flag.</li>
+<li><input disabled="" type="checkbox"> D. CNI plugin is not installed.</li>
+</ul>
+<p><strong>Q23.</strong> A Pod is stuck in <code>Pending</code>. <code>kubectl describe pod</code> shows <code>0/3 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}</code>. What action resolves this?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. Add a matching toleration for <code>dedicated: gpu</code> in the Pod&#39;s <code>spec.tolerations</code>.</li>
+<li><input disabled="" type="checkbox"> B. Increase the Pod&#39;s CPU request.</li>
+<li><input disabled="" type="checkbox"> C. Change <code>restartPolicy</code> to <code>Never</code>.</li>
+<li><input disabled="" type="checkbox"> D. Re-create the Pod in the <code>kube-system</code> namespace.</li>
+</ul>
+<p><strong>Q24.</strong> You run <code>kubectl get pods</code> and notice a Pod in <code>CreateContainerConfigError</code>. What is the immediate diagnostic step?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. <code>kubectl logs &lt;pod-name&gt;</code></li>
+<li><input disabled="" type="checkbox"> B. <code>kubectl describe pod &lt;pod-name&gt;</code> to identify missing ConfigMap or Secret keys.</li>
+<li><input disabled="" type="checkbox"> C. Restart kubelet.</li>
+<li><input disabled="" type="checkbox"> D. Drain the worker node.</li>
+</ul>
+<p><strong>Q25.</strong> A Service of type <code>ClusterIP</code> has 0 endpoints (<code>ENDPOINTS: &lt;none&gt;</code>). Pods are running. What is the most common cause?</p>
+<ul>
+<li><input disabled="" type="checkbox"> A. kube-proxy is stopped.</li>
+<li><input disabled="" type="checkbox"> B. Service <code>spec.selector</code> labels do not match the Pod <code>metadata.labels</code>, or Pods are failing readiness probes.</li>
+<li><input disabled="" type="checkbox"> C. Node firewall is blocking port 443.</li>
+<li><input disabled="" type="checkbox"> D. The Service lacks a cluster-admin RoleBinding.</li>
+</ul>
+<hr>
+<h2>3. ANSWER KEY &amp; SCORING MATRIX</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Question</th>
+<th align="center">Correct Answer</th>
+<th align="left">Domain</th>
+<th align="center">Points</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Q1</td>
+<td align="center"><strong>B</strong> (<code>--upload-certs</code>)</td>
+<td align="left">Cluster Architecture</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q2</td>
+<td align="center"><strong>B</strong> (2 members)</td>
+<td align="left">Cluster Architecture</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q3</td>
+<td align="center"><strong>B</strong> (<code>kubectl drain ...</code>)</td>
+<td align="left">Cluster Architecture</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q4</td>
+<td align="center"><strong>C</strong> (Role in <code>staging</code>, RoleBinding in <code>staging</code>)</td>
+<td align="left">Cluster Architecture</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q5</td>
+<td align="center"><strong>B</strong> (<code>kubeadm certs renew all</code>)</td>
+<td align="left">Cluster Architecture</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q6</td>
+<td align="center"><strong>A</strong> (<code>kubectl rollout undo ... --to-revision=1</code>)</td>
+<td align="left">Workloads &amp; Scheduling</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q7</td>
+<td align="center"><strong>B</strong> (OOMKilled / memory limit exceeded)</td>
+<td align="left">Workloads &amp; Scheduling</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q8</td>
+<td align="center"><strong>B</strong> (<code>podAntiAffinity</code> with <code>hostname</code> topology)</td>
+<td align="left">Workloads &amp; Scheduling</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q9</td>
+<td align="center"><strong>B</strong> (2 pods run concurrently)</td>
+<td align="left">Workloads &amp; Scheduling</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q10</td>
+<td align="center"><strong>B</strong> (<code>auth-svc.security.svc.cluster.local</code>)</td>
+<td align="left">Services &amp; Networking</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q11</td>
+<td align="center"><strong>C</strong> (<code>Gateway</code>)</td>
+<td align="left">Services &amp; Networking</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q12</td>
+<td align="center"><strong>B</strong> (<code>ReferenceGrant</code>)</td>
+<td align="left">Services &amp; Networking</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q13</td>
+<td align="center"><strong>B</strong> (Default Deny Ingress)</td>
+<td align="left">Services &amp; Networking</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q14</td>
+<td align="center"><strong>B</strong> (Single item is AND; separate hyphens is OR)</td>
+<td align="left">Services &amp; Networking</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q15</td>
+<td align="center"><strong>B</strong> (When Pod is scheduled to a node)</td>
+<td align="left">Storage</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q16</td>
+<td align="center"><strong>D</strong> (<code>ReadWriteOncePod</code>)</td>
+<td align="left">Storage</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q17</td>
+<td align="center"><strong>B</strong> (Enters <code>Released</code>; data remains intact)</td>
+<td align="left">Storage</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q18</td>
+<td align="center"><strong>B</strong> (<code>journalctl -u kubelet -e --no-pager</code>)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q19</td>
+<td align="center"><strong>C</strong> (<code>crictl ps -a</code> and <code>crictl logs</code>)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q20</td>
+<td align="center"><strong>B</strong> (New directory specified by <code>--data-dir</code>)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q21</td>
+<td align="center"><strong>B</strong> (Update <code>hostPath.path</code> in <code>etcd.yaml</code>)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q22</td>
+<td align="center"><strong>B</strong> (Host loopback DNS loop)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q23</td>
+<td align="center"><strong>A</strong> (Add matching toleration to Pod)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q24</td>
+<td align="center"><strong>B</strong> (<code>kubectl describe pod</code> for missing CM/Secret)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">Q25</td>
+<td align="center"><strong>B</strong> (Selector mismatch or unready probes)</td>
+<td align="left">Troubleshooting</td>
+<td align="center">4</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. SCORE INTERPRETATION &amp; PERSONALIZED ROADMAP</h2>
+<h3>Score: 88–100 Points (Advanced / Exam Ready)</h3>
+<ul>
+<li><strong>Status:</strong> You possess strong theoretical and administrative fundamentals.</li>
+<li><strong>Recommended Track:</strong> <strong>30-Day Accelerated Sprint</strong> (Focus on Volume II speed drills, Volume IV JSONPath recipes, and Volume V Mock Exams 3 &amp; 4).</li>
+</ul>
+<h3>Score: 68–84 Points (Intermediate / Competent)</h3>
+<ul>
+<li><strong>Status:</strong> You understand Kubernetes architecture but have blind spots in advanced networking (Gateway API, ReferenceGrant) or Linux-level static pod/etcd troubleshooting.</li>
+<li><strong>Recommended Track:</strong> <strong>45-Day Standard Track</strong> (Deep dive into Volume I Parts II, IV, and VI; complete all 67 labs in Volume II).</li>
+</ul>
+<h3>Score: &lt; 68 Points (Beginner / Foundational)</h3>
+<ul>
+<li><strong>Status:</strong> Needs structured foundational study across Linux kernel namespaces, declarative YAML, and core controllers.</li>
+<li><strong>Recommended Track:</strong> <strong>60-Day Comprehensive Track</strong> (Start with Volume I Chapters 1–8; complete Volume II beginner labs; follow the progressive schedule).</li>
+</ul>
+<div class='page-break'></div><h1>30-DAY AND 60-DAY STRUCTURED CKA STUDY PLANS</h1>
+<h2>SYSTEMATIC PREPARATION BLUEPRINTS BY LEARNER PROFILE</h2>
+<hr>
+<h2>1. TRACK OVERVIEW &amp; METHODOLOGY</h2>
+<p>Passing the CKA on the first attempt requires consistent daily hands-on muscle memory rather than passive reading. Select the track that matches your baseline assessment score:</p>
+<ul>
+<li><strong>Track A: 60-Day Comprehensive Track</strong> (Recommended for beginners and sysadmins new to containers).</li>
+<li><strong>Track B: 30-Day Accelerated Track</strong> (Recommended for working DevOps and cloud engineers with Docker/Kubernetes exposure).</li>
+</ul>
+<hr>
+<h2>2. TRACK A: THE 60-DAY COMPREHENSIVE BLUEPRINT</h2>
+<p><em>Time Commitment:</em> 1.5 to 2 hours per day (Total: ~100 hours).</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│ WEEKS 1–2: Linux Foundations, Containers &amp; Architecture (Vols I &amp; III)      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Day 01: Vol I Ch 01–02: Linux Namespaces, Cgroups, Containerd &amp; CRI         │
+│ Day 02: Vol I Ch 03–04: Control Plane vs. Worker Nodes &amp; Static Pods        │
+│ Day 03: Vol I Ch 05–06: API Groups, OpenAPI Schema &amp; Declarative YAML       │
+│ Day 04: Vol I Ch 07: Imperative kubectl Generators &amp; Speed Aliases          │
+│ Day 05: Vol I Ch 08: Linux Networking, veth Pairs, CNI Bridges              │
+│ Day 06: Vol II Labs 01–05: Shell productivity and basic pod generation      │
+│ Day 07: Weekly Review: Flashcard Deck 1 (Core Architecture &amp; kubectl)       │
+│ Day 08: Vol I Ch 09–11: Kubeadm Architecture &amp; containerd SystemdCgroup     │
+│ Day 09: Vol I Ch 12–14: Initializing Clusters &amp; Joining Worker Nodes        │
+│ Day 10: Vol II Labs 01–05 (Execution in Kind / Local VM)                    │
+│ Day 11: Vol I Ch 15: RBAC Roles, ClusterRoles, RoleBindings                 │
+│ Day 12: Vol I Ch 16: ServiceAccounts &amp; Projected Tokens                     │
+│ Day 13: Vol II Labs 01–03: Multi-Namespace RBAC Mastery                     │
+│ Day 14: Weekly Review: Mock Exam 1 Diagnostic Run (Untimed)                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ WEEKS 3–4: Workloads, Scheduling &amp; Storage (Vols I &amp; II)                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Day 15: Vol I Ch 24–25: Pod Lifecycle, Init Containers &amp; Sidecars           │
+│ Day 16: Vol I Ch 26: Deployments, ReplicaSets &amp; Rolling Update Math         │
+│ Day 17: Vol I Ch 27–28: DaemonSets, StatefulSets, Jobs &amp; CronJobs           │
+│ Day 18: Vol I Ch 29: ConfigMaps, Secrets, Projected Volumes                 │
+│ Day 19: Vol II Labs 16–23: Workload Deployment Drills                       │
+│ Day 20: Vol I Ch 30: CPU/Mem Requests, Limits &amp; CFS Quotas                  │
+│ Day 21: Weekly Review: Flashcard Deck 2 (Workloads &amp; Scheduling)            │
+│ Day 22: Vol I Ch 31: Liveness, Readiness &amp; Startup Probes                   │
+│ Day 23: Vol I Ch 32–35: NodeAffinity, Taints, Tolerations, PodAntiAffinity  │
+│ Day 24: Vol I Ch 36–38: PriorityClasses, Preemption, HPA &amp; ResourceQuotas   │
+│ Day 25: Vol II Labs 24–30: Advanced Scheduling Scenarios                    │
+│ Day 26: Vol I Ch 50–54: PV, PVC, StorageClasses &amp; Access Modes              │
+│ Day 27: Vol I Ch 55–59: Dynamic Provisioning, CSI &amp; ReadWriteOncePod        │
+│ Day 28: Vol II Labs 46–52: Complete Storage Domain Workbook                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ WEEKS 5–6: Services, Networking, Ingress &amp; Gateway API                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Day 29: Vol I Ch 39–41: Pod-to-Pod Packet Flows, VXLAN &amp; CNI Architecture   │
+│ Day 30: Vol I Ch 42–43: ClusterIP, NodePort, LoadBalancer &amp; kube-proxy      │
+│ Day 31: Vol I Ch 44–45: CoreDNS Resolution &amp; EndpointSlices                 │
+│ Day 32: Vol II Labs 31–35: Core Services and DNS Diagnostics                │
+│ Day 33: Vol I Ch 46: Ingress Controllers &amp; Ingress Rules                    │
+│ Day 34: Vol I Ch 47: Gateway API (GatewayClass, Gateway, HTTPRoute)         │
+│ Day 35: Weekly Review: Flashcard Deck 3 (Services &amp; Networking)             │
+│ Day 36: Vol I Ch 48: Fine-Grained NetworkPolicies (Default Deny, Whitelist) │
+│ Day 37: Vol II Labs 36–40: Ingress &amp; Gateway API Hands-on                   │
+│ Day 38: Vol II Labs 41–45: NetworkPolicy Engineering Drills                 │
+│ Day 39: Vol I Ch 21: etcd Raft Quorum &amp; 7-Step Snapshot Restore             │
+│ Day 40: Vol II Labs 06–07: etcd Backup and Disaster Recovery Restore        │
+│ Day 41: Vol I Ch 17–18: Cluster Upgrades &amp; Safe Node Drains                 │
+│ Day 42: Vol II Labs 04–05: Kubeadm Control Plane and Worker Node Upgrades   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ WEEKS 7–8: Troubleshooting Mastery, Mock Exams &amp; Exam Simulation            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Day 43: Vol I Ch 60–63: Hierarchical Triage, Pod &amp; Node Failure Recovery    │
+│ Day 44: Vol I Ch 64–66: Kubelet Systemd &amp; containerd Socket Troubleshooting │
+│ Day 45: Vol I Ch 67–68: Control Plane Crash &amp; etcd Outage Resolution        │
+│ Day 46: Vol I Ch 69–72: DNS Loops, Broken NetworkPolicies, Chaos Drills     │
+│ Day 47: Vol II Labs 53–60: Infrastructure Troubleshooting Labs              │
+│ Day 48: Vol II Labs 61–67: Advanced Multi-Tier Failure Recovery             │
+│ Day 49: Weekly Review: Vol III Visual Atlas Troubleshooting Flowcharts      │
+│ Day 50: Vol V Mock Exam 1: Timed Simulation (Goal: &gt;80% in 100 min)         │
+│ Day 51: Review Mock Exam 1 Scorecard &amp; Log Weaknesses in Mistake Journal    │
+│ Day 52: Vol V Mock Exam 2: Timed Simulation (Goal: &gt;80% in 100 min)         │
+│ Day 53: Review Mock Exam 2 Scorecard &amp; Retest Failed Tasks                  │
+│ Day 54: Vol V Mock Exam 3: Advanced Troubleshooting Simulation              │
+│ Day 55: Review Mock Exam 3 Scorecard &amp; Practice Static Pod Recovery         │
+│ Day 56: Vol V Mock Exam 4: Full Proctored Certification Simulation          │
+│ Day 57: Final Speed Drills (Volume I Chapter 79)                            │
+│ Day 58: Review Volume IV Field Guide &amp; Master Cheatsheets                   │
+│ Day 59: Rest Day &amp; Environment Pre-Check                                    │
+│ Day 60: OFFICIAL CKA EXAM DAY                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h2>3. TRACK B: THE 30-DAY ACCELERATED SPRINT</h2>
+<p><em>Time Commitment:</em> 2.5 to 3 hours per day (Total: ~80 hours). Recommended for active Kubernetes operators.</p>
+<ul>
+<li><strong>Week 1 (Days 1–7): Core Architecture &amp; Workload Velocity</strong><ul>
+<li>Focus: Master Volume IV imperative generators, RBAC (<code>kubectl auth can-i</code>), rolling updates, and DaemonSet/StatefulSet configurations.</li>
+<li>Deliverable: Complete Volume II Labs 01–25.</li>
+</ul>
+</li>
+<li><strong>Week 2 (Days 8–14): Networking, Gateway API, Storage &amp; Upgrades</strong><ul>
+<li>Focus: NetworkPolicies (default-deny, cross-namespace), Gateway API HTTPRoute multi-service canary splitting, <code>ReadWriteOncePod</code>, dynamic storage, kubeadm upgrades.</li>
+<li>Deliverable: Complete Volume II Labs 26–52.</li>
+</ul>
+</li>
+<li><strong>Week 3 (Days 15–21): 30% Troubleshooting Domain Deep Dive</strong><ul>
+<li>Focus: etcd snapshot backup/restore, crashed kube-apiserver static pods, broken kubelet cgroup drivers, CoreDNS loop detection.</li>
+<li>Deliverable: Complete Volume II Labs 53–67.</li>
+</ul>
+</li>
+<li><strong>Week 4 (Days 22–30): Proctored Mock Exam Marathon</strong><ul>
+<li>Day 22: Mock Exam 1 (Timed).</li>
+<li>Day 24: Mock Exam 2 (Timed).</li>
+<li>Day 26: Mock Exam 3 (Advanced Troubleshooting).</li>
+<li>Day 28: Mock Exam 4 (Full Certification Simulation).</li>
+<li>Day 29: Final Speed Drills &amp; PSI UI review.</li>
+<li>Day 30: CKA Examination.</li>
+</ul>
+</li>
+</ul>
+<div class='page-break'></div><h1>COMMAND MEMORY SYSTEM &amp; SPACED-REPETITION FLASHCARDS</h1>
+<h2>INSTANT CLI MUSCLE MEMORY FOR CKA EXAM SPEED</h2>
+<hr>
+<h2>1. SPACED-REPETITION METHODOLOGY</h2>
+<p>Print or review these 24 high-yield flashcards daily. Cover the &quot;Answer / Command&quot; column, read the &quot;Scenario / Challenge&quot;, and recite or type the exact syntax without looking.</p>
+<hr>
+<h2>2. FLASHCARD DECK: IMPERATIVE COMMAND GENERATION</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Card #</th>
+<th align="left">Scenario / Administrative Need</th>
+<th align="left">Exact Command Syntax</th>
+<th align="left">Critical Flags &amp; Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>FC-01</strong></td>
+<td align="left">Generate Pod YAML without creating</td>
+<td align="left"><code>kubectl run web --image=nginx:alpine $do &gt; pod.yaml</code></td>
+<td align="left"><code>$do</code> is <code>--dry-run=client -o yaml</code></td>
+</tr>
+<tr>
+<td align="center"><strong>FC-02</strong></td>
+<td align="left">Create Deployment with 3 replicas on port 80</td>
+<td align="left"><code>kubectl create deployment api --image=nginx:alpine --replicas=3 --port=80</code></td>
+<td align="left">Creates apps/v1 Deployment</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-03</strong></td>
+<td align="left">Expose Deployment internally as ClusterIP</td>
+<td align="left"><code>kubectl expose deployment api --port=80 --target-port=8080 --name=api-svc</code></td>
+<td align="left">Inherits deployment label selector</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-04</strong></td>
+<td align="left">Expose Deployment on NodePort 30080</td>
+<td align="left"><code>kubectl expose deployment api --type=NodePort --port=80 --target-port=8080</code></td>
+<td align="left">Then edit service to set <code>nodePort: 30080</code></td>
+</tr>
+<tr>
+<td align="center"><strong>FC-05</strong></td>
+<td align="left">Update image and record revision</td>
+<td align="left"><code>kubectl set image deployment/api nginx=nginx:1.27</code><br/><code>kubectl annotate deployment/api kubernetes.io/change-cause=&quot;v1.27&quot; --overwrite</code></td>
+<td align="left">Replaces removed <code>--record</code> flag!</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-06</strong></td>
+<td align="left">Rollback deployment to specific revision</td>
+<td align="left"><code>kubectl rollout undo deployment/api --to-revision=2</code></td>
+<td align="left">View history: <code>kubectl rollout history ...</code></td>
+</tr>
+<tr>
+<td align="center"><strong>FC-07</strong></td>
+<td align="left">Generate Job that runs batch command</td>
+<td align="left"><code>kubectl create job calc --image=busybox $do -- expr 10 + 20 &gt; job.yaml</code></td>
+<td align="left">Must specify <code>--</code> before container command</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-08</strong></td>
+<td align="left">Generate CronJob running hourly</td>
+<td align="left"><code>kubectl create cronjob backup --image=busybox --schedule=&quot;0 * * * *&quot; $do -- date</code></td>
+<td align="left">Uses 5-field cron syntax</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-09</strong></td>
+<td align="left">Create Secret with literal password</td>
+<td align="left"><code>kubectl create secret generic db-pass --from-literal=password=&#39;S3cur3!&#39;</code></td>
+<td align="left">Value is Base64 encoded automatically</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-10</strong></td>
+<td align="left">Create TLS Secret with cert and key files</td>
+<td align="left"><code>kubectl create secret tls web-tls --cert=/path/tls.crt --key=/path/tls.key</code></td>
+<td align="left">Creates <code>kubernetes.io/tls</code> type secret</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-11</strong></td>
+<td align="left">Test permissions without switching user</td>
+<td align="left"><code>kubectl auth can-i create pods -n prod --as=system:serviceaccount:ci:builder</code></td>
+<td align="left">Returns <code>yes</code> or <code>no</code></td>
+</tr>
+<tr>
+<td align="center"><strong>FC-12</strong></td>
+<td align="left">Safely evict pods prior to node maintenance</td>
+<td align="left"><code>kubectl drain node-01 --ignore-daemonsets --delete-emptydir-data --force</code></td>
+<td align="left">Cordon automatically applied by drain</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. FLASHCARD DECK: CLUSTER ADMINISTRATION &amp; ETCD</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Card #</th>
+<th align="left">Scenario / Administrative Need</th>
+<th align="left">Exact Command Syntax</th>
+<th align="left">Critical Flags &amp; Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>FC-13</strong></td>
+<td align="left">Save etcd snapshot to file with mTLS</td>
+<td align="left"><code>ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key snapshot save /opt/snap.db</code></td>
+<td align="left">All 3 TLS cert flags are mandatory</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-14</strong></td>
+<td align="left">Verify etcd snapshot integrity</td>
+<td align="left"><code>ETCDCTL_API=3 etcdctl --write-out=table snapshot status /opt/snap.db</code></td>
+<td align="left">Checks hash, revision, and size</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-15</strong></td>
+<td align="left">Restore etcd snapshot to new directory</td>
+<td align="left"><code>ETCDCTL_API=3 etcdctl snapshot restore /opt/snap.db --data-dir=/var/lib/etcd-new --initial-cluster=&quot;m=https://127.0.0.1:2380&quot; --initial-cluster-token=&quot;t&quot; --name=&quot;m&quot;</code></td>
+<td align="left">Never restore directly over <code>/var/lib/etcd</code></td>
+</tr>
+<tr>
+<td align="center"><strong>FC-16</strong></td>
+<td align="left">Check kubeadm certificate expiration</td>
+<td align="left"><code>sudo kubeadm certs check-expiration</code></td>
+<td align="left">Reports residual time for all PKI certs</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-17</strong></td>
+<td align="left">Renew all control plane certificates</td>
+<td align="left"><code>sudo kubeadm certs renew all</code></td>
+<td align="left">Remember to copy <code>admin.conf</code> to <code>~/.kube/config</code>!</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-18</strong></td>
+<td align="left">Upgrade kubeadm control plane</td>
+<td align="left"><code>sudo kubeadm upgrade plan</code><br/><code>sudo kubeadm upgrade apply v1.31.2 -y</code></td>
+<td align="left">Control plane must be upgraded before workers</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. FLASHCARD DECK: JSONPATH, TROUBLESHOOTING &amp; LINUX</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Card #</th>
+<th align="left">Scenario / Administrative Need</th>
+<th align="left">Exact Command Syntax</th>
+<th align="left">Critical Flags &amp; Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>FC-19</strong></td>
+<td align="left">Sort all pods by creation timestamp</td>
+<td align="left"><code>kubectl get pods -A --sort-by=.metadata.creationTimestamp</code></td>
+<td align="left">Instant view of newly restarted pods</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-20</strong></td>
+<td align="left">Extract Pod IPs in a single tab-separated line</td>
+<td align="left"><code>kubectl get pods -o jsonpath=&#39;{range .items[*]}{.metadata.name}{&quot;\t&quot;}{.status.podIP}{&quot;\n&quot;}{end}&#39;</code></td>
+<td align="left">JSONPath range loop syntax</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-21</strong></td>
+<td align="left">List static containers running on host</td>
+<td align="left"><code>sudo crictl ps -a --name kube-apiserver</code></td>
+<td align="left">Primary tool when apiserver is down</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-22</strong></td>
+<td align="left">View kubelet systemd journal crash log</td>
+<td align="left"><code>sudo journalctl -u kubelet -n 50 --no-pager</code></td>
+<td align="left">Bypasses pager for instant inspection</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-23</strong></td>
+<td align="left">Test TCP port connectivity with 3s timeout</td>
+<td align="left"><code>nc -zvw3 192.168.1.10 6443</code></td>
+<td align="left">Tests if port is open and listening</td>
+</tr>
+<tr>
+<td align="center"><strong>FC-24</strong></td>
+<td align="left">Instant temporary debug pod for DNS</td>
+<td align="left"><code>kubectl run net-test --rm -it --image=busybox:1.28 -- nslookup kubernetes.default</code></td>
+<td align="left"><code>--rm</code> automatically cleans up pod</td>
+</tr>
+</tbody></table>
+<div class='page-break'></div><h1>TROUBLESHOOTING DECISION TREES CATALOG</h1>
+<h2>THE 6 COMPREHENSIVE INCIDENT RESPONSE PROCEDURES</h2>
+<hr>
+<h2>1. INCIDENT TREE 1: NODE NOTREADY RECOVERY</h2>
+<pre><code>Symptom: Node status reports NotReady in &#39;kubectl get nodes&#39;
+  │
+  ├── 1. Initial Check: kubectl describe node &lt;node&gt; | grep -A 5 Conditions
+  │     ├── DiskPressure = True ──&gt; Clean disk: sudo crictl rmi --prune
+  │     ├── MemoryPressure = True ──&gt; Identify OOM leak, kill rogue containers
+  │     └── Ready = False / Unknown ──&gt; Node agent (kubelet) communication severed
+  │
+  ├── 2. SSH to Node &amp; Inspect Service:
+  │     sudo systemctl status kubelet
+  │     ├── Active: inactive (dead) ──&gt; sudo systemctl restart kubelet
+  │     └── Active: failed (Result: exit-code) ──&gt; sudo journalctl -u kubelet -e --no-pager
+  │
+  ├── 3. Analyze Kubelet Failure Reason:
+  │     ├── &quot;swap is enabled&quot; ──&gt; sudo swapoff -a &amp;&amp; sed -i &#39;/swap/d&#39; /etc/fstab
+  │     ├── &quot;cgroup driver mismatch&quot; ──&gt; Set SystemdCgroup = true in /etc/containerd/config.toml
+  │     ├── &quot;connection refused to 6443&quot; ──&gt; Control plane unreachable; check firewall/routing
+  │     └── &quot;certificate has expired&quot; ──&gt; Renew /var/lib/kubelet/pki/ certs via bootstrap
+  │
+  └── 4. Verification:
+        sudo systemctl restart containerd &amp;&amp; sudo systemctl restart kubelet
+        kubectl get nodes &lt;node&gt; (Transitions to Ready within 30 seconds)
+</code></pre>
+<hr>
+<h2>2. INCIDENT TREE 2: CONTROL PLANE APISERVER DOWN (PORT 6443 REFUSED)</h2>
+<pre><code>Symptom: kubectl returns &quot;The connection to server &lt;ip&gt;:6443 was refused&quot;
+  │
+  ├── 1. SSH to Control Plane Host:
+  │     sudo systemctl is-active kubelet
+  │     └── If inactive ──&gt; sudo systemctl restart kubelet
+  │
+  ├── 2. Inspect Static Pod Containers via Runtime:
+  │     sudo crictl ps -a --name kube-apiserver
+  │     ├── Container is Exited / Crashing ──&gt; sudo crictl logs &lt;container-id&gt;
+  │     └── Container is Missing ──&gt; Verify /etc/kubernetes/manifests/kube-apiserver.yaml
+  │
+  ├── 3. Identify Root Error from Logs:
+  │     ├── &quot;etcdserver: request timed out&quot; ──&gt; etcd is dead on port 2379; check etcd container
+  │     ├── &quot;unknown flag: --xxx&quot; ──&gt; Typo in static pod manifest args; fix YAML syntax
+  │     └── &quot;tls: bad certificate&quot; ──&gt; Expired PKI cert; run: sudo kubeadm certs renew all
+  │
+  └── 4. Verification:
+        curl -k https://127.0.0.1:6443/healthz (Returns &quot;ok&quot;)
+        kubectl get nodes (Restores full CLI operation)
+</code></pre>
+<hr>
+<h2>3. INCIDENT TREE 3: POD CRASHLOOPBACKOFF &amp; EXIT CODE ANALYSIS</h2>
+<pre><code>Symptom: Pod continuously crashes; restartCount increases rapidly
+  │
+  ├── 1. Fetch Previous Crash Log:
+  │     kubectl logs &lt;pod-name&gt; -n &lt;ns&gt; --previous
+  │     └── If empty ──&gt; kubectl logs &lt;pod-name&gt; -n &lt;ns&gt;
+  │
+  ├── 2. Inspect Last State &amp; Termination Reason:
+  │     kubectl describe pod &lt;pod-name&gt; -n &lt;ns&gt;
+  │     ├── Exit Code 0 ──&gt; Container finished work; add long-running daemon / sleep
+  │     ├── Exit Code 1 ──&gt; Application exception, syntax error, or unhandled promise
+  │     ├── Exit Code 137 ──&gt; OOMKilled; increase resources.limits.memory in pod spec
+  │     ├── Exit Code 139 ──&gt; Segmentation fault in compiled binary
+  │     ├── Exit Code 143 ──&gt; Gracefully terminated by external SIGTERM
+  │     └── Exit Code 255 ──&gt; Entrypoint / CMD executable not found in image
+  │
+  └── 3. Verification:
+        kubectl get pod &lt;pod-name&gt; -n &lt;ns&gt; (Status remains Running for &gt;60 seconds)
+</code></pre>
+<hr>
+<h2>4. INCIDENT TREE 4: SERVICE CONNECTIVITY &amp; MISSING ENDPOINTS</h2>
+<pre><code>Symptom: curl http://&lt;service-ip&gt;:&lt;port&gt; drops packets or times out
+  │
+  ├── 1. Inspect Endpoints:
+  │     kubectl get endpoints &lt;service-name&gt; -n &lt;ns&gt;
+  │     │
+  │     ├── If ENDPOINTS: &lt;none&gt;
+  │     │   ├── Check Labels: Compare service spec.selector with pod metadata.labels
+  │     │   └── Check Readiness: Are pods passing readiness probes? (Unready = Stripped)
+  │     │
+  │     └── If ENDPOINTS: Populated with Pod IPs
+  │         ├── Direct Connect: Test curl http://&lt;pod-ip&gt;:&lt;targetPort&gt; from another pod
+  │         │   ├── If Direct Pod Fails ──&gt; Container app not listening on targetPort
+  │         │   └── If Direct Pod Works ──&gt; kube-proxy iptables rule programming failed
+  │         │
+  │         └── Check NetworkPolicies:
+  │             kubectl get netpol -n &lt;ns&gt; (Look for policies dropping ingress traffic)
+  │
+  └── 2. Verification:
+        kubectl run curl-test --rm -it --image=curlimages/curl -- curl -Iv http://&lt;service-name&gt;.&lt;ns&gt;
+</code></pre>
+<hr>
+<h2>5. INCIDENT TREE 5: COREDNS NAME RESOLUTION OUTAGE</h2>
+<pre><code>Symptom: Pods cannot resolve service names (e.g. &quot;nslookup kubernetes.default&quot; fails)
+  │
+  ├── 1. Inspect CoreDNS Pods in kube-system:
+  │     kubectl get pods -n kube-system -l k8s-app=kube-dns
+  │     ├── Status: CrashLoopBackOff ──&gt; Check logs: kubectl logs -n kube-system -l k8s-app=kube-dns
+  │     │   └── &quot;Loop detected&quot; ──&gt; Host /etc/resolv.conf points to 127.0.0.53; fix host DNS
+  │     │
+  │     └── Status: Running ──&gt; Inspect CoreDNS Service
+  │         kubectl get svc kube-dns -n kube-system (Verify ClusterIP: 10.96.0.10)
+  │         kubectl get endpoints kube-dns -n kube-system (Verify endpoints exist)
+  │
+  ├── 2. Test CoreDNS Direct Query from Debug Pod:
+  │     kubectl run dns-test --rm -it --image=busybox:1.28 -- nslookup 10.96.0.1 10.96.0.10
+  │     ├── Succeeds on IP, fails on names ──&gt; /etc/resolv.conf search path missing in pod
+  │     └── Timeouts completely ──&gt; NetworkPolicy in caller namespace blocks Port 53 UDP
+  │
+  └── 3. Verification:
+        kubectl run dns-test --rm -it --image=busybox:1.28 -- nslookup kubernetes.default
+</code></pre>
+<hr>
+<h2>6. INCIDENT TREE 6: PERSISTENTVOLUMECLAIM BINDING FAILURE</h2>
+<pre><code>Symptom: PersistentVolumeClaim remains in Pending status indefinitely
+  │
+  ├── 1. Inspect PVC Events:
+  │     kubectl describe pvc &lt;pvc-name&gt; -n &lt;ns&gt;
+  │     │
+  │     ├── &quot;waiting for first consumer to be created&quot;
+  │     │   └── NORMAL BEHAVIOR: StorageClass uses volumeBindingMode: WaitForFirstConsumer.
+  │     │       PVC will bind automatically once a Pod referencing it is scheduled!
+  │     │
+  │     ├── &quot;no persistent volumes available for this claim&quot;
+  │     │   ├── Capacity Mismatch: Existing PV capacity &lt; requested PVC storage
+  │     │   ├── AccessMode Mismatch: PV accessModes do not include PVC requested mode
+  │     │   └── StorageClass Mismatch: PV storageClassName != PVC storageClassName
+  │     │
+  │     └── &quot;provisioning failed&quot;
+  │         └── Dynamic Provisioning Error: CSI driver down or cloud API IAM denied
+  │
+  └── 2. Verification:
+        kubectl get pvc &lt;pvc-name&gt; -n &lt;ns&gt; (Status transitions from Pending to Bound)
+</code></pre>
+<div class='page-break'></div><h1>HANDS-ON LAB PROGRESS &amp; MASTERY TRACKER</h1>
+<h2>AUDITABLE LOG FOR ALL 67 PRACTICAL WORKBOOK LABS</h2>
+<hr>
+<h2>1. HOW TO USE THIS TRACKER</h2>
+<p>Track every lab attempt systematically. A lab is considered <strong>Mastered</strong> only when executed in <strong>under 8 minutes without looking at the solution section</strong> and passing all automated verification checks.</p>
+<ul>
+<li><strong>Status Codes:</strong> <code>NS</code> (Not Started), <code>IP</code> (In Progress), <code>REV</code> (Needs Revision), <code>PASS</code> (Completed with hints), <code>MASTER</code> (Completed timed with 0 hints).</li>
+</ul>
+<hr>
+<h2>2. DOMAIN 1: CLUSTER ARCHITECTURE, INSTALLATION &amp; CONFIGURATION (LABS 01–15)</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Lab ID</th>
+<th align="left">Lab Title</th>
+<th align="center">Target Time</th>
+<th align="center">Attempt 1 Date</th>
+<th align="center">Time Taken</th>
+<th align="center">Hints Used</th>
+<th align="center">Status</th>
+<th align="left">Notes / Errors Encountered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>LAB 01</strong></td>
+<td align="left">Multi-Namespace RBAC Role &amp; Binding</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 02</strong></td>
+<td align="left">Cluster-Wide Privilege with ClusterRoles</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 03</strong></td>
+<td align="left">Worker Node Maintenance (Cordon &amp; Drain)</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 04</strong></td>
+<td align="left">Control Plane Version Upgrade with kubeadm</td>
+<td align="center">8 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 05</strong></td>
+<td align="left">Worker Node Upgrade with kubeadm</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 06</strong></td>
+<td align="left">etcd Snapshot Backup with mTLS</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 07</strong></td>
+<td align="left">etcd Disaster Recovery Snapshot Restore</td>
+<td align="center">7 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 08</strong></td>
+<td align="left">Deploying Applications via Helm</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 09</strong></td>
+<td align="left">Multi-Environment Overlays with Kustomize</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 10</strong></td>
+<td align="left">Custom Resource Definition (CRD) Triage</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 11</strong></td>
+<td align="left">ServiceAccount Projected Token Rotation</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 12</strong></td>
+<td align="left">Certificate Expiration &amp; kubeadm renew</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 13</strong></td>
+<td align="left">HA Control Plane Quorum Calculation</td>
+<td align="center">4 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 14</strong></td>
+<td align="left">Containerd Socket &amp; Cgroup Alignment</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 15</strong></td>
+<td align="left">Static Pod Provisioning on Worker Node</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. DOMAIN 2: WORKLOADS &amp; SCHEDULING (LABS 16–30)</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Lab ID</th>
+<th align="left">Lab Title</th>
+<th align="center">Target Time</th>
+<th align="center">Attempt 1 Date</th>
+<th align="center">Time Taken</th>
+<th align="center">Hints Used</th>
+<th align="center">Status</th>
+<th align="left">Notes / Errors Encountered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>LAB 16</strong></td>
+<td align="left">Zero-Downtime Rolling Update &amp; Rollback</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 17</strong></td>
+<td align="left">StatefulSet Sequential Scaling &amp; Headless</td>
+<td align="center">7 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 18</strong></td>
+<td align="left">DaemonSet Node Scheduling &amp; Tolerations</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 19</strong></td>
+<td align="left">Batch Jobs with Parallelism &amp; Completions</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 20</strong></td>
+<td align="left">CronJob Concurrency Policy Enforcement</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 21</strong></td>
+<td align="left">Native Sidecar Container Pattern</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 22</strong></td>
+<td align="left">ConfigMap Volume Mounts &amp; Atomic Updates</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 23</strong></td>
+<td align="left">Secret Management &amp; Env Injection</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 24</strong></td>
+<td align="left">Pod Quality of Service (QoS) Tuning</td>
+<td align="center">4 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 25</strong></td>
+<td align="left">Health Checks (Startup, Readiness, Liveness)</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 26</strong></td>
+<td align="left">Node Affinity (Required vs Preferred)</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 27</strong></td>
+<td align="left">Taints, Tolerations &amp; Node Eviction</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 28</strong></td>
+<td align="left">Pod Anti-Affinity Across Topology</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 29</strong></td>
+<td align="left">Horizontal Pod Autoscaler (HPA) Tuning</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 30</strong></td>
+<td align="left">ResourceQuotas &amp; LimitRanges</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. DOMAIN 3: SERVICES &amp; NETWORKING (LABS 31–45)</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Lab ID</th>
+<th align="left">Lab Title</th>
+<th align="center">Target Time</th>
+<th align="center">Attempt 1 Date</th>
+<th align="center">Time Taken</th>
+<th align="center">Hints Used</th>
+<th align="center">Status</th>
+<th align="left">Notes / Errors Encountered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>LAB 31</strong></td>
+<td align="left">ClusterIP Creation &amp; Endpoints Check</td>
+<td align="center">4 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 32</strong></td>
+<td align="left">NodePort Service on Static Port Range</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 33</strong></td>
+<td align="left">Headless Service Peer DNS Resolution</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 34</strong></td>
+<td align="left">EndpointSlice Inspection &amp; Custom IP</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 35</strong></td>
+<td align="left">CoreDNS Custom Forwarding ConfigMap</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 36</strong></td>
+<td align="left">Ingress Path-Based Routing Rules</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 37</strong></td>
+<td align="left">Ingress TLS Secret Termination</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 38</strong></td>
+<td align="left">Gateway API GatewayClass &amp; Gateway Setup</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 39</strong></td>
+<td align="left">HTTPRoute Weighted Traffic Canary Split</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 40</strong></td>
+<td align="left">HTTPRoute Cross-Namespace ReferenceGrant</td>
+<td align="center">7 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 41</strong></td>
+<td align="left">Default-Deny All Ingress NetworkPolicy</td>
+<td align="center">4 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 42</strong></td>
+<td align="left">Pod &amp; Namespace Selector Whitelisting</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 43</strong></td>
+<td align="left">Egress NetworkPolicy with DNS Allow</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 44</strong></td>
+<td align="left">External CIDR Ingress Filtering (ipBlock)</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 45</strong></td>
+<td align="left">Live Packet Tracing with Ephemeral Pods</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. DOMAIN 4: STORAGE (LABS 46–52)</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Lab ID</th>
+<th align="left">Lab Title</th>
+<th align="center">Target Time</th>
+<th align="center">Attempt 1 Date</th>
+<th align="center">Time Taken</th>
+<th align="center">Hints Used</th>
+<th align="center">Status</th>
+<th align="left">Notes / Errors Encountered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>LAB 46</strong></td>
+<td align="left">Static PV and PVC 1-to-1 Binding</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 47</strong></td>
+<td align="left">Dynamic StorageClass Provisioning</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 48</strong></td>
+<td align="left">Delayed Volume Binding (WaitForFirstConsumer)</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 49</strong></td>
+<td align="left">Reclaim Policy (Retain vs Delete)</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 50</strong></td>
+<td align="left">Single-Pod Data Lock with ReadWriteOncePod</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 51</strong></td>
+<td align="left">Dynamic PVC Online Volume Expansion</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 52</strong></td>
+<td align="left">Multi-Pod Shared Storage (ReadWriteMany)</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. DOMAIN 5: TROUBLESHOOTING (LABS 53–67)</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Lab ID</th>
+<th align="left">Lab Title</th>
+<th align="center">Target Time</th>
+<th align="center">Attempt 1 Date</th>
+<th align="center">Time Taken</th>
+<th align="center">Hints Used</th>
+<th align="center">Status</th>
+<th align="left">Notes / Errors Encountered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>LAB 53</strong></td>
+<td align="left">CSI Driver &amp; VolumeAttachment Triage</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 54</strong></td>
+<td align="left">Pod Stuck in Pending (Resource/Taints)</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 55</strong></td>
+<td align="left">Diagnosing &amp; Fixing CrashLoopBackOff</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 56</strong></td>
+<td align="left">ImagePullBackOff &amp; Registry Credentials</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 57</strong></td>
+<td align="left">OOMKilled (Exit Code 137) Recovery</td>
+<td align="center">4 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 58</strong></td>
+<td align="left">Triage &amp; Recovery of NotReady Worker Node</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 59</strong></td>
+<td align="left">Broken Kubelet Cgroup Driver Alignment</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 60</strong></td>
+<td align="left">Broken Control Plane Static Pod Repair</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 61</strong></td>
+<td align="left">Expired Cluster PKI Certificate Recovery</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 62</strong></td>
+<td align="left">CoreDNS Loop Crash Recovery</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 63</strong></td>
+<td align="left">Network Service Missing Endpoints Fix</td>
+<td align="center">5 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 64</strong></td>
+<td align="left">Broken Cross-Namespace NetworkPolicy</td>
+<td align="center">6 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 65</strong></td>
+<td align="left">etcd Quorum Loss &amp; Database Alarm Clear</td>
+<td align="center">7 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 66</strong></td>
+<td align="left">Integrated Multi-Failure Grand Challenge</td>
+<td align="center">15 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAB 67</strong></td>
+<td align="left">Advanced Chaos Recovery: Cross-NS Gateway</td>
+<td align="center">12 min</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">NS</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<div class='page-break'></div><h1>CKA CANDIDATE MISTAKE JOURNAL &amp; POST-MORTEM SYSTEM</h1>
+<h2>STRUCTURED ROOT-CAUSE AUDITING TO PREVENT EXAM REPEAT ERRORS</h2>
+<hr>
+<h2>1. THE MISTAKE JOURNAL PROTOCOL</h2>
+<p>Research proves that learners who document and categorize their coding mistakes retain correct procedures 3x longer than those who simply read the solution.</p>
+<p>Whenever you fail a lab or mock exam task, complete this 5-point root-cause template:</p>
+<ol>
+<li><strong>Error Event:</strong> Exactly what command was run and what error output was returned.</li>
+<li><strong>Category of Error:</strong> Syntax typo, namespace oversight, context mismatch, conceptual misconception, or documentation inability.</li>
+<li><strong>True Root Cause:</strong> Why the error occurred mechanically inside Kubernetes.</li>
+<li><strong>Corrective Procedure:</strong> The exact verified command sequence that permanently fixes it.</li>
+<li><strong>Prevention Rule:</strong> A one-sentence rule you will recite to never make this mistake again.</li>
+</ol>
+<hr>
+<h2>2. COMMON HIGH-FREQUENCY MISTAKE REGISTER</h2>
+<h3>Mistake 1: The Context Amnesia Error</h3>
+<ul>
+<li><strong>Symptom:</strong> Task asks to fix node in cluster <code>infra-cluster</code>, but candidate executes commands against <code>k8s</code>. Result: 0 points awarded on official exam.</li>
+<li><strong>Root Cause:</strong> Failing to run the context switch command specified at the top of the question.</li>
+<li><strong>Corrective Procedure:</strong><pre><code class="language-bash">kubectl config use-context infra-cluster
+kubectl config current-context # Verify
+</code></pre>
+</li>
+<li><strong>Prevention Rule:</strong> <em>Never type a single kubectl command without first copying and executing the task&#39;s context switch line.</em></li>
+</ul>
+<hr>
+<h3>Mistake 2: The Deprecated Flag Trap</h3>
+<ul>
+<li><strong>Symptom:</strong> Running <code>kubectl set image deployment/app nginx=nginx:1.27 --record</code> produces warnings or fails to record revision history.</li>
+<li><strong>Root Cause:</strong> <code>--record</code> was permanently removed in kubectl v1.26+.</li>
+<li><strong>Corrective Procedure:</strong><pre><code class="language-bash">kubectl set image deployment/app nginx=nginx:1.27
+kubectl annotate deployment/app kubernetes.io/change-cause=&quot;Upgrade to 1.27&quot; --overwrite
+</code></pre>
+</li>
+<li><strong>Prevention Rule:</strong> <em>Always use kubernetes.io/change-cause annotations to record deployment history.</em></li>
+</ul>
+<hr>
+<h3>Mistake 3: The etcd Direct Overwrite Disaster</h3>
+<ul>
+<li><strong>Symptom:</strong> Executing <code>etcdctl snapshot restore /opt/backup.db</code> directly restores over <code>/var/lib/etcd</code>, causing corrupted Raft logs and an unbootable control plane.</li>
+<li><strong>Root Cause:</strong> Omitting <code>--data-dir=/var/lib/etcd-restored</code> forces etcd to write into the active database path.</li>
+<li><strong>Corrective Procedure:</strong><pre><code class="language-bash">ETCDCTL_API=3 etcdctl snapshot restore /opt/backup.db \
+  --data-dir=/var/lib/etcd-restored \
+  --initial-cluster=&quot;master=https://127.0.0.1:2380&quot; \
+  --name=&quot;master&quot;
+# Update /etc/kubernetes/manifests/etcd.yaml hostPath to /var/lib/etcd-restored
+</code></pre>
+</li>
+<li><strong>Prevention Rule:</strong> <em>Always restore etcd snapshots to a brand new target directory and point the static pod manifest to that new path.</em></li>
+</ul>
+<hr>
+<h3>Mistake 4: The NetworkPolicy Egress DNS Lockout</h3>
+<ul>
+<li><strong>Symptom:</strong> You apply an egress NetworkPolicy to isolate a pod. Suddenly, the pod throws <code>Name or service not known</code> and cannot communicate with any internal service.</li>
+<li><strong>Root Cause:</strong> Applying any egress policy turns on default-deny for all outbound traffic, silently blocking UDP Port 53 queries to CoreDNS.</li>
+<li><strong>Corrective Procedure:</strong>
+Always append an explicit DNS egress rule to every egress NetworkPolicy:<pre><code class="language-yaml">egress:
+- ports:
+  - protocol: UDP
+    port: 53
+  - protocol: TCP
+    port: 53
+</code></pre>
+</li>
+<li><strong>Prevention Rule:</strong> <em>Every egress NetworkPolicy must explicitly whitelist UDP port 53 to allow CoreDNS resolution.</em></li>
+</ul>
+<hr>
+<h2>3. BLANK MISTAKE JOURNAL TEMPLATE FOR CANDIDATE USE</h2>
+<pre><code class="language-markdown">### MISTAKE ENTRY #[NUMBER]
+* **Date &amp; Lab/Mock Task:** [e.g., Day 12 / Vol II Lab 42]
+* **Target Objective:** [e.g., Restricting ingress traffic to backend pods]
+* **What I Typed / Ran:**
+  ```bash
+  [Insert erroneous command or manifest snippet here]
+</code></pre>
+<ul>
+<li><strong>What Kubernetes Returned:</strong><pre><code class="language-text">[Insert error message, HTTP status code, or unexpected behavior]
+</code></pre>
+</li>
+<li><strong>Why It Failed Mechanically:</strong>
+[Explain the internal reason: e.g., Missing hyphen in YAML created AND instead of OR]</li>
+<li><strong>The Correct Solution:</strong><pre><code class="language-bash">[Insert verified working command]
+</code></pre>
+</li>
+<li><strong>My Prevention Rule:</strong>
+&quot;[State your memorable takeaway rule]&quot;</li>
+</ul>
+<pre><code>
+
+&lt;div class=&#39;page-break&#39;&gt;&lt;/div&gt;
+
+# THE KUBERNETES ADMINISTRATOR INTERVIEW GUIDE
+## BRIDGING CKA CERTIFICATION TO SENIOR DEVOPS &amp; SRE JOB INTERVIEWS
+
+---
+
+## 1. CKA OBJECTIVES VS. REAL-WORLD PRODUCTION INTERVIEW TOPICS
+
+| Topic Dimension | CKA Examination Focus | Real-World SRE / DevOps Job Interview Focus |
+| :--- | :--- | :--- |
+| **Cluster Setup** | Manual single-node `kubeadm init`, join commands | Terraform, GitOps (ArgoCD/Flux), AWS EKS / GCP GKE managed control planes, Cluster API |
+| **Configuration** | Raw YAML manifests, imperative `kubectl` generators | Helm charts, Kustomize multi-env pipelines, SOPS / Vault secret management |
+| **Networking** | Basic CNI install, Calico NetworkPolicy, Gateway API HTTPRoute | Service mesh (Istio/Linkerd) mTLS, BGP routing, global ingress load balancers, MTU optimization |
+| **Storage** | PV/PVC binding, `ReadWriteOncePod`, local hostPath | CSI snapshot lifecycles, cross-region replication, Ceph/Rook, backup DR with Velero |
+| **Observability** | `kubectl top`, `journalctl -u kubelet`, `crictl logs` | Prometheus operator, Grafana dashboards, OpenTelemetry distributed tracing, VictoriaMetrics |
+| **Security** | Basic RBAC Roles/Bindings, ServiceAccount tokens | Kyverno/OPA Gatekeeper admission policies, Falco runtime anomaly detection, CIS benchmarks |
+
+---
+
+## 2. TOP 10 PRODUCTION INTERVIEW QUESTIONS &amp; ARCHITECTURAL ANSWERS
+
+### Q1: &quot;Walk me through what happens when an engineer runs `kubectl apply -f deployment.yaml` until the pod is serving traffic.&quot;
+**Expected Senior Answer:**
+1. **Client &amp; API Layer:** `kubectl` performs client-side validation, sends an HTTPS POST/PUT to `kube-apiserver`.
+2. **Authentication &amp; Authorization:** The API server authenticates the client certificate/token, then checks RBAC rules via the Authorizer.
+3. **Admission Controllers:** Mutating admission webhooks run (injecting defaults, sidecars), followed by OpenAPI schema validation and validating admission webhooks.
+4. **etcd Write:** The Deployment object is serialized and committed to `etcd` via Raft consensus.
+5. **Deployment Controller:** The Deployment Controller detects the new object via watch streams, computes the replica diff, and creates a `ReplicaSet`.
+6. **ReplicaSet Controller:** Detects the ReplicaSet and creates unassigned Pod specifications (with `spec.nodeName: &quot;&quot;`).
+7. **kube-scheduler:** Scheduler filter plugins evaluate node capacity, taints, and affinity. Scoring plugins rank passing nodes; scheduler writes a `/binding` subresource assigning the Pod to a node.
+8. **Kubelet SyncLoop:** The kubelet on the target node receives the pod assignment via watch stream.
+9. **CRI Runtime Call:** Kubelet calls `containerd` via CRI gRPC. Containerd requests `runc` to configure Linux namespaces (PID, net, mnt) and cgroups.
+10. **CNI Network Setup:** The CNI plugin creates a `veth` pair, connects one end to the container netns, joins the other to the node bridge/overlay, and allocates a Pod IP from IPAM.
+11. **Storage Mounts:** VolumeManager calls CSI plugins to attach and mount required volumes.
+12. **Container Launch &amp; Probes:** The application container starts. Kubelet runs startup and readiness probes.
+13. **Endpoint Injection:** The EndpointSlice controller detects the ready pod, adds its IP to the Service EndpointSlice, and `kube-proxy` programs local `iptables`/IPVS rules. Traffic flows!
+
+---
+
+### Q2: &quot;A production node suddenly transitions to `NotReady`. How do you triage it under a high-severity outage without causing further downtime?&quot;
+**Expected Senior Answer:**
+1. **Assess Impact &amp; PDBs:** First check `kubectl get pods -o wide --field-selector spec.nodeName=&lt;node&gt;` to see which workloads are affected. Verify PodDisruptionBudgets so emergency evictions don&#39;t breach SLAs.
+2. **Examine Conditions:** `kubectl describe node &lt;node&gt;`. Check `DiskPressure`, `MemoryPressure`, `PIDPressure`.
+3. **SSH Triage:**
+   * Run `systemctl is-active kubelet` and `systemctl is-active containerd`.
+   * Check kernel dmesg: `dmesg -T | grep -E &quot;oom|killed|error&quot;`.
+   * Check journal logs: `journalctl -u kubelet -n 100 --no-pager`.
+4. **Network Verification:** Test if the node can reach the API server: `curl -k https://&lt;cp-ip&gt;:6443/healthz`.
+5. **Safe Resolution:**
+   * If swap was accidentally turned on after reboot: `swapoff -a &amp;&amp; systemctl restart kubelet`.
+   * If disk full: run `crictl rmi --prune` and clear dead container logs under `/var/log/pods/`.
+   * If hardware failure: run `kubectl drain &lt;node&gt; --ignore-daemonsets --delete-emptydir-data` to reschedule pods gracefully onto healthy nodes, then terminate the VM.
+
+---
+
+### Q3: &quot;What are the mechanical differences between `iptables` mode and `IPVS` mode in `kube-proxy`, and when would you switch?&quot;
+**Expected Senior Answer:**
+* **iptables:** Operates as a flat, sequential list of packet filter rules. Every service and endpoint adds multiple chains (`KUBE-SERVICES`, `KUBE-SVC-XXX`, `KUBE-SEP-XXX`). Rule evaluation complexity is $O(N)$. In clusters with &gt;5,000 services, sequential rule processing causes noticeable latency, and iptables sync loops consume significant kernel CPU.
+* **IPVS (IP Virtual Server):** Implements transport-layer load balancing inside the Linux kernel using hash tables with $O(1)$ lookup complexity. It supports multiple scheduling algorithms (Round Robin, Least Connection, Destination/Source Hashing).
+* **When to switch:** Switch to IPVS in clusters scaling beyond 1,000 services or when connection rebalancing (e.g., distributing high-throughput microservices) is required.
+
+---
+
+### Q4: &quot;How does the Raft consensus algorithm work in etcd, and why does an etcd cluster always require an odd number of members?&quot;
+**Expected Senior Answer:**
+* etcd uses Raft to maintain a replicated, consistent state machine across distributed nodes.
+* Operations require a strict quorum: $\lfloor N/2 \rfloor + 1$ active members.
+* **Why odd numbers:**
+  * A 3-node cluster requires 2 votes for quorum; it tolerates 1 failure ($3 - 2 = 1$).
+  * A 4-node cluster requires 3 votes for quorum; it *still* only tolerates 1 failure ($4 - 3 = 1$). Adding a 4th node increases network replication overhead without increasing fault tolerance!
+  * A 5-node cluster requires 3 votes for quorum; it tolerates 2 failures ($5 - 3 = 2$).
+  * Therefore, odd numbers ($3, 5$) maximize fault tolerance per node cost and avoid split-brain split votes during leader election.
+
+---
+
+### Q5: &quot;How does Kubernetes enforce CPU limits vs. Memory limits at the Linux kernel level?&quot;
+**Expected Senior Answer:**
+* **CPU Limits:** Enforced via the Linux kernel **Completely Fair Scheduler (CFS) bandwidth control** (`cpu.cfs_quota_us` and `cpu.cfs_period_us`). If a container exceeds its quota within a 100ms period, the kernel throttles its execution cycles. The process is paused until the next CFS period; it is **never killed**.
+* **Memory Limits:** Enforced via **memory cgroup ceilings** (`memory.max` in cgroups v2). When a container process allocates memory exceeding the limit and the host cannot reclaim cached pages, the Linux kernel invokes the **Out-Of-Memory (OOM) Killer**, terminating the process immediately with SIGKILL (Exit Code 137).
+
+
+&lt;div class=&#39;page-break&#39;&gt;&lt;/div&gt;
+
+# QUICK REVISION SYSTEM &amp; THE LAST-7-DAYS SPRINT PLAN
+## CONDENSED HIGH-YIELD FORMULAS &amp; FINAL WEEK EXAM PROTOCOL
+
+---
+
+## 1. THE 7-DAY PRE-EXAM SPRINT PROTOCOL
+
+| Day | Focus Area | Required Daily Actions | Target Mastery Metric |
+| :---: | :--- | :--- | :--- |
+| **Day -7** | Domain 1: Cluster Setup &amp; RBAC | Re-execute Labs 01, 04, 06, 07 (kubeadm upgrade &amp; etcd restore). | etcd restore in &lt; 7 minutes |
+| **Day -6** | Domain 2: Workloads &amp; Scheduling | Practice writing complex affinity, taints, sidecars, and HPA. | All YAMLs generated via `$do` |
+| **Day -5** | Domain 3: Services, Ingress &amp; Gateway | Practice multi-tier NetworkPolicies and Gateway API HTTPRoute. | Zero syntax errors on NetPol |
+| **Day -4** | Domain 4: Storage Architecture | Practice PV/PVC with `WaitForFirstConsumer` and `ReadWriteOncePod`. | PVC binding in &lt; 4 minutes |
+| **Day -3** | Domain 5: Troubleshooting Marathon | Execute Labs 58, 60, 62, 65, 66 (NotReady nodes, crashed API server). | Triage any node in &lt; 60 sec |
+| **Day -2** | Timed Proctored Simulation | Execute Volume V Mock Exam 4 under strict 120-minute timer. | Score &gt;= 85% on first pass |
+| **Day -1** | Review Cheatsheets &amp; Rest | Review this Quick Revision document, test PSI browser, sleep 8+ hours. | 100% mental clarity |
+| **Day 0** | **OFFICIAL EXAM DAY** | Execute Exam Strategy (Wave 1 $\to$ Wave 2 $\to$ Wave 3); PASS CKA! | **Certified Kubernetes Admin** |
+
+---
+
+## 2. ONE-PAGE DOMAIN CHEAT SHEETS
+
+### DOMAIN 1: CLUSTER ARCHITECTURE &amp; CONFIGURATION
+```bash
+# 1. Kubeadm Upgrade Sequence
+sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo kubeadm upgrade plan
+sudo kubeadm upgrade apply v1.31.2 -y
+kubectl drain &lt;node&gt; --ignore-daemonsets
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart kubelet
+kubectl uncordon &lt;node&gt;
+
+# 2. etcd Backup &amp; Restore
+ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt \
+  --key=/etc/kubernetes/pki/etcd/server.key snapshot save /opt/snap.db
+
+ETCDCTL_API=3 etcdctl snapshot restore /opt/snap.db --data-dir=/var/lib/etcd-new \
+  --initial-cluster=&quot;m=https://127.0.0.1:2380&quot; --name=&quot;m&quot;
+# Update /etc/kubernetes/manifests/etcd.yaml hostPath to /var/lib/etcd-new
+</code></pre>
+<h3>DOMAIN 2: WORKLOADS &amp; SCHEDULING</h3>
+<pre><code class="language-bash"># 1. Rolling Updates &amp; Revision Recording
+kubectl set image deployment/app nginx=nginx:1.27
+kubectl annotate deployment/app kubernetes.io/change-cause=&quot;v1.27 upgrade&quot; --overwrite
+kubectl rollout undo deployment/app --to-revision=1
+
+# 2. Key Pod Scheduling Fields
+spec.nodeSelector: { disk: ssd }
+spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms...
+spec.tolerations: [{ key: &quot;dedicated&quot;, operator: &quot;Equal&quot;, value: &quot;gpu&quot;, effect: &quot;NoSchedule&quot; }]
+</code></pre>
+<h3>DOMAIN 3: SERVICES &amp; GATEWAY API</h3>
+<pre><code class="language-yaml"># Gateway API HTTPRoute Skeleton
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: api-route
+  namespace: apps
+spec:
+  parentRefs:
+  - name: shared-gw
+    namespace: infra
+  rules:
+  - matches:
+    - path: { type: PathPrefix, value: /api }
+    backendRefs:
+    - name: api-v1
+      port: 8080
+      weight: 90
+    - name: api-v2
+      port: 8080
+      weight: 10
+</code></pre>
+<h3>DOMAIN 4: STORAGE &amp; DYNAMIC PROVISIONING</h3>
+<pre><code class="language-yaml"># WaitForFirstConsumer StorageClass &amp; Claim
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata: { name: local-sc }
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: { name: db-pvc }
+spec:
+  storageClassName: local-sc
+  accessModes: [ReadWriteOncePod]
+  resources: { requests: { storage: 10Gi } }
+</code></pre>
+<h3>DOMAIN 5: TROUBLESHOOTING RUNBOOKS</h3>
+<pre><code class="language-bash"># First 60 Seconds Triage Commands
+kubectl get nodes -o wide
+systemctl status kubelet
+journalctl -u kubelet -e --no-pager
+sudo crictl ps -a
+sudo crictl logs &lt;id&gt;
+kubectl get pods -A -o wide --field-selector status.phase!=Running
+kubectl describe pod &lt;pod&gt; | tail -n 20
+</code></pre>
+<div class='page-break'></div>
+  </div>
+</body>
+</html>

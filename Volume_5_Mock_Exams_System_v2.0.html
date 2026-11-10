@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Volume V: Proctored Mock Examination System</title>
+  <style>
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #1a202c;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0b192c;
+    font-weight: 700;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 24pt;
+    border-bottom: 3px solid #1e3e62;
+    padding-bottom: 6px;
+    margin-top: 24pt;
+    margin-bottom: 14pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 20pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #1e3e62;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+  }
+
+  h4 {
+    font-size: 11pt;
+    color: #334155;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+  }
+
+  p, ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 8pt;
+  }
+
+  code {
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 9pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 10pt 0;
+    border-left: 4px solid #38bdf8;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  blockquote {
+    border-left: 4px solid #2563eb;
+    background-color: #eff6ff;
+    padding: 10px 14px;
+    margin: 12pt 0;
+    border-radius: 0 6px 6px 0;
+    color: #1e3a8a;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #0b192c;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 20pt 0;
+    page-break-after: avoid;
+  }
+
+  .cover-page {
+    text-align: center;
+    padding-top: 100pt;
+    padding-bottom: 80pt;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .cover-title {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0b192c;
+    line-height: 1.15;
+    margin-bottom: 12pt;
+  }
+
+  .cover-subtitle {
+    font-size: 16pt;
+    color: #1e3e62;
+    margin-bottom: 24pt;
+    font-weight: 500;
+  }
+
+  .cover-edition {
+    display: inline-block;
+    background-color: #0b192c;
+    color: #38bdf8;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40pt;
+  }
+
+  .cover-meta {
+    font-size: 10pt;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .badge-pass { background-color: #dcfce7; color: #166534; }
+  .badge-warn { background-color: #fef9c3; color: #854d0e; }
+  .badge-crit { background-color: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+  <div class="cover-page">
+    <div class="cover-edition">2026–2027 PROFESSIONAL EDITION (VERSION 2.0)</div>
+    <div class="cover-title">Volume V: Proctored Mock Examination System</div>
+    <div class="cover-subtitle">4 Full Certification Simulations, 73 Performance Tasks & Scoring Rubrics</div>
+    <div class="cover-meta">
+      <strong>Cloud Native Engineering Press</strong><br/>
+      Targeting Kubernetes v1.31.x / v1.32.x (Forward Compatible through v1.33+)<br/>
+      Independent Professional Certification Study System<br/>
+      Certified Kubernetes Administrator (CNCF / The Linux Foundation)
+    </div>
+  </div>
+  <div class="page-break"></div>
+  <div class="content-container">
+    <h1>VOLUME V: THE CKA MOCK EXAMINATION SYSTEM</h1>
+<h1>CANDIDATE SCORECARD, GRADING RUBRICS, AND READINESS MATRIX</h1>
+<hr>
+<h2>1. COMPREHENSIVE CANDIDATE SCORECARD</h2>
+<p>Use this master scorecard to calculate your score for each of the four mock examinations:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────┬──────────┬─────────────┬───────────┐
+│ Domain                                                      │ Weight   │ Points Max  │ Your Score│
+├─────────────────────────────────────────────────────────────┼──────────┼─────────────┼───────────┤
+│ 1. Troubleshooting                                          │ 30%      │ 30.0        │           │
+│ 2. Cluster Architecture, Installation &amp; Configuration       │ 25%      │ 25.0        │           │
+│ 3. Services &amp; Networking                                    │ 20%      │ 20.0        │           │
+│ 4. Workloads &amp; Scheduling                                   │ 15%      │ 15.0        │           │
+│ 5. Storage                                                  │ 10%      │ 10.0        │           │
+├─────────────────────────────────────────────────────────────┼──────────┼─────────────┼───────────┤
+│ TOTAL COMPOSITE SCORE                                       │ 100%     │ 100.0       │           │
+└─────────────────────────────────────────────────────────────┴──────────┴─────────────┴───────────┘
+</code></pre>
+<p>$$\text{Final Percentage} = \frac{\text{Total Earned Points}}{\text{Total Possible Points}} \times 100$$</p>
+<ul>
+<li><strong>Passing Threshold:</strong> <strong>66.0%</strong></li>
+<li><strong>Recommended Candidate Target:</strong> <strong>80.0%+</strong> (provides a safe buffer for PSI remote desktop latency).</li>
+</ul>
+<hr>
+<h2>2. SECONDARY COMPETENCY METRICS</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Evaluation Dimension</th>
+<th align="left">Benchmark Target</th>
+<th align="left">Remediation Action if Below Benchmark</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Command-Line Efficiency</strong></td>
+<td align="left">$\le 30$ seconds to generate any boilerplate YAML via <code>--dry-run=client -o yaml</code>.</td>
+<td align="left">Practice Section 74 speed setup drills daily.</td>
+</tr>
+<tr>
+<td align="left"><strong>Context Switching Hygiene</strong></td>
+<td align="left">100% compliance; zero tasks executed in the wrong cluster context.</td>
+<td align="left">Tape a note to monitor: &quot;CHECK CONTEXT FIRST&quot;.</td>
+</tr>
+<tr>
+<td align="left"><strong>Time Management</strong></td>
+<td align="left">Complete 15 tasks within the first 90 minutes; 30 minutes for pass 3.</td>
+<td align="left">Enforce the 3-Pass Strategy (Pass 1: quick wins).</td>
+</tr>
+<tr>
+<td align="left"><strong>Troubleshooting Speed</strong></td>
+<td align="left">Diagnose a <code>NotReady</code> node or crashed static pod in $&lt; 8$ minutes.</td>
+<td align="left">Review Volume III diagnostic decision trees.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. AUTOMATED VERIFICATION SCRIPT TEMPLATE</h2>
+<p>Candidates running local test clusters can execute this bash assertion script to automatically verify task completion:</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+# Automated Verification Harness for CKA Mock Exam 4
+set -uo pipefail
+
+SCORE=0
+MAX_SCORE=100
+
+echo &quot;==================================================&quot;
+echo &quot;STARTING AUTOMATED VERIFICATION AUDIT&quot;
+echo &quot;==================================================&quot;
+
+# Check Task 1: Node Ready
+if kubectl get nodes node-2 | grep -q &quot;Ready&quot;; then
+    echo &quot;[PASS] Task 1: node-2 is Ready (+6)&quot;
+    SCORE=$((SCORE + 6))
+else
+    echo &quot;[FAIL] Task 1: node-2 is NotReady&quot;
+fi
+
+# Check Task 8: etcd snapshot exists
+if [ -f /var/data/etcd-final-mock.db ]; then
+    echo &quot;[PASS] Task 8: etcd snapshot exists (+6)&quot;
+    SCORE=$((SCORE + 6))
+else
+    echo &quot;[FAIL] Task 8: etcd snapshot missing&quot;
+fi
+
+# Check Task 9: ServiceAccount &amp; Role
+if kubectl auth can-i create deployments -n operations --as=system:serviceaccount:operations:deployer | grep -q &quot;yes&quot;; then
+    echo &quot;[PASS] Task 9: ServiceAccount permissions verified (+4)&quot;
+    SCORE=$((SCORE + 4))
+else
+    echo &quot;[FAIL] Task 9: ServiceAccount cannot create deployments&quot;
+fi
+
+# Check Task 19: PV Bound
+if kubectl get pvc pvc-storage-1 2&gt;/dev/null | grep -q &quot;Bound&quot;; then
+    echo &quot;[PASS] Task 19: PVC pvc-storage-1 is Bound (+5)&quot;
+    SCORE=$((SCORE + 5))
+else
+    echo &quot;[FAIL] Task 19: PVC is not Bound&quot;
+fi
+
+echo &quot;==================================================&quot;
+echo &quot;TOTAL SCORE: ${SCORE} / ${MAX_SCORE}&quot;
+if [ $SCORE -ge 66 ]; then
+    echo &quot;STATUS: CANDIDATE PASSED&quot;
+else
+    echo &quot;STATUS: CANDIDATE FAILED (Threshold: 66)&quot;
+fi
+echo &quot;==================================================&quot;
+</code></pre>
+<hr>
+<h2>4. POST-EXAM DIAGNOSTIC READINESS MATRIX</h2>
+<pre><code>┌─────────────────────────────────┬─────────────────────────────────┬─────────────────────────────────┐
+│ SCORE: &lt; 55%                    │ SCORE: 55% – 65%                │ SCORE: 66% – 100%               │
+│ [NOT READY - HIGH RISK]         │ [BORDERLINE - REVIEW REQUIRED]  │ [EXAM READY - EXCELLENT BUFFER] │
+├─────────────────────────────────┼─────────────────────────────────┼─────────────────────────────────┤
+│ • Do not sit the live exam yet. │ • Review high-weight domains    │ • Candidate exhibits necessary  │
+│ • Critical gaps in core triage   │   (Troubleshooting &amp; Cluster    │   CLI muscle memory and triage  │
+│   and kubeadm commands.         │   Architecture).                │   instincts.                    │
+│ • Re-run Volume II practical    │ • Drill JSONPath queries and    │ • Execute a final timed mock    │
+│   workbooks for Domain 1 &amp; 5.   │   NetworkPolicies.              │   exam 24 hours prior to sit.   │
+└─────────────────────────────────┴─────────────────────────────────┴─────────────────────────────────┘
+</code></pre>
+<div class='page-break'></div><h1>VOLUME V: THE CKA MOCK EXAMINATION SYSTEM</h1>
+<h1>MOCK EXAM 1: BEGINNER TO INTERMEDIATE SIMULATION</h1>
+<hr>
+<h2>EXAMINATION SPECIFICATIONS</h2>
+<ul>
+<li><strong>Target Difficulty:</strong> Beginner to Intermediate</li>
+<li><strong>Time Allowed:</strong> 120 minutes (2.0 hours)</li>
+<li><strong>Passing Score:</strong> 66% (Total Possible: 100%)</li>
+<li><strong>Number of Tasks:</strong> 17 Performance-Based Tasks</li>
+<li><strong>Cluster Contexts:</strong> <code>k8s</code>, <code>cluster2</code>, <code>wk8s</code></li>
+</ul>
+<hr>
+<h2>TASK 1: Pod Deployment and Label Filtering (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>ingress-basic</code> does not exist.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create namespace <code>ingress-basic</code>.</li>
+<li>Create a Pod named <code>frontend-pod</code> running image <code>nginx:1.27</code> in namespace <code>ingress-basic</code>.</li>
+<li>Assign labels <code>tier=frontend</code> and <code>app=web</code>.</li>
+<li>Expose container port <code>80</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod <code>frontend-pod</code> is <code>Running</code> in namespace <code>ingress-basic</code> with both labels.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get pod frontend-pod -n ingress-basic --show-labels
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl config use-context k8s
+kubectl create namespace ingress-basic
+kubectl run frontend-pod --image=nginx:1.27 --port=80 --labels=&quot;tier=frontend,app=web&quot; -n ingress-basic
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 2: Multi-Container Pod with EmptyDir Sharing (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>default</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create Pod <code>log-pipeline</code> in namespace <code>default</code>.</li>
+<li>Container 1 named <code>writer</code>: image <code>busybox:1.36</code>, appends <code>date</code> to <code>/var/log/app.log</code> every 5 seconds.</li>
+<li>Container 2 named <code>reader</code>: image <code>busybox:1.36</code>, executes <code>tail -f /var/log/app.log</code>.</li>
+<li>Both containers must mount an <code>emptyDir</code> volume at <code>/var/log</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Both containers show <code>2/2 Running</code> and reader prints timestamps.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl logs log-pipeline -c reader
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: log-pipeline
+spec:
+  volumes:
+  - name: shared-vol
+    emptyDir: {}
+  containers:
+  - name: writer
+    image: busybox:1.36
+    command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;while true; do date &gt;&gt; /var/log/app.log; sleep 5; done&quot;]
+    volumeMounts:
+    - name: shared-vol
+      mountPath: /var/log
+  - name: reader
+    image: busybox:1.36
+    command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;tail -f /var/log/app.log&quot;]
+    volumeMounts:
+    - name: shared-vol
+      mountPath: /var/log
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 3: ServiceAccount and RBAC RoleBinding (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>security-zone</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create namespace <code>security-zone</code>.</li>
+<li>Create a ServiceAccount named <code>operator-sa</code> in <code>security-zone</code>.</li>
+<li>Create a Role named <code>pod-admin</code> allowing <code>get</code>, <code>list</code>, <code>watch</code>, and <code>delete</code> on <code>pods</code>.</li>
+<li>Bind <code>pod-admin</code> to <code>operator-sa</code> via RoleBinding <code>operator-pod-bind</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>operator-sa</code> can delete pods in <code>security-zone</code> but cannot delete deployments.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl auth can-i delete pods -n security-zone --as=system:serviceaccount:security-zone:operator-sa
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create namespace security-zone
+kubectl create serviceaccount operator-sa -n security-zone
+kubectl create role pod-admin -n security-zone --verb=get,list,watch,delete --resource=pods
+kubectl create rolebinding operator-pod-bind -n security-zone --role=pod-admin --serviceaccount=security-zone:operator-sa
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 4: Deployment Scaling and Rolling Update (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>default</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create Deployment <code>micro-api</code> running <code>nginx:1.25</code> with 2 replicas.</li>
+<li>Scale the Deployment to 5 replicas.</li>
+<li>Update image to <code>nginx:1.26</code> and annotate with change-cause: &quot;Updated to 1.26&quot;.</li>
+<li>Verify all 5 replicas are updated.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> 5 replicas running image <code>nginx:1.26</code> with change-cause recorded.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl rollout status deployment micro-api
+kubectl rollout history deployment micro-api
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create deployment micro-api --image=nginx:1.25 --replicas=2
+kubectl scale deployment micro-api --replicas=5
+kubectl set image deployment/micro-api nginx=nginx:1.26
+kubectl annotate deployment/micro-api kubernetes.io/change-cause=&quot;Updated to 1.26&quot; --overwrite
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 5: Secret Creation and Pod Environment Injection (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>data-tier</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create namespace <code>data-tier</code>.</li>
+<li>Create Secret <code>db-passwords</code> containing <code>DB_PASS=AlpineP@ss2026</code>.</li>
+<li>Deploy Pod <code>db-runner</code> (<code>alpine</code>, sleeping 3600) injecting <code>DB_PASS</code> as an environment variable from Secret <code>db-passwords</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>kubectl exec db-runner -- env</code> shows <code>DB_PASS=AlpineP@ss2026</code>.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl exec db-runner -n data-tier -- env | grep DB_PASS
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create namespace data-tier
+kubectl create secret generic db-passwords --from-literal=DB_PASS=&#39;AlpineP@ss2026&#39; -n data-tier
+</code></pre>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: db-runner
+  namespace: data-tier
+spec:
+  containers:
+  - name: runner
+    image: alpine
+    command: [&quot;sleep&quot;, &quot;3600&quot;]
+    env:
+    - name: DB_PASS
+      valueFrom:
+        secretKeyRef:
+          name: db-passwords
+          key: DB_PASS
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 6: PersistentVolume &amp; PersistentVolumeClaim Binding (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Host directory <code>/data/local-vol</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create PersistentVolume <code>pv-disk-1</code> with capacity <code>3Gi</code>, accessMode <code>ReadWriteOnce</code>, hostPath <code>/data/local-vol</code>, and storageClassName <code>local-disk</code>.</li>
+<li>Create PersistentVolumeClaim <code>pvc-disk-1</code> in <code>default</code> requesting <code>2Gi</code> on storageClassName <code>local-disk</code> with accessMode <code>ReadWriteOnce</code>.</li>
+<li>Confirm the claim status is <code>Bound</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Both PV and PVC show status <code>Bound</code>.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get pvc pvc-disk-1
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-disk-1
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-disk
+  hostPath:
+    path: /data/local-vol
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-disk-1
+spec:
+  storageClassName: local-disk
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 7: ClusterIP Service and DNS Discovery (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Deployment <code>api-server</code> exists in <code>production</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create a ClusterIP Service named <code>api-svc</code> in <code>production</code> exposing Deployment <code>api-server</code> on port 80 targeting port 8080.</li>
+<li>Verify that EndpointSlices are created and contain valid IPs.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>api-svc</code> resolves internally and has active endpoints.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get endpoints api-svc -n production
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl expose deployment api-server --name=api-svc --port=80 --target-port=8080 -n production
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 8: Node Maintenance: Cordon and Safe Drain (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context cluster2</code></li>
+<li><strong>Initial Condition:</strong> Worker node <code>cluster2-worker-1</code> is running workloads.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Switch to context <code>cluster2</code>.</li>
+<li>Cordon <code>cluster2-worker-1</code>.</li>
+<li>Drain all workloads from <code>cluster2-worker-1</code> safely, handling DaemonSets and emptyDir volumes.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Node status shows <code>Ready,SchedulingDisabled</code> with 0 non-daemonset pods.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get node cluster2-worker-1
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl config use-context cluster2
+kubectl cordon cluster2-worker-1
+kubectl drain cluster2-worker-1 --ignore-daemonsets --delete-emptydir-data --force
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 9: Pod Scheduling with NodeSelector (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Worker nodes untagged.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Label node <code>k8s-worker-1</code> with <code>disk=ssd</code>.</li>
+<li>Deploy Pod <code>cache-pod</code> running <code>redis:alpine</code> with a <code>nodeSelector</code> requiring <code>disk: ssd</code>.</li>
+<li>Verify Pod lands on <code>k8s-worker-1</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>cache-pod</code> is <code>Running</code> on <code>k8s-worker-1</code>.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get pod cache-pod -o wide
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl config use-context k8s
+kubectl label node k8s-worker-1 disk=ssd
+kubectl run cache-pod --image=redis:alpine --dry-run=client -o yaml &gt; cache.yaml
+# Add nodeSelector: disk: ssd to spec
+kubectl apply -f cache.yaml
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 10: Taints and Tolerations (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Node <code>k8s-worker-2</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Apply taint <code>dedicated=gpu:NoSchedule</code> to node <code>k8s-worker-2</code>.</li>
+<li>Deploy Pod <code>gpu-app</code> running <code>alpine</code> sleeping 3600 that tolerates <code>dedicated=gpu:NoSchedule</code>.</li>
+<li>Verify Pod schedules onto <code>k8s-worker-2</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod is running on <code>k8s-worker-2</code>.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get pod gpu-app -o wide
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl taint nodes k8s-worker-2 dedicated=gpu:NoSchedule
+</code></pre>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-app
+spec:
+  nodeName: k8s-worker-2
+  tolerations:
+  - key: &quot;dedicated&quot;
+    operator: &quot;Equal&quot;
+    value: &quot;gpu&quot;
+    effect: &quot;NoSchedule&quot;
+  containers:
+  - name: app
+    image: alpine
+    command: [&quot;sleep&quot;, &quot;3600&quot;]
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 11: Ingress Resource Path Routing (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Ingress controller installed. Services <code>auth-svc</code> and <code>pay-svc</code> running on port 80.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Author an Ingress <code>gateway-ingress</code> in <code>default</code>.</li>
+<li>IngressClass: <code>nginx</code>. Host: <code>api.test.local</code>.</li>
+<li>Path <code>/auth</code> $\to$ <code>auth-svc:80</code>.</li>
+<li>Path <code>/pay</code> $\to$ <code>pay-svc:80</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Ingress created with <code>Prefix</code> path matching.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl describe ingress gateway-ingress
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: api.test.local
+    http:
+      paths:
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: auth-svc
+            port:
+              number: 80
+      - path: /pay
+        pathType: Prefix
+        backend:
+          service:
+            name: pay-svc
+            port:
+              number: 80
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 12: NetworkPolicy Restricting Ingress (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>secure-backend</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create NetworkPolicy <code>isolate-backend</code> in <code>secure-backend</code> selecting pods labeled <code>role=db</code>.</li>
+<li>Permit incoming TCP traffic on port 5432 strictly from pods labeled <code>role=api</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Non-api pods cannot reach port 5432.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl describe netpol isolate-backend -n secure-backend
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: isolate-backend
+  namespace: secure-backend
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: api
+    ports:
+    - protocol: TCP
+      port: 5432
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 13: etcd Snapshot Backup (Weight: 8%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Control plane node.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to control plane.</li>
+<li>Save etcd snapshot to <code>/opt/backup/etcd-mock1.db</code> using client certificates in <code>/etc/kubernetes/pki/etcd/</code>.</li>
+<li>Verify snapshot status.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Snapshot file exists with non-zero size and valid revision.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">sudo ETCDCTL_API=3 etcdctl --write-out=table snapshot status /opt/backup/etcd-mock1.db
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo ETCDCTL_API=3 etcdctl \
+  --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+  --cert=/etc/kubernetes/pki/etcd/server.crt \
+  --key=/etc/kubernetes/pki/etcd/server.key \
+  snapshot save /opt/backup/etcd-mock1.db
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 14: Gateway API HTTPRoute Deployment (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Gateway <code>shared-gw</code> exists in <code>infra</code>. Service <code>order-svc</code> exists in <code>sales</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>In namespace <code>sales</code>, create an <code>HTTPRoute</code> named <code>order-route</code> attaching to parent Gateway <code>shared-gw</code> in namespace <code>infra</code>.</li>
+<li>Route path prefix <code>/orders</code> to Service <code>order-svc</code> on port 80.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>order-route</code> reports <code>Accepted: True</code>.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl describe httproute order-route -n sales
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: order-route
+  namespace: sales
+spec:
+  parentRefs:
+  - name: shared-gw
+    namespace: infra
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /orders
+    backendRefs:
+    - name: order-svc
+      port: 80
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 15: Pod Liveness and Readiness Probe Configuration (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>default</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create Pod <code>probe-app</code> running <code>nginx:1.27</code>.</li>
+<li>Add readiness probe: HTTP GET <code>/</code> on port 80, initialDelaySeconds 5.</li>
+<li>Add liveness probe: HTTP GET <code>/</code> on port 80, periodSeconds 10.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod is <code>1/1 Running</code>.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl describe pod probe-app | grep -E &quot;Liveness|Readiness&quot;
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: probe-app
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.27
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 5
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 80
+      periodSeconds: 10
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 16: JSONPath Extraction of Node Internal IPs (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Multi-node cluster.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Extract the Internal IP of all nodes in the cluster using <code>kubectl get nodes -o jsonpath=...</code>.</li>
+<li>Save the output string to <code>/opt/node-ips.txt</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>/opt/node-ips.txt</code> contains space-separated Internal IPs.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">cat /opt/node-ips.txt
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl get nodes -o jsonpath=&#39;{.items[*].status.addresses[?(@.type==&quot;InternalIP&quot;)].address}&#39; &gt; /opt/node-ips.txt
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 17: Troubleshooting a CrashLoopBackOff Pod (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pod <code>broken-worker</code> in namespace <code>default</code> in <code>CrashLoopBackOff</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Check previous logs of <code>broken-worker</code> to identify the crash reason.</li>
+<li>You discover the command <code>sh -c &quot;sleep 10 &amp;&amp; exit 1&quot;</code> is failing.</li>
+<li>Fix the pod command to <code>sh -c &quot;sleep 3600&quot;</code>.</li>
+<li>Recreate the pod and verify it stays in <code>Running</code> status.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>broken-worker</code> is <code>Running</code> with 0 restarts.</li>
+<li><strong>Verification Command:</strong><pre><code class="language-bash">kubectl get pod broken-worker
+</code></pre>
+</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl logs broken-worker --previous
+kubectl get pod broken-worker -o yaml &gt; /tmp/broken.yaml
+sed -i &#39;s/exit 1/sleep 3600/g&#39; /tmp/broken.yaml
+kubectl replace --force -f /tmp/broken.yaml
+</code></pre>
+</li>
+</ul>
+<div class='page-break'></div><h1>VOLUME V: THE CKA MOCK EXAMINATION SYSTEM</h1>
+<h1>MOCK EXAM 2: INTERMEDIATE CLUSTER ADMINISTRATION SIMULATION</h1>
+<hr>
+<h2>EXAMINATION SPECIFICATIONS</h2>
+<ul>
+<li><strong>Target Difficulty:</strong> Intermediate Administration</li>
+<li><strong>Time Allowed:</strong> 120 minutes (2.0 hours)</li>
+<li><strong>Passing Score:</strong> 66% (Total: 100%)</li>
+<li><strong>Number of Tasks:</strong> 18 Performance-Based Tasks</li>
+<li><strong>Focus:</strong> Cluster lifecycle, kubeadm, storage, traffic management, and workload administration.</li>
+</ul>
+<hr>
+<h2>TASK 1: Upgrade Control Plane via Kubeadm (Weight: 9%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Primary control plane node <code>cp-node</code> running Kubernetes v1.30.2.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Upgrade <code>kubeadm</code> package to version <code>1.31.2-1.1</code>.</li>
+<li>Plan and apply the upgrade using <code>kubeadm upgrade apply v1.31.2</code>.</li>
+<li>Drain <code>cp-node</code>.</li>
+<li>Upgrade <code>kubelet</code> and <code>kubectl</code> to <code>1.31.2-1.1</code>.</li>
+<li>Restart <code>kubelet</code> and uncordon <code>cp-node</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Control plane node shows version <code>v1.31.2</code> in <code>Ready</code> status.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+sudo kubeadm upgrade plan
+sudo kubeadm upgrade apply v1.31.2 -y
+kubectl drain $(hostname) --ignore-daemonsets --delete-emptydir-data
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart kubelet
+kubectl uncordon $(hostname)
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 2: Upgrade Worker Node via Kubeadm (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Worker node <code>worker-1</code> running v1.30.2.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Drain <code>worker-1</code> from the control plane.</li>
+<li>SSH to <code>worker-1</code>.</li>
+<li>Upgrade <code>kubeadm</code> to <code>1.31.2-1.1</code>.</li>
+<li>Run <code>sudo kubeadm upgrade node</code>.</li>
+<li>Upgrade <code>kubelet</code> and <code>kubectl</code> to <code>1.31.2-1.1</code>.</li>
+<li>Restart <code>kubelet</code> and uncordon from control plane.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>worker-1</code> runs <code>v1.31.2</code> in <code>Ready</code> status.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl drain worker-1 --ignore-daemonsets --delete-emptydir-data
+ssh worker-1
+sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+sudo kubeadm upgrade node
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart kubelet
+exit
+kubectl uncordon worker-1
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 3: Cluster Certificate Inspection &amp; Renewal (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Certificates in <code>/etc/kubernetes/pki/</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Check expiration of all certificates using <code>kubeadm</code>.</li>
+<li>Renew <code>apiserver</code> certificate specifically.</li>
+<li>Verify the certificate validity is extended by 1 year.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>apiserver</code> cert shows updated expiration date.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo kubeadm certs check-expiration
+sudo kubeadm certs renew apiserver
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 4: StatefulSet with VolumeClaimTemplates (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>db-prod</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create namespace <code>db-prod</code>.</li>
+<li>Create Headless Service <code>mongo-hs</code> on port 27017.</li>
+<li>Create StatefulSet <code>mongo</code> with 2 replicas running <code>mongo:6.0</code>.</li>
+<li>Configure <code>volumeClaimTemplates</code> requesting 1Gi on storageClassName <code>standard</code> mounted at <code>/data/db</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pods <code>mongo-0</code> and <code>mongo-1</code> running with dedicated PVCs.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: db-prod
+spec:
+  serviceName: mongo-hs
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:6.0
+        volumeMounts:
+        - name: data
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ &quot;ReadWriteOnce&quot; ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 5: Ingress with TLS Secret Termination (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> TLS cert <code>/tmp/tls.crt</code> and key <code>/tmp/tls.key</code>. Service <code>web-svc</code> on port 80.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create TLS Secret <code>web-tls</code> from cert and key files.</li>
+<li>Create Ingress <code>tls-ingress</code> terminating TLS for <code>secure.company.com</code> routing to <code>web-svc:80</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Ingress configured with TLS termination.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create secret tls web-tls --cert=/tmp/tls.crt --key=/tmp/tls.key
+</code></pre>
+<pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tls-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - secure.company.com
+    secretName: web-tls
+  rules:
+  - host: secure.company.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-svc
+            port:
+              number: 80
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 6: Gateway API Canary Traffic Split (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Gateway <code>app-gateway</code> exists in <code>ingress-gw</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>In namespace <code>default</code>, create <code>HTTPRoute</code> named <code>split-route</code> attached to parent Gateway <code>app-gateway</code> in namespace <code>ingress-gw</code>.</li>
+<li>Route hostname <code>api.company.com</code>.</li>
+<li>Route 80% traffic to Service <code>api-v1</code> on port 80, and 20% traffic to Service <code>api-v2</code> on port 80.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> HTTPRoute reports <code>Accepted: True</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: split-route
+  namespace: default
+spec:
+  parentRefs:
+  - name: app-gateway
+    namespace: ingress-gw
+  hostnames:
+  - &quot;api.company.com&quot;
+  rules:
+  - backendRefs:
+    - name: api-v1
+      port: 80
+      weight: 80
+    - name: api-v2
+      port: 80
+      weight: 20
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 7: StorageClass with WaitForFirstConsumer (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Default storage provisioner active.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create StorageClass <code>topology-sc</code> with <code>volumeBindingMode: WaitForFirstConsumer</code> and <code>reclaimPolicy: Delete</code>.</li>
+<li>Create PVC <code>topo-pvc</code> requesting 2Gi on <code>topology-sc</code>.</li>
+<li>Verify PVC remains in <code>Pending</code> until consumed by a pod.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> PVC stays Pending with <code>WaitForFirstConsumer</code> condition.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: topology-sc
+provisioner: rancher.io/local-path
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: topo-pvc
+spec:
+  storageClassName: topology-sc
+  accessModes: [ &quot;ReadWriteOnce&quot; ]
+  resources:
+    requests:
+      storage: 2Gi
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 8: Helm Release Lifecycle and Override (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Helm installed.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Add repo <code>bitnami</code> (<code>https://charts.bitnami.com/bitnami</code>).</li>
+<li>Install release <code>web-prod</code> using chart <code>bitnami/nginx</code> into namespace <code>production</code>.</li>
+<li>Override replica count to <code>3</code> using <code>--set replicaCount=3</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Release <code>web-prod</code> deployed with 3 pods.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm install web-prod bitnami/nginx -n production --create-namespace --set replicaCount=3
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 9: Declarative Kustomize Deployment (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Kustomize directory <code>/opt/k8s/overlays/dev/</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect <code>/opt/k8s/overlays/dev/kustomization.yaml</code>.</li>
+<li>Apply the kustomization directly to the cluster without intermediate files.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> All resources rendered and applied in target namespace.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl apply -k /opt/k8s/overlays/dev/
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 10: Pod PriorityClass and Preemption (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>default</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create a <code>PriorityClass</code> named <code>critical-tier</code> with value <code>1000000</code> and <code>preemptionPolicy: PreemptLowerPriority</code>.</li>
+<li>Deploy Pod <code>core-auth</code> using <code>priorityClassName: critical-tier</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod runs with priority class <code>critical-tier</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: critical-tier
+value: 1000000
+preemptionPolicy: PreemptLowerPriority
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: core-auth
+spec:
+  priorityClassName: critical-tier
+  containers:
+  - name: auth
+    image: alpine
+    command: [&quot;sleep&quot;, &quot;3600&quot;]
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 11: Horizontal Pod Autoscaler (HPA) (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Deployment <code>api-worker</code> has CPU requests defined.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Configure an HPA named <code>api-worker-hpa</code> targeting Deployment <code>api-worker</code>.</li>
+<li>Min replicas: <code>2</code>, Max replicas: <code>10</code>, Target CPU utilization: <code>70%</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> HPA active and tracking metric utilization.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl autoscale deployment api-worker --name=api-worker-hpa --cpu-percent=70 --min=2 --max=10
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 12: Interlocking ResourceQuota and LimitRange (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>dev-team</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create namespace <code>dev-team</code>.</li>
+<li>Create ResourceQuota <code>team-quota</code> with <code>hard.pods: &quot;5&quot;</code> and <code>hard.requests.cpu: &quot;2&quot;</code>.</li>
+<li>Create LimitRange <code>team-limit</code> with container defaultRequest <code>cpu: 100m</code> and default <code>cpu: 200m</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> LimitRange injects defaults and satisfies quota automatically.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: team-quota
+  namespace: dev-team
+spec:
+  hard:
+    pods: &quot;5&quot;
+    requests.cpu: &quot;2&quot;
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: team-limit
+  namespace: dev-team
+spec:
+  limits:
+  - default:
+      cpu: 200m
+    defaultRequest:
+      cpu: 100m
+    type: Container
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 13: Native Sidecar in InitContainers (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>default</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Author Pod <code>sidecar-app</code> with an initContainer <code>log-shipper</code> (<code>busybox:1.36</code>, <code>command: [&quot;sleep&quot;, &quot;3600&quot;]</code>) and <code>restartPolicy: Always</code>.</li>
+<li>Main container <code>web</code> running <code>nginx:1.27</code>.</li>
+<li>Verify both containers run concurrently (<code>2/2</code>).</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod shows <code>READY: 2/2</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: Pod
+metadata:
+  name: sidecar-app
+spec:
+  initContainers:
+  - name: log-shipper
+    image: busybox:1.36
+    command: [&quot;sleep&quot;, &quot;3600&quot;]
+    restartPolicy: Always
+  containers:
+  - name: web
+    image: nginx:1.27
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 14: NetworkPolicy Cross-Namespace Filtering (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>db-space</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>In namespace <code>db-space</code>, create NetworkPolicy <code>allow-web-ns</code> selecting pods <code>role=mysql</code>.</li>
+<li>Allow Ingress on port 3306 strictly from namespaces labeled <code>access=granted</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Traffic to port 3306 is allowed only from namespaces labeled <code>access=granted</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-web-ns
+  namespace: db-space
+spec:
+  podSelector:
+    matchLabels:
+      role: mysql
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          access: granted
+    ports:
+    - protocol: TCP
+      port: 3306
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 15: Troubleshoot Empty Service Endpoints (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Service <code>web-svc</code> has <code>ENDPOINTS: &lt;none&gt;</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Identify why Service <code>web-svc</code> in <code>default</code> has no endpoints.</li>
+<li>Fix the label selector so endpoints reflect the running pods.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Service endpoints are populated.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl get svc web-svc -o yaml
+kubectl get pods --show-labels
+# Change selector in Service to match pod labels
+kubectl patch svc web-svc -p &#39;{&quot;spec&quot;:{&quot;selector&quot;:{&quot;app&quot;:&quot;frontend&quot;}}}&#39;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 16: Troubleshoot ImagePullBackOff (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pod <code>broken-pull</code> showing <code>ImagePullBackOff</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect pod events.</li>
+<li>Fix typo in image tag (<code>nginx:1.277</code> $\to$ <code>nginx:1.27</code>).</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod transitions to <code>Running</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl set image pod broken-pull broken-pull=nginx:1.27
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 17: Containerd Low-Level Process Inspection (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Worker node <code>worker-1</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to <code>worker-1</code>.</li>
+<li>Use <code>crictl</code> to list all running containers.</li>
+<li>Extract container ID of the <code>kube-proxy</code> container and output logs to <code>/tmp/proxy.log</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>/tmp/proxy.log</code> contains containerd runtime logs.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">ssh worker-1
+sudo crictl ps --name=kube-proxy
+CID=$(sudo crictl ps --name=kube-proxy -q)
+sudo crictl logs $CID &gt; /tmp/proxy.log
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 18: Extract Pod Restart Counts Sorted with JSONPath (Weight: 3%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>kube-system</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Sort all pods in <code>kube-system</code> by <code>.status.containerStatuses[0].restartCount</code>.</li>
+<li>Write Pod names and restart counts to <code>/opt/restarts.txt</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Tabular text file sorted by restart frequency.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl get pods -n kube-system --sort-by=&#39;.status.containerStatuses[0].restartCount&#39; -o custom-columns=NAME:.metadata.name,RESTARTS:&#39;.status.containerStatuses[0].restartCount&#39; &gt; /opt/restarts.txt
+</code></pre>
+</li>
+</ul>
+<div class='page-break'></div><h1>VOLUME V: THE CKA MOCK EXAMINATION SYSTEM</h1>
+<h1>MOCK EXAM 3: ADVANCED TROUBLESHOOTING SIMULATION</h1>
+<hr>
+<h2>EXAMINATION SPECIFICATIONS</h2>
+<ul>
+<li><strong>Target Difficulty:</strong> Advanced Troubleshooting (High Stress)</li>
+<li><strong>Time Allowed:</strong> 120 minutes (2.0 hours)</li>
+<li><strong>Passing Score:</strong> 66% (Total: 100%)</li>
+<li><strong>Number of Tasks:</strong> 18 Performance-Based Diagnostic Scenarios</li>
+<li><strong>Focus:</strong> Cluster component failure, node outages, broken manifests, storage locks, etcd recovery, and networking drop chains.</li>
+</ul>
+<hr>
+<h2>TASK 1: Recover Inactive Kubelet Due to Linux Swap (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Worker node <code>worker-1</code> shows <code>NotReady</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to <code>worker-1</code>.</li>
+<li>Inspect why <code>systemctl status kubelet</code> reports failed status.</li>
+<li>Journalctl indicates swap is active.</li>
+<li>Disable swap immediately, disable it in <code>/etc/fstab</code>, and start <code>kubelet</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>worker-1</code> returns to <code>Ready</code> status.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">ssh worker-1
+sudo swapoff -a
+sudo sed -i &#39;/swap/s/^/#/&#39; /etc/fstab
+sudo systemctl restart kubelet
+sudo systemctl is-active kubelet
+exit
+kubectl get nodes worker-1
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 2: Kubelet Cgroup Driver Mismatch Recovery (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Worker node <code>worker-2</code> fails to boot kubelet.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to <code>worker-2</code>.</li>
+<li>Inspect kubelet journal logs for cgroup error.</li>
+<li>Align <code>/var/lib/kubelet/config.yaml</code> to use <code>cgroupDriver: systemd</code>.</li>
+<li>Restart kubelet.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Kubelet active and node <code>worker-2</code> shows <code>Ready</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">ssh worker-2
+sudo sed -i &#39;s/cgroupDriver: cgroupfs/cgroupDriver: systemd/g&#39; /var/lib/kubelet/config.yaml
+sudo systemctl restart kubelet
+exit
+kubectl get nodes worker-2
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 3: Repair Broken API Server Static Pod Flag (Weight: 7%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> <code>kubectl</code> returns connection refused on port 6443.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to control plane node.</li>
+<li>Use <code>crictl ps -a</code> to find the exited <code>kube-apiserver</code> container.</li>
+<li>View container logs using <code>crictl logs</code>.</li>
+<li>Notice error: <code>unknown flag: --etcd-cafile-broken</code>.</li>
+<li>Edit <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code> and fix flag to <code>--etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt</code>.</li>
+<li>Wait for kubelet to relaunch container.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> API server boots and <code>kubectl get nodes</code> succeeds.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo crictl ps -a --name=kube-apiserver
+sudo sed -i &#39;s/--etcd-cafile-broken/--etcd-cafile/g&#39; /etc/kubernetes/manifests/kube-apiserver.yaml
+sleep 15
+kubectl get nodes
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 4: Repair Crashed Kube-Scheduler Static Pod (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> All new pods stuck in <code>Pending</code> with 0 scheduler events.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Notice <code>kube-scheduler</code> static pod is not running in <code>kube-system</code>.</li>
+<li>Inspect <code>/etc/kubernetes/manifests/kube-scheduler.yaml</code> on control plane.</li>
+<li>Fix typo in container command: <code>kube-schedulerr</code> $\to$ <code>kube-scheduler</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Scheduler launches and pending pods are scheduled.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo sed -i &#39;s/kube-schedulerr/kube-scheduler/g&#39; /etc/kubernetes/manifests/kube-scheduler.yaml
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 5: etcd Defragmentation and Space Alarm Disarm (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> API server returns <code>etcdserver: mvcc: database space exceeded</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Compact etcd history to current revision.</li>
+<li>Defragment etcd storage.</li>
+<li>Disarm <code>NOSPACE</code> alarm.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Cluster writes succeed.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">export ETCDCTL_API=3
+export CERTS=&quot;--cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key --endpoints=https://127.0.0.1:2379&quot;
+REV=$(sudo etcdctl $CERTS endpoint status -w json | jq .[0].Status.header.revision)
+sudo etcdctl $CERTS compact $REV
+sudo etcdctl $CERTS defrag
+sudo etcdctl $CERTS alarm disarm
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 6: etcd Point-in-Time Snapshot Restore (Weight: 8%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Backup exists at <code>/opt/backup/etcd.db</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Stop static pods by moving manifests out of <code>/etc/kubernetes/manifests/</code>.</li>
+<li>Restore snapshot to <code>/var/lib/etcd-recovery</code>.</li>
+<li>Update <code>etcd.yaml</code> to point to <code>/var/lib/etcd-recovery</code>.</li>
+<li>Move manifests back and verify cluster state.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Cluster recovers from snapshot.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo mv /etc/kubernetes/manifests/kube-apiserver.yaml /tmp/
+sudo mv /etc/kubernetes/manifests/etcd.yaml /tmp/
+sudo ETCDCTL_API=3 etcdctl --data-dir=/var/lib/etcd-recovery snapshot restore /opt/backup/etcd.db
+sudo sed -i &#39;s|/var/lib/etcd|/var/lib/etcd-recovery|g&#39; /tmp/etcd.yaml
+sudo mv /tmp/etcd.yaml /etc/kubernetes/manifests/
+sudo mv /tmp/kube-apiserver.yaml /etc/kubernetes/manifests/
+sleep 15
+kubectl get nodes
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 7: CoreDNS Loop Crash Recovery (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> CoreDNS in <code>CrashLoopBackOff</code> with loop error.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect CoreDNS logs.</li>
+<li>Update kubelet config <code>/var/lib/kubelet/config.yaml</code> to set <code>resolvConf: /run/systemd/resolve/resolv.conf</code>.</li>
+<li>Restart kubelet and delete crash-looping CoreDNS pods.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> CoreDNS pods enter <code>Running</code> status.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo sed -i &#39;s|resolvConf: .*|resolvConf: /run/systemd/resolve/resolv.conf|g&#39; /var/lib/kubelet/config.yaml
+sudo systemctl restart kubelet
+kubectl delete pods -n kube-system -l k8s-app=kube-dns
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 8: Enable Node IP Forwarding in Linux Kernel (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pods on <code>worker-1</code> cannot reach external network.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to <code>worker-1</code>.</li>
+<li>Check <code>sysctl net.ipv4.ip_forward</code>. Output is 0.</li>
+<li>Enable IP forwarding dynamically and persist in <code>/etc/sysctl.d/k8s.conf</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>net.ipv4.ip_forward = 1</code> and cross-node traffic flows.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">ssh worker-1
+sudo sysctl -w net.ipv4.ip_forward=1
+echo &quot;net.ipv4.ip_forward = 1&quot; | sudo tee -a /etc/sysctl.d/k8s.conf
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 9: Fix NetworkPolicy Blocking Outbound DNS (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pods in <code>secure-zone</code> cannot resolve domain names.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect egress NetworkPolicy <code>egress-lock</code> in <code>secure-zone</code>.</li>
+<li>Notice it lacks port 53 UDP/TCP egress rules.</li>
+<li>Add an egress rule allowing port 53 to all destinations.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> DNS resolution works inside <code>secure-zone</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml"># Patch egress-lock to include:
+- ports:
+  - protocol: UDP
+    port: 53
+  - protocol: TCP
+    port: 53
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 10: Triage OOMKilled Container (Exit Code 137) (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Deployment <code>report-gen</code> crashing with OOMKilled.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect container termination status.</li>
+<li>Increase memory limit from <code>64Mi</code> to <code>256Mi</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Deployment pods stabilize at <code>Running</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl set resources deployment report-gen --limits=memory=256Mi --requests=memory=128Mi
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 11: Fix Pod CrashLoopBackOff Due to Missing ConfigMap (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pod <code>worker-app</code> showing <code>CreateContainerConfigError</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect pod events. Missing ConfigMap <code>app-settings</code>.</li>
+<li>Create ConfigMap <code>app-settings</code> with key <code>mode=prod</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod transitions to <code>Running</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create configmap app-settings --from-literal=mode=prod
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 12: Admission Webhook Deadlock Recovery (Weight: 6%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> All resource creation requests hang for 30s with webhook timeout.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect validating webhooks: <code>kubectl get validatingwebhookconfigurations</code>.</li>
+<li>Locate failed webhook <code>validator.corp.local</code>.</li>
+<li>Delete the blocking webhook configuration to unfreeze the cluster.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> API server responds immediately.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl delete validatingwebhookconfiguration validator.corp.local
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 13: Reclaim Released PV by Removing ClaimRef (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> PV <code>pv-legacy</code> shows <code>Released</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Clear <code>spec.claimRef</code> from PV <code>pv-legacy</code>.</li>
+<li>Verify status transitions to <code>Available</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> PV is <code>Available</code> for new PVC binding.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl patch pv pv-legacy -p &#39;{&quot;spec&quot;:{&quot;claimRef&quot;: null}}&#39;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 14: Fix Failing LivenessProbe Restart Loop (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pod <code>web-probe</code> restarts every 30 seconds.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect probe failure events.</li>
+<li>Fix probe path from <code>/healthz-wrong</code> to <code>/</code> on port 80.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod remains <code>Running</code> with 0 restarts.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl get pod web-probe -o yaml &gt; /tmp/probe.yaml
+sed -i &#39;s|/healthz-wrong|/|g&#39; /tmp/probe.yaml
+kubectl replace --force -f /tmp/probe.yaml
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 15: Fix DaemonSet Missing Control Plane Toleration (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> DaemonSet <code>node-diag</code> does not schedule on control plane.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Add toleration for <code>node-role.kubernetes.io/control-plane:NoSchedule</code> to DaemonSet spec.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod schedules onto the control plane node.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml"># Add to spec.template.spec.tolerations:
+- key: node-role.kubernetes.io/control-plane
+  operator: Exists
+  effect: NoSchedule
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 16: Clear Worker Node DiskPressure Eviction (Weight: 5%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Node <code>worker-1</code> shows <code>DiskPressure: True</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>SSH to <code>worker-1</code>.</li>
+<li>Use <code>crictl rmi --prune</code> to remove unused images and clean dangling logs in <code>/var/log/pods</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>DiskPressure</code> transitions to <code>False</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">ssh worker-1
+sudo crictl rmi --prune
+sudo rm -rf /var/log/pods/deleted-*
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 17: Service TargetPort Mismatch Triage (Weight: 4%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Service <code>web-svc</code> has endpoints, but curling returns connection refused.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Discover <code>web-svc</code> targetPort is set to 8080, but NGINX listens on 80.</li>
+<li>Update <code>targetPort: 80</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Curling Service returns HTTP 200.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl patch svc web-svc -p &#39;{&quot;spec&quot;:{&quot;ports&quot;:[{&quot;port&quot;:80,&quot;targetPort&quot;:80}]}}&#39;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 18: Extract Node Storage Driver via Custom Columns (Weight: 2%)</h2>
+<ul>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Multi-node cluster.</li>
+<li><strong>Task Description:</strong><ol>
+<li>List node names and container runtime versions using custom-columns.</li>
+<li>Write output to <code>/tmp/runtimes.txt</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Text file populated with custom headers.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl get nodes -o custom-columns=NAME:.metadata.name,RUNTIME:.status.nodeInfo.containerRuntimeVersion &gt; /tmp/runtimes.txt
+</code></pre>
+</li>
+</ul>
+<div class='page-break'></div><h1>VOLUME V: THE CKA MOCK EXAMINATION SYSTEM</h1>
+<h1>MOCK EXAM 4: FULL PROCTORED CERTIFICATION SIMULATION</h1>
+<hr>
+<h2>EXAMINATION SPECIFICATIONS</h2>
+<ul>
+<li><strong>Target Difficulty:</strong> Full Proctored Certification Simulation (Realistic Exam Replica)</li>
+<li><strong>Time Allowed:</strong> 120 minutes (2.0 hours)</li>
+<li><strong>Passing Score:</strong> 66% (Total: 100%)</li>
+<li><strong>Number of Tasks:</strong> 20 Performance-Based Tasks</li>
+<li><strong>Domain Weighting Alignment:</strong><ul>
+<li>Troubleshooting: 30% (Tasks 1, 2, 3, 4, 5, 6)</li>
+<li>Cluster Architecture, Installation &amp; Configuration: 25% (Tasks 7, 8, 9, 10, 11)</li>
+<li>Services &amp; Networking: 20% (Tasks 12, 13, 14, 15)</li>
+<li>Workloads &amp; Scheduling: 15% (Tasks 16, 17, 18)</li>
+<li>Storage: 10% (Tasks 19, 20)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>TASK 1: Troubleshoot and Repair a NotReady Node (Weight: 6%)</h2>
+<ul>
+<li><strong>Domain:</strong> Troubleshooting (30%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Worker node <code>node-2</code> is in <code>NotReady</code> status.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Switch to context <code>k8s</code>.</li>
+<li>SSH to <code>node-2</code>.</li>
+<li>Identify why <code>kubelet</code> is in auto-restart loop.</li>
+<li>Fix configuration and ensure <code>node-2</code> returns to <code>Ready</code> status.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>kubectl get nodes</code> shows <code>node-2</code> in <code>Ready</code> status.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl config use-context k8s
+ssh node-2
+sudo journalctl -u kubelet -n 30 --no-pager
+# Identify issue: cgroup driver or swap
+sudo swapoff -a
+sudo systemctl restart kubelet
+exit
+kubectl get nodes node-2
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 2: Control Plane Static Pod Kube-Controller-Manager Failure (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Troubleshooting (30%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> ReplicaSets are not creating pods; KCM is dead.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect <code>/etc/kubernetes/manifests/kube-controller-manager.yaml</code>.</li>
+<li>Correct invalid certificate path flag.</li>
+<li>Verify controller manager static pod restarts cleanly.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> KCM is running and reconciles pending deployments.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo sed -i &#39;s|/etc/kubernetes/pki/ca-broken.crt|/etc/kubernetes/pki/ca.crt|g&#39; /etc/kubernetes/manifests/kube-controller-manager.yaml
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 3: Triage CrashLoopBackOff Pod with Previous Logs (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Troubleshooting (30%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pod <code>auth-engine</code> in namespace <code>auth</code> in <code>CrashLoopBackOff</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect previous container logs.</li>
+<li>Fix missing environment variable <code>AUTH_KEY</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Pod is <code>Running</code> with 0 restarts.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl logs auth-engine -n auth --previous
+kubectl set env pod auth-engine AUTH_KEY=&quot;production-secret&quot; -n auth
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 4: Repair CoreDNS Loop Panic (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Troubleshooting (30%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> CoreDNS pods crashing with loop detection.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Configure kubelet on control plane to reference <code>/run/systemd/resolve/resolv.conf</code>.</li>
+<li>Restart kubelet and delete crashed CoreDNS pods.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> CoreDNS pods show <code>2/2 Running</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo sed -i &#39;s|resolvConf: .*|resolvConf: /run/systemd/resolve/resolv.conf|g&#39; /var/lib/kubelet/config.yaml
+sudo systemctl restart kubelet
+kubectl delete pods -n kube-system -l k8s-app=kube-dns
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 5: Ingress Returns HTTP 503 (Missing Service Selector) (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Troubleshooting (30%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Ingress returns 503; backend Service has empty endpoints.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Fix the selector on Service <code>catalog-svc</code> to match application pods.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Ingress routes traffic cleanly.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl patch svc catalog-svc -p &#39;{&quot;spec&quot;:{&quot;selector&quot;:{&quot;app&quot;:&quot;catalog&quot;}}}&#39;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 6: Triage Multi-Attach Volume Lock (Weight: 4%)</h2>
+<ul>
+<li><strong>Domain:</strong> Troubleshooting (30%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Pod stuck in <code>ContainerCreating</code> with <code>Multi-Attach error</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Inspect <code>VolumeAttachment</code> objects.</li>
+<li>Force delete the stuck old pod or delete the stale <code>VolumeAttachment</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> New pod mounts the volume and starts running.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl get volumeattachments
+kubectl delete volumeattachment &lt;stale-attachment-id&gt;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 7: Kubeadm Control Plane Upgrade (Weight: 7%)</h2>
+<ul>
+<li><strong>Domain:</strong> Cluster Architecture (25%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Primary control plane node at v1.30.2.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Upgrade <code>kubeadm</code> to <code>1.31.2-1.1</code>.</li>
+<li>Apply upgrade: <code>kubeadm upgrade apply v1.31.2</code>.</li>
+<li>Drain node, upgrade <code>kubelet</code> and <code>kubectl</code>, restart <code>kubelet</code>, uncordon.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Control plane node running <code>v1.31.2</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo apt-mark unhold kubeadm
+sudo apt-get update &amp;&amp; sudo apt-get install -y kubeadm=1.31.2-1.1
+sudo apt-mark hold kubeadm
+sudo kubeadm upgrade plan
+sudo kubeadm upgrade apply v1.31.2 -y
+kubectl drain $(hostname) --ignore-daemonsets --delete-emptydir-data
+sudo apt-mark unhold kubelet kubectl
+sudo apt-get install -y kubelet=1.31.2-1.1 kubectl=1.31.2-1.1
+sudo apt-mark hold kubelet kubectl
+sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart kubelet
+kubectl uncordon $(hostname)
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 8: etcd Snapshot Save and Status Verification (Weight: 6%)</h2>
+<ul>
+<li><strong>Domain:</strong> Cluster Architecture (25%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Healthy etcd listening on port 2379.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Capture etcd snapshot to <code>/var/data/etcd-final-mock.db</code>.</li>
+<li>Output table status to verify non-zero size and revision.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Snapshot file created and verified.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">sudo ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key \
+  snapshot save /var/data/etcd-final-mock.db
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 9: RBAC Role and RoleBinding with Specific Verbs (Weight: 4%)</h2>
+<ul>
+<li><strong>Domain:</strong> Cluster Architecture (25%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>operations</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create ServiceAccount <code>deployer</code> in <code>operations</code>.</li>
+<li>Create Role <code>deploy-role</code> allowing <code>create</code>, <code>update</code>, <code>patch</code> on <code>deployments.apps</code>.</li>
+<li>Bind Role to ServiceAccount.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> <code>deployer</code> can mutate deployments in <code>operations</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create namespace operations
+kubectl create serviceaccount deployer -n operations
+kubectl create role deploy-role -n operations --verb=create,update,patch --resource=deployments.apps
+kubectl create rolebinding bind-deployer -n operations --role=deploy-role --serviceaccount=operations:deployer
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 10: Deploy Application via Helm (Weight: 4%)</h2>
+<ul>
+<li><strong>Domain:</strong> Cluster Architecture (25%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Chart repo <code>bitnami</code> added.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Install release <code>web-cache</code> using chart <code>bitnami/memcached</code> into namespace <code>cache</code>.</li>
+<li>Set replica count to <code>2</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Release <code>web-cache</code> running in namespace <code>cache</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">helm install web-cache bitnami/memcached -n cache --create-namespace --set replicaCount=2
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 11: Declarative Kustomize Directory Application (Weight: 4%)</h2>
+<ul>
+<li><strong>Domain:</strong> Cluster Architecture (25%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Directory <code>/opt/deploy/overlays/prod/</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Apply Kustomize directory <code>/opt/deploy/overlays/prod/</code> to the cluster.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Resources deployed with production labels.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl apply -k /opt/deploy/overlays/prod/
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 12: Gateway API HTTPRoute Traffic Management (Weight: 6%)</h2>
+<ul>
+<li><strong>Domain:</strong> Services &amp; Networking (20%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Gateway <code>edge-gw</code> exists in <code>gw-system</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>In namespace <code>sales</code>, create <code>HTTPRoute</code> named <code>sales-route</code> attached to <code>edge-gw</code>.</li>
+<li>Route path <code>/checkout</code> to Service <code>checkout-svc</code> on port 8080.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> HTTPRoute reports <code>Accepted: True</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: sales-route
+  namespace: sales
+spec:
+  parentRefs:
+  - name: edge-gw
+    namespace: gw-system
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /checkout
+    backendRefs:
+    - name: checkout-svc
+      port: 8080
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 13: Ingress with TLS Termination (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Services &amp; Networking (20%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Secret <code>tls-cert</code> exists. Service <code>app-svc</code> on port 80.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Author Ingress <code>app-ingress</code> with TLS terminating for <code>app.company.io</code> using Secret <code>tls-cert</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Ingress created with TLS configuration.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - app.company.io
+    secretName: tls-cert
+  rules:
+  - host: app.company.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-svc
+            port:
+              number: 80
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 14: NetworkPolicy Default-Deny with Port 53 Egress (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Services &amp; Networking (20%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>locked-ns</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>In namespace <code>locked-ns</code>, create NetworkPolicy denying all ingress, and allowing egress strictly on port 53 (UDP/TCP).</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> All ingress dropped; DNS egress permitted.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: lock-and-dns
+  namespace: locked-ns
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+  egress:
+  - ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 15: Expose Headless Service for StatefulSet (Weight: 4%)</h2>
+<ul>
+<li><strong>Domain:</strong> Services &amp; Networking (20%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> StatefulSet <code>elastic</code> exists in <code>logging</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create headless Service <code>elastic-discovery</code> with <code>clusterIP: None</code> on port 9200.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Headless service resolves to individual StatefulSet Pod IPs.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl create service clusterip elastic-discovery --clusterip=&quot;None&quot; --tcp=9200:9200 -n logging
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 16: Rolling Update and Immediate Rollback (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Workloads &amp; Scheduling (15%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Deployment <code>api-fleet</code> running with 3 replicas.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Update image to <code>nginx:1.99-broken</code>.</li>
+<li>Observe rollout stall.</li>
+<li>Roll back immediately to the previous revision.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Deployment stabilized on healthy image.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl set image deployment/api-fleet nginx=nginx:1.99-broken
+kubectl rollout undo deployment/api-fleet
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 17: Pod Anti-Affinity Spreading Across Nodes (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Workloads &amp; Scheduling (15%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Multi-node cluster.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Author Deployment <code>web-spread</code> with 2 replicas and <code>podAntiAffinity</code> requiring pods to land on distinct hostnames (<code>kubernetes.io/hostname</code>).</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Each replica lands on a different worker node.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-spread
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-spread
+  template:
+    metadata:
+      labels:
+        app: web-spread
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - web-spread
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: nginx
+        image: nginx:1.27
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 18: ResourceQuota &amp; Container LimitRange Configuration (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Workloads &amp; Scheduling (15%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Namespace <code>staging</code>.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Apply ResourceQuota <code>quota-staging</code> with <code>hard.pods: &quot;4&quot;</code>.</li>
+<li>Apply LimitRange <code>limit-staging</code> with default CPU request <code>50m</code> and limit <code>100m</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> Limits enforced automatically on new pods.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota-staging
+  namespace: staging
+spec:
+  hard:
+    pods: &quot;4&quot;
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-staging
+  namespace: staging
+spec:
+  limits:
+  - default:
+      cpu: 100m
+    defaultRequest:
+      cpu: 50m
+    type: Container
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 19: PersistentVolume and PersistentVolumeClaim Binding (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Storage (10%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> Directory <code>/mnt/data/vol1</code> on worker node.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Create PV <code>pv-storage-1</code> of capacity 5Gi, accessMode <code>ReadWriteOnce</code>, storageClassName <code>local-vol</code>, hostPath <code>/mnt/data/vol1</code>.</li>
+<li>Create PVC <code>pvc-storage-1</code> requesting 2Gi on <code>local-vol</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> PV and PVC are <code>Bound</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-yaml">apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-storage-1
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes: [ &quot;ReadWriteOnce&quot; ]
+  storageClassName: local-vol
+  hostPath:
+    path: /mnt/data/vol1
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-storage-1
+spec:
+  storageClassName: local-vol
+  accessModes: [ &quot;ReadWriteOnce&quot; ]
+  resources:
+    requests:
+      storage: 2Gi
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>TASK 20: Online PVC Volume Expansion (Weight: 5%)</h2>
+<ul>
+<li><strong>Domain:</strong> Storage (10%)</li>
+<li><strong>Context:</strong> <code>kubectl config use-context k8s</code></li>
+<li><strong>Initial Condition:</strong> PVC <code>expand-claim</code> bound at 1Gi.</li>
+<li><strong>Task Description:</strong><ol>
+<li>Dynamically expand <code>expand-claim</code> from <code>1Gi</code> to <code>3Gi</code>.</li>
+</ol>
+</li>
+<li><strong>Expected Final Condition:</strong> PVC capacity shows <code>3Gi</code>.</li>
+<li><strong>Solution:</strong><pre><code class="language-bash">kubectl patch pvc expand-claim -p &#39;{&quot;spec&quot;:{&quot;resources&quot;:{&quot;requests&quot;:{&quot;storage&quot;:&quot;3Gi&quot;}}}}&#39;
+</code></pre>
+</li>
+</ul>
+<div class='page-break'></div>
+  </div>
+</body>
+</html>
