@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 80px;
+      position: relative;
+      z-index: 10;
+    }
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .title-block h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .title-block p {
+      font-size: 16px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .terminal-window {
+      background: #070c18;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.08);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .term-titlebar {
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .term-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .term-tabs {
+      font-size: 13px;
+      color: #94a3b8;
+      display: flex;
+      gap: 20px;
+    }
+    .term-tab.active {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    .term-body {
+      padding: 24px 30px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      flex: 1;
+      overflow: hidden;
+    }
+    .prompt {
+      color: #10b981;
+      font-weight: 700;
+    }
+    .cmd {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+    .table-head {
+      color: #64748b;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .fail {
+      color: #f87171;
+      font-weight: 700;
+      background: rgba(239,68,68,0.12);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .hl {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    .badge-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 28px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="grid-pattern"></div>
+  <div class="container">
+    <div class="top-header">
+      <div class="title-block">
+        <h2>Live Ubuntu Terminal Diagnostic Session</h2>
+        <p>Real-time cluster failure triage: root-cause diagnosis in seconds, not minutes.</p>
+      </div>
+      <div class="badge badge-red">
+        ● TERMINAL TIME REMAINING: 01:48:22
+      </div>
+    </div>
+    <div class="terminal-window">
+      <div class="term-titlebar">
+        <div class="term-dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <div class="term-tabs">
+          <span class="term-tab active">bash: candidate@k8s-control-plane:~</span>
+          <span class="term-tab">context: k8s-production</span>
+          <span class="term-tab">k8s v1.31.2</span>
+        </div>
+        <div style="font-size: 12px; color: #64748b;">UTF-8 • 1920x1080</div>
+      </div>
+      <div class="term-body">
+        <div><span class="prompt">candidate@k8s-control-plane:~$</span> <span class="cmd">kubectl get pods -n production -o wide</span></div>
+        <div class="table-head">NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READY&nbsp;&nbsp;STATUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESTARTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AGE&nbsp;&nbsp;&nbsp;IP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOMINATED NODE</div>
+        <div>api-gateway-74b8897c-9k2px&nbsp;&nbsp;&nbsp;0/1&nbsp;&nbsp;&nbsp;&nbsp;<span class="fail">CrashLoopBackOff</span>&nbsp;&nbsp;5 (82s ago)&nbsp;&nbsp;4m12s&nbsp;10.244.1.48&nbsp;worker-01&nbsp;&nbsp;&lt;none&gt;</div>
+        <div>order-service-6d8b9f47c-2x7wz&nbsp;1/1&nbsp;&nbsp;&nbsp;&nbsp;Running&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18m&nbsp;&nbsp;&nbsp;10.244.2.19&nbsp;worker-02&nbsp;&nbsp;&lt;none&gt;</div>
+        <br>
+        <div><span class="prompt">candidate@k8s-control-plane:~$</span> <span class="cmd">kubectl describe pod api-gateway-74b8897c-9k2px -n production | grep -E "Last State|Reason|Exit Code"</span></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;Last State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terminated</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reason:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fail">OOMKilled</span></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit Code:&nbsp;&nbsp;&nbsp;&nbsp;<span class="fail">137</span></div>
+        <br>
+        <div><span class="prompt">candidate@k8s-control-plane:~$</span> <span class="cmd">kubectl logs api-gateway-74b8897c-9k2px -n production --previous --tail=2</span></div>
+        <div style="color: #94a3b8;">[2026-11-10T16:21:04.112Z] FATAL: runtime: out of memory: cannot allocate 536870912-byte block</div>
+        <div style="color: #94a3b8;">[2026-11-10T16:21:04.113Z] Container memory threshold (256Mi) exceeded. Process terminated with SIGKILL (Exit 137).</div>
+        <br>
+        <div><span class="prompt">candidate@k8s-control-plane:~$</span> <span class="cmd">kubectl set resources deployment api-gateway -n production --limits=memory=512Mi</span></div>
+        <div style="color: #34d399;">deployment.apps/api-gateway resource requirements updated</div>
+      </div>
+    </div>
+    <div class="badge-bar">
+      <div style="display: flex; gap: 14px; align-items: center;">
+        <span class="badge badge-emerald">✔ ROOT CAUSE RESOLVED IN 45s</span>
+        <span style="font-size: 15px; color: #94a3b8;">Exit Code 137 (OOMKilled) solved with zero guesswork.</span>
+      </div>
+      <div style="font-size: 14px; color: #64748b;">
+        CKA Blueprint Volume III • Diagram 42 Diagnostic Branch
+      </div>
+    </div>
+  </div>
+</body>
+</html>

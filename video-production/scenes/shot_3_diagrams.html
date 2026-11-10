@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 80px;
+      position: relative;
+      z-index: 10;
+    }
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .header-left h2 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .header-left p {
+      font-size: 16px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .schematic-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      flex: 1;
+    }
+    .card {
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .flow-tree {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tree-node {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+    }
+    .tree-node.root {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .branch-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .branch {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 8px;
+      padding: 12px 14px;
+      border-left: 3px solid #64748b;
+    }
+    .branch.red { border-left-color: #ef4444; }
+    .branch.amber { border-left-color: #f59e0b; }
+    .branch.green { border-left-color: #10b981; }
+    .branch-code {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .branch-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+    .etcd-box {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+    .raft-cluster {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 24px 0;
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 10px;
+      border: 1px dashed rgba(255,255,255,0.1);
+    }
+    .raft-node {
+      text-align: center;
+      padding: 14px 20px;
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .raft-node.leader {
+      border-color: #10b981;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    }
+    .cmd-box {
+      background: #030712;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .cmd-box span.hl { color: #38bdf8; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="grid-pattern"></div>
+  <div class="container">
+    <div class="top-header">
+      <div class="header-left">
+        <h2>Volume III: Visual Architecture Atlas</h2>
+        <p>66 Original technical schematics and systematic decision trees for instant recall.</p>
+      </div>
+      <div class="badge badge-blue">
+        ● 66 VECTOR BLUEPRINTS
+      </div>
+    </div>
+    <div class="schematic-grid">
+      <div class="card">
+        <div class="card-title">
+          <span>DIAGRAM 42: CrashLoopBackOff Diagnostic Tree</span>
+          <span class="badge badge-amber" style="font-size: 11px;">FAILURE RECOVERY</span>
+        </div>
+        <div class="flow-tree">
+          <div class="tree-node root">
+            <span style="color: #38bdf8; font-weight: 700;">TRIGGER:</span> Pod enters CrashLoopBackOff &nbsp;➔&nbsp; Execute <code style="color: #f1f5f9;">kubectl describe pod &lt;name&gt;</code>
+          </div>
+          <div class="branch-row">
+            <div class="branch red">
+              <div class="branch-code" style="color: #f87171;">Exit Code 137</div>
+              <div class="branch-desc">OOMKilled. Container memory exceeded cgroup quota. Raise <code>resources.limits.memory</code>.</div>
+            </div>
+            <div class="branch amber">
+              <div class="branch-code" style="color: #fbbf24;">Exit Code 1</div>
+              <div class="branch-desc">Application Crash. Check <code>kubectl logs --previous</code> for unhandled exception or missing env.</div>
+            </div>
+            <div class="branch green">
+              <div class="branch-code" style="color: #34d399;">Exit Code 0</div>
+              <div class="branch-desc">Completed. Process finished cleanly without keep-alive loop. Wrap in worker script.</div>
+            </div>
+          </div>
+          <div class="tree-node" style="margin-top: 8px;">
+            <span style="color: #a855f7; font-weight: 700;">LIVENESS PROBE CHECK:</span> Probe failed 3 consecutive times ➔ Increase <code>initialDelaySeconds</code> or fix health endpoint.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <span>DIAGRAM 34: etcd Disaster Recovery & Quorum</span>
+          <span class="badge badge-emerald" style="font-size: 11px;">HIGH AVAILABILITY</span>
+        </div>
+        <div class="etcd-box">
+          <div class="raft-cluster">
+            <div class="raft-node leader">
+              <div style="font-size: 11px; color: #10b981; font-weight: 700;">LEADER</div>
+              <div style="font-size: 14px; font-weight: 700;">etcd-01</div>
+            </div>
+            <div style="color: #64748b; font-size: 18px;">⇄</div>
+            <div class="raft-node">
+              <div style="font-size: 11px; color: #64748b;">FOLLOWER</div>
+              <div style="font-size: 14px; font-weight: 700;">etcd-02</div>
+            </div>
+            <div style="color: #64748b; font-size: 18px;">⇄</div>
+            <div class="raft-node">
+              <div style="font-size: 11px; color: #64748b;">FOLLOWER</div>
+              <div style="font-size: 14px; font-weight: 700;">etcd-03</div>
+            </div>
+          </div>
+          <div class="cmd-box">
+            <div><span class="hl">ETCDCTL_API=3</span> etcdctl snapshot save /var/lib/etcd-backup.db \</div>
+            <div>&nbsp;&nbsp;--endpoints=https://127.0.0.1:2379 \</div>
+            <div>&nbsp;&nbsp;--cacert=/etc/kubernetes/pki/etcd/ca.crt \</div>
+            <div>&nbsp;&nbsp;--cert=/etc/kubernetes/pki/etcd/server.crt \</div>
+            <div>&nbsp;&nbsp;--key=/etc/kubernetes/pki/etcd/server.key</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

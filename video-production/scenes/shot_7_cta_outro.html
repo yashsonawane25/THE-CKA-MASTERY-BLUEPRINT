@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 100px;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+    .outro-badge {
+      margin-bottom: 24px;
+    }
+    .hero-h1 {
+      font-size: 64px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 1300px;
+    }
+    .hero-h1 span {
+      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 24px;
+      color: #94a3b8;
+      margin-bottom: 44px;
+      max-width: 900px;
+      line-height: 1.5;
+    }
+    .cta-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 2px solid #38bdf8;
+      border-radius: 18px;
+      padding: 28px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 0 50px rgba(56, 189, 248, 0.25);
+      margin-bottom: 30px;
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+      padding: 16px 44px;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+    }
+    .cta-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+    .cta-url span { color: #38bdf8; }
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      font-size: 15px;
+      color: #64748b;
+    }
+    .footer-links strong { color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="bg-glow" style="top: 100px; left: 50%; transform: translateX(-50%); width: 1200px;"></div>
+  <div class="grid-pattern"></div>
+  <div class="container">
+    <div class="outro-badge">
+      <span class="badge badge-emerald" style="font-size: 15px; padding: 8px 20px;">
+        ● CERTIFIED KUBERNETES ADMINISTRATOR (CKA) 2026–2027
+      </span>
+    </div>
+    <h1 class="hero-h1">Master Kubernetes Administration.<br><span>Pass on Your Very First Attempt.</span></h1>
+    <p class="hero-sub">
+      Get the complete 5-volume preparation system, 67 production labs, 66 schematics, and 4 full mock exams today.
+    </p>
+    <div class="cta-card">
+      <div class="cta-btn">GET THE COMPLETE BUNDLE — $15 USD</div>
+      <div class="cta-url">yashsonawane1.gumroad.com/l/<span>cka-mastery-blueprint</span></div>
+    </div>
+    <div class="footer-links">
+      <div>COMPANION REPO: <strong>github.com/yashsonawane25/THE-CKA-MASTERY-BLUEPRINT</strong></div>
+      <div>EDITION: <strong>2026–2027 Professional Edition</strong></div>
+      <div>PRICE: <strong>$15 USD (Limited Release)</strong></div>
+    </div>
+  </div>
+</body>
+</html>

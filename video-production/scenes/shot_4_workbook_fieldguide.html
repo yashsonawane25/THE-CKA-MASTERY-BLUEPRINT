@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 80px;
+      position: relative;
+      z-index: 10;
+    }
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .top-header h2 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .top-header p {
+      font-size: 16px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .split-view {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      flex: 1;
+    }
+    .card {
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .card-head h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .rubric-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    .rubric-item {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .rubric-tag {
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 4px;
+    }
+    .contrast-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+    .deprecated-item {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .modern-item {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .cmd-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="grid-pattern"></div>
+  <div class="container">
+    <div class="top-header">
+      <div>
+        <h2>Volume II (Workbook) & Volume IV (Field Guide)</h2>
+        <p>Strictly zero deprecated commands. Modern Kubernetes v1.31 and v1.32 standards.</p>
+      </div>
+      <div class="badge badge-emerald">
+        ● 67 LABS + COMPANION GIT REPO
+      </div>
+    </div>
+    <div class="split-view">
+      <div class="card">
+        <div class="card-head">
+          <h3>VOLUME II: LAB 55 (Multi-Container Pods)</h3>
+          <span class="badge badge-blue">18-POINT RUBRIC</span>
+        </div>
+        <div class="rubric-steps">
+          <div class="rubric-item">
+            <div class="rubric-tag">[1] OBJECTIVE & TOPOLOGY</div>
+            <div style="color: #94a3b8;">Deploy multi-container pod with shared volume for log collection.</div>
+          </div>
+          <div class="rubric-item">
+            <div class="rubric-tag">[2] PRODUCTION MANIFEST</div>
+            <div style="color: #94a3b8;">Shared <code>emptyDir: {}</code> mounted at <code>/var/log</code> across app & sidecar.</div>
+          </div>
+          <div class="rubric-item">
+            <div class="rubric-tag" style="color: #10b981;">[3] AUTOMATED VERIFICATION</div>
+            <div style="color: #cbd5e1;">$ ./verify-lab-55.sh<br><span style="color: #34d399;">✔ [PASS] Sidecar streaming logs from shared volume</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>VOLUME IV: FIELD GUIDE (Zero Deprecations)</h3>
+          <span class="badge badge-amber">EXAM WARNING</span>
+        </div>
+        <div class="contrast-box">
+          <div class="deprecated-item">
+            <div class="label-row" style="color: #f87171;">
+              <span>❌ DEPRECATED SYNTAX (FAILS EXAM)</span>
+              <span>REMOVED IN v1.31</span>
+            </div>
+            <div class="cmd-text" style="color: #fca5a5;">
+              kubectl set image deployment/web nginx=nginx:1.27 --record
+            </div>
+            <div style="font-size: 12px; color: #94a3b8; margin-top: 6px;">
+              The <code>--record</code> flag was permanently removed. Using it fails task evaluation.
+            </div>
+          </div>
+          <div class="modern-item">
+            <div class="label-row" style="color: #34d399;">
+              <span>✅ OFFICIAL CKA STANDARD (MODERN v1.31+)</span>
+              <span>FULL SCORE</span>
+            </div>
+            <div class="cmd-text" style="color: #86efac;">
+              kubectl annotate deployment web kubernetes.io/change-cause="update to nginx:1.27"
+            </div>
+            <div style="font-size: 12px; color: #94a3b8; margin-top: 6px;">
+              Records rollout history cleanly into metadata.annotations.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

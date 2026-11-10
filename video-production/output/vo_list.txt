@@ -1,0 +1,7 @@
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_01_problem.mp3'
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_02_solution.mp3'
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_03_diagrams.mp3'
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_04_workbook_fieldguide.mp3'
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_05_mock_exams.mp3'
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_06_the_offer.mp3'
+file 'C:/Users/yashs/Downloads/CKA BOOK/video-production/audio/vo_07_cta_outro.mp3'

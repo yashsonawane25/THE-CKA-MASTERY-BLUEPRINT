@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      padding: 50px 80px;
+      position: relative;
+      z-index: 10;
+      align-items: center;
+      gap: 60px;
+    }
+    .left-bundle {
+      flex: 0 0 720px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .bundle-img {
+      width: 680px;
+      border-radius: 12px;
+      box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.9), 0 0 50px rgba(56, 189, 248, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .right-volumes {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .header-badge {
+      margin-bottom: 16px;
+    }
+    .header-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .header-title span {
+      color: #38bdf8;
+    }
+    .vol-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .vol-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #38bdf8;
+      border-radius: 8px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .vol-card:nth-child(2) { border-left-color: #10b981; }
+    .vol-card:nth-child(3) { border-left-color: #f59e0b; }
+    .vol-card:nth-child(4) { border-left-color: #a855f7; }
+    .vol-card:nth-child(5) { border-left-color: #ef4444; }
+    .vol-info h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 3px;
+    }
+    .vol-info p {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .vol-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: rgba(255,255,255,0.06);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-bottom"></div>
+  <div class="grid-pattern"></div>
+  <div class="container">
+    <div class="left-bundle">
+      <img src="file:///C:/Users/yashs/Downloads/CKA BOOK/marketing/images/02_5_volume_boxset_bundle.jpg" class="bundle-img" alt="5 Volume Boxset">
+    </div>
+    <div class="right-volumes">
+      <div class="header-badge">
+        <span class="badge badge-blue">AN INTEGRATED ENGINEERING SYSTEM</span>
+      </div>
+      <h2 class="header-title">The Complete <span>5-Volume Boxset</span></h2>
+      <div class="vol-list">
+        <div class="vol-card">
+          <div class="vol-info">
+            <h4>VOLUME I — Comprehensive Textbook</h4>
+            <p>80 deep chapters covering the entire CNCF curriculum & cluster internals.</p>
+          </div>
+          <div class="vol-tag">80 CHAPTERS</div>
+        </div>
+        <div class="vol-card">
+          <div class="vol-info">
+            <h4>VOLUME II — Practical Lab Workbook</h4>
+            <p>67 hands-on production labs with automated verification bash test harnesses.</p>
+          </div>
+          <div class="vol-tag">67 LABS</div>
+        </div>
+        <div class="vol-card">
+          <div class="vol-info">
+            <h4>VOLUME III — Visual Architecture Atlas</h4>
+            <p>66 vector schematics, etcd consensus graphs, and failure decision trees.</p>
+          </div>
+          <div class="vol-tag">66 DIAGRAMS</div>
+        </div>
+        <div class="vol-card">
+          <div class="vol-info">
+            <h4>VOLUME IV — Command & Troubleshooting Field Guide</h4>
+            <p>Strictly zero deprecated flags. Modern rollout annotations & Linux triage.</p>
+          </div>
+          <div class="vol-tag">FIELD READY</div>
+        </div>
+        <div class="vol-card">
+          <div class="vol-info">
+            <h4>VOLUME V — Mock Examination & Assessment System</h4>
+            <p>4 full proctored simulations replicating the official PSI exam terminal.</p>
+          </div>
+          <div class="vol-tag">4 FULL MOCKS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

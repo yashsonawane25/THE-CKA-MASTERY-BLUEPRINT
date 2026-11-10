@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      padding: 60px 80px;
+      position: relative;
+      z-index: 10;
+      align-items: center;
+      gap: 70px;
+    }
+    .bundle-preview {
+      flex: 0 0 680px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .bundle-img {
+      width: 650px;
+      border-radius: 14px;
+      box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.9), 0 0 50px rgba(56, 189, 248, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .offer-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .offer-badge {
+      margin-bottom: 14px;
+    }
+    .offer-title {
+      font-size: 50px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .offer-title span {
+      background: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .price-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 2px solid #38bdf8;
+      border-radius: 14px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+    }
+    .price-main {
+      font-size: 64px;
+      font-weight: 900;
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .price-strike {
+      font-size: 26px;
+      color: #64748b;
+      text-decoration: line-through;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .price-tagline {
+      font-size: 15px;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      color: #cbd5e1;
+    }
+    .check-item span {
+      color: #10b981;
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .download-note {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-bottom"></div>
+  <div class="grid-pattern"></div>
+  <div class="container">
+    <div class="bundle-preview">
+      <img src="file:///C:/Users/yashs/Downloads/CKA BOOK/marketing/images/03_digital_ecosystem_preview.jpg" class="bundle-img" alt="Digital Ecosystem Preview">
+    </div>
+    <div class="offer-details">
+      <div class="offer-badge">
+        <span class="badge badge-emerald">LIMITED TIME RELEASE OFFER</span>
+      </div>
+      <h2 class="offer-title">The Complete System.<br><span>Just $15 USD.</span></h2>
+      <div class="price-box">
+        <div class="price-main">$15 USD</div>
+        <div class="price-strike">$59 USD</div>
+        <div class="price-tagline">Save 75% • Instant Download</div>
+      </div>
+      <div class="checklist">
+        <div class="check-item"><span>✔</span> All 7 Master PDFs (Full Edition + 5 Modular Volumes + Premium Suite)</div>
+        <div class="check-item"><span>✔</span> 67 Hands-On Labs with Automated Verification Test Harnesses</div>
+        <div class="check-item"><span>✔</span> 66 Vector Architecture Schematics & Troubleshooting Trees</div>
+        <div class="check-item"><span>✔</span> 4 Proctored Mock Exams & 73 Performance Tasks</div>
+        <div class="check-item"><span>✔</span> Companion Lab Git Repository Access & Lifelong Reference</div>
+      </div>
+      <div class="download-note">
+        Instant PDF download • Mobile & tablet optimized • Zero DRM restrictions
+      </div>
+    </div>
+  </div>
+</body>
+</html>

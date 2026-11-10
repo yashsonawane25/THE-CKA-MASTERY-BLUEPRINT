@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #080d1a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.05) 50%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+  .bg-glow-bottom {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
+    bottom: -300px;
+    left: -200px;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .badge-blue {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+  }
+  .badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+  }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 10;
+      background: #030712;
+    }
+    .psi-topbar {
+      background: #111827;
+      border-bottom: 2px solid #1f2937;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .psi-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .psi-clock {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f87171;
+      background: rgba(239,68,68,0.12);
+      padding: 6px 16px;
+      border-radius: 6px;
+      border: 1px solid rgba(239,68,68,0.3);
+    }
+    .psi-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      overflow: hidden;
+    }
+    .question-pane {
+      background: #0f172a;
+      border-right: 2px solid #1e293b;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .q-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .q-body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      flex: 1;
+    }
+    .terminal-pane {
+      background: #020617;
+      padding: 24px 30px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      overflow: hidden;
+    }
+    .term-prompt { color: #10b981; font-weight: 700; }
+    .term-cmd { color: #ffffff; font-weight: 600; }
+    .term-out { color: #94a3b8; }
+    .pass-banner {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 14px 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      color: #34d399;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="psi-topbar">
+      <div class="psi-title">
+        <span style="color: #38bdf8;">PSI SECURE BROWSER</span> • CKA CERTIFICATION EXAMINATION
+      </div>
+      <div style="color: #94a3b8; font-size: 13px;">CONTEXT: <strong>k8s-controlplane</strong></div>
+      <div class="psi-clock">01:38:45 REMAINING</div>
+    </div>
+    <div class="psi-main">
+      <div class="question-pane">
+        <div class="q-meta">
+          <span>TASK 14 OF 17</span>
+          <span style="color: #38bdf8;">WEIGHT: 7%</span>
+        </div>
+        <h3 class="q-title">etcd Snapshot & Verification</h3>
+        <div class="q-body">
+          <p>You are required to perform an emergency snapshot of the etcd data store running on the control-plane node.</p>
+          <br>
+          <p><strong>Requirements:</strong></p>
+          <p>1. Save snapshot to <code>/var/lib/etcd-backup.db</code>.</p>
+          <p>2. Use the local server certificates at <code>/etc/kubernetes/pki/etcd/</code>.</p>
+          <p>3. Verify snapshot integrity status before proceeding.</p>
+        </div>
+        <div class="badge badge-emerald" style="margin-top: 20px;">
+          ● VOLUME V: MOCK EXAM 2 (TASK 14)
+        </div>
+      </div>
+      <div class="terminal-pane">
+        <div><span class="term-prompt">candidate@k8s-controlplane:~$</span> <span class="term-cmd">ETCDCTL_API=3 etcdctl snapshot save /var/lib/etcd-backup.db </span></div>
+        <div>&nbsp;&nbsp;<span class="term-cmd">--endpoints=https://127.0.0.1:2379 </span></div>
+        <div>&nbsp;&nbsp;<span class="term-cmd">--cacert=/etc/kubernetes/pki/etcd/ca.crt </span></div>
+        <div>&nbsp;&nbsp;<span class="term-cmd">--cert=/etc/kubernetes/pki/etcd/server.crt </span></div>
+        <div>&nbsp;&nbsp;<span class="term-cmd">--key=/etc/kubernetes/pki/etcd/server.key</span></div>
+        <div class="term-out">Snapshot saved at /var/lib/etcd-backup.db</div>
+        <br>
+        <div><span class="term-prompt">candidate@k8s-controlplane:~$</span> <span class="term-cmd">ETCDCTL_API=3 etcdctl snapshot status /var/lib/etcd-backup.db --write-out=table</span></div>
+        <div class="term-out">+----------+----------+------------+------------+</div>
+        <div class="term-out">|   HASH   | REVISION | TOTAL KEYS | TOTAL SIZE |</div>
+        <div class="term-out">+----------+----------+------------+------------+</div>
+        <div class="term-out">| 3e8f49a1 |    18429 |       1432 |      15 MB |</div>
+        <div class="term-out">+----------+----------+------------+------------+</div>
+        <br>
+        <div><span class="term-prompt">candidate@k8s-controlplane:~$</span> <span class="term-cmd">/opt/grading/verify-task-14.sh</span></div>
+        <div class="pass-banner">
+          <div>✔ [VERIFIED] Task 14: etcd snapshot valid & SHA256 matches.</div>
+          <div>SCORE: 7 / 7 POINTS (100%)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
